@@ -1,0 +1,35 @@
+<div class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" id="card-element"></div>
+<input id="stripePaymentMethod" type="hidden" name="payment_method">
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    var stripe = Stripe('{{ config:key }}');
+    var elements = stripe.elements();
+
+    const card = elements.create('card');
+    card.mount('#card-element');
+
+    card.addEventListener('change', ({error}) => {
+        const displayError = document.getElementById('card-errors');
+
+        if (error) {
+            alert('There was an issue when loading: '+error.message);
+        }
+    });
+
+    function confirmPayment() {
+        stripe.confirmCardPayment('{{ client_secret }}', {
+            payment_method: {
+                card: card,
+            },
+        }).then(function (result) {
+            if (result.error) {
+                alert(result.error.message);
+            } else if (result.paymentIntent.status === 'succeeded') {
+                var paymentMethod = document.getElementById('stripePaymentMethod');
+                paymentMethod.value = result.paymentIntent.payment_method;
+                document.querySelector('form').submit();
+            }
+        });
+    }
+</script>

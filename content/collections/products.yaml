@@ -1,0 +1,8 @@
+title: Products
+blueprints:
+  - product
+revisions: false
+route: '/products/{slug}'
+date_behavior:
+  past: public
+  future: private

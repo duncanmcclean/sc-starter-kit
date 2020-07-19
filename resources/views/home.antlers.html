@@ -1,0 +1,11 @@
+<h2 class="text-center font-bold text-gray-700 text-3xl">Our Products</h2>
+
+<div class="flex flex-row flex-wrap p-2">
+    {{ collection:products }}
+        <a class="w-1/2 md:w-1/4 px-2 py-4" href="{{ url }}">
+            <div class="h-40 bg-gray-200 mb-2"></div>
+            <h2 class="text-gray-700 font-bold text-xl">{{ title }}</h2>
+            <h3 class="text-gray-700 font-semibold text-sm">{{ price }}</h3>
+        </a>
+    {{ /collection:products }}
+</div>
