@@ -2,7 +2,7 @@
 just_head: true
 ---
 
-{{ if {sc:cart:count} === 0 }}
+{{ if {sc:cart:has} === false }}
     {{ redirect to='/' }}
 {{ /if }}
 
@@ -13,65 +13,60 @@ just_head: true
                 <a class="text-gray-800 text-center font-medium text-2xl" href="/">{{ site:name }}</a>
             </header>
 
-            {{ sc:checkout }}
-                {{ if is_paid }}
-                    <div class="py-4">
-                        <h3 class="font-bold text-xl mb-2 text-gray-800">Thanks for your purchase!</h3>
-                        <p class="text-gray-800">Thanks for purchasing with us! You can <a class="text-blue-600 font-semibold" href="{{ receipt_url }}">download your receipt</a> here. We've also sent an order confirmation to your email.</p>
-                    </div>
-                {{ else }}
-                    <div class="my-6">
-                        {{ if logged_out }}
-                            <div class="flex flex-col mb-2 py-2">
-                                <h3 class="font-bold text-xl mb-2 text-gray-800">Your information</h3>
-                                
-                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="name" placeholder="Full Name" value="{{ old:name }}">
-                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="email" name="email" placeholder="Email" value="{{ old:email }}">
-                            </div>
-                        {{ /if }}
+            {{ sc:checkout redirect="/checkout/confirmed" }}
+                <div class="my-6">
+                    {{ if logged_out }}
+                        <div class="flex flex-col mb-2 py-2">
+                            <h3 class="font-bold text-xl mb-2 text-gray-800">Your information</h3>
 
-                        <div x-data="{ gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}' }" class="flex flex-col mb-2 py-2">
-                            <h3 class="font-bold text-lg mb-2 text-gray-800">Secure Payment</h3>
+                            <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text"
+                                name="name" placeholder="Full Name" value="{{ old:name }}">
+                            <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="email"
+                                name="email" placeholder="Email" value="{{ old:email }}">
+                        </div>
+                    {{ /if }}
 
-                            <div>
-                                <select x-model="gateway" class="h-10 w-full border rounded p-2 mb-2 outline-none mr-2" name="gateway">
-                                    {{ simple-commerce:gateways }}
-                                        <option value="{{ class }}">{{ name }}</option>
-                                    {{ /simple-commerce:gateways }}
-                                </select>
-                            </div>
+                    <div x-data="{ gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}' }"
+                        class="flex flex-col mb-2 py-2">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Secure Payment</h3>
 
-                            {{ sc:gateways }}
-                                <div class="mb-6" x-show="gateway === '{{ formatted_class }}'">
-                                    {{ partial src="gateways/{ handle }" }}
-                                </div>
-                            {{ /sc:gateways }}    
-
-                            <label class="mb-2 text-gray-800 flex flex-row items-center" value="{{ old:consent }}">
-                                <input class="border rounded p-2 mr-2" type="checkbox" name="consent" required>
-                                I give permission to process and store my personal data for the purposes of my order, customer service and analytics.
-                            </label>
+                        <div>
+                            <select x-model="gateway" class="h-10 w-full border rounded p-2 mb-2 outline-none mr-2"
+                                name="gateway">
+                                {{ simple-commerce:gateways }}
+                                    <option value="{{ class }}">{{ name }}</option>
+                                {{ /simple-commerce:gateways }}
+                            </select>
                         </div>
 
-                        <div x-data="{ loading: false }" class="flex justify-center md:w-1/2 mx-auto">
-                            <button
-                                x-show="loading === true"
-                                class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold flex flex-row items-center justify-center"
-                                type="button">
-                                <div class="lds-dual-ring mr-6"></div>
-                                Processing
-                            </button>
+                        {{ sc:gateways }}
+                            <div class="mb-6" x-show="gateway === '{{ formatted_class }}'">
+                                {{ partial src="gateways/{ handle }" }}
+                            </div>
+                        {{ /sc:gateways }}
 
-                            <button
-                                x-show="loading === false"
-                                class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold"
-                                type="button"
-                                @click.prevent="loading = true; if(typeof confirmPayment == 'function' && document.getElementsByName('gateway')[0].value == 'DoubleThreeDigital\\SimpleCommerce\\Gateways\\StripeGateway') { confirmPayment(); } else { document.querySelector('form').submit() }">
-                                Complete Checkout
-                            </button>
-                        </div>
+                        <label class="mb-2 text-gray-800 flex flex-row items-center" value="{{ old:consent }}">
+                            <input class="border rounded p-2 mr-2" type="checkbox" name="consent" required>
+                            I give permission to process and store my personal data for the purposes of my order, customer
+                            service and analytics.
+                        </label>
                     </div>
-                {{ /if }}
+
+                    <div x-data="{ loading: false }" class="flex justify-center md:w-1/2 mx-auto">
+                        <button x-show="loading === true"
+                            class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold flex flex-row items-center justify-center"
+                            type="button">
+                            <div class="lds-dual-ring mr-6"></div>
+                            Processing
+                        </button>
+
+                        <button x-show="loading === false"
+                            class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold" type="button"
+                            @click.prevent="loading = true; if(typeof confirmPayment == 'function' && document.getElementsByName('gateway')[0].value == 'DoubleThreeDigital\\SimpleCommerce\\Gateways\\StripeGateway') { confirmPayment(); } else { document.querySelector('form').submit() }">
+                            Complete Checkout
+                        </button>
+                    </div>
+                </div>
             {{ /sc:checkout }}
         </div>
     </main>
@@ -84,14 +79,18 @@ just_head: true
                     <span>{{ total }}</span>
                 </div>
             {{ /sc:cart:items }}
-            <div class="border-b py-4 w-full flex flex-row items-center justify-between">
-                <span>Shipping</span>
-                <span>{{ sc:cart:shippingTotal }}</span>
-            </div>
-            <div class="border-b py-4 w-full flex flex-row items-center justify-between">
-                <span>Tax</span>
-                <span>{{ sc:cart:taxTotal }}</span>
-            </div>
+            {{ if {sc:cart:shippingTotal} !== 0 }}
+                <div class="border-b py-4 w-full flex flex-row items-center justify-between">
+                    <span>Shipping</span>
+                    <span>{{ sc:cart:shippingTotal }}</span>
+                </div>
+            {{ /if }}
+            {{ if {sc:cart:taxTotal} !== 0 }}
+                <div class="border-b py-4 w-full flex flex-row items-center justify-between">
+                    <span>Tax</span>
+                    <span>{{ sc:cart:taxTotal }}</span>
+                </div>
+            {{ /if }}
             {{ if {sc:coupon:has} === true }}
                 <div class="border-b py-4 w-full flex flex-row items-center justify-between">
                     <span>Coupon Discount</span>
@@ -105,3 +104,7 @@ just_head: true
         </div>
     </aside>
 </div>
+
+<!--
+    Order ID: {{ sc:cart }}{{ id }}{{ /sc:cart }}
+-->

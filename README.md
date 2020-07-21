@@ -14,10 +14,16 @@ composer install
 cp .env.example .env && php artisan key:generate
 ```
 
-2. Create your first user
+2. Publish Simple Commerce's latest vendor files
+
+```
+php artisan vendor:publish --provider="DoubleThreeDigital\SimpleCommerce\ServiceProvider"
+```
+
+3. Create your first user
 
 ```
 php artisan make:user
 ```
 
-5. **Build your site!**
+4. **Build your site!**

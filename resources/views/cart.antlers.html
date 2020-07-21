@@ -2,7 +2,7 @@
 just_head: true
 ---
 
-{{ if {sc:cart:count} === 0 }}
+{{ if {sc:cart:has} === false }}
     {{ redirect to='/' }}
 {{ /if }}
 
