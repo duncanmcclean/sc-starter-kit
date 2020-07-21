@@ -84,13 +84,13 @@ just_head: true
                     <span>{{ total }}</span>
                 </div>
             {{ /sc:cart:items }}
-            {{ if {sc:cart:shippingTotal} != 0 }}
+            {{ if {sc:cart:shippingTotal} !== 0 }}
                 <div class="border-b py-4 w-full flex flex-row items-center justify-between">
                     <span>Shipping</span>
                     <span>{{ sc:cart:shippingTotal }}</span>
                 </div>
             {{ /if }}
-            {{ if {sc:cart:taxTotal} != 0 }}
+            {{ if {sc:cart:taxTotal} !== 0 }}
                 <div class="border-b py-4 w-full flex flex-row items-center justify-between">
                     <span>Tax</span>
                     <span>{{ sc:cart:taxTotal }}</span>
@@ -109,3 +109,8 @@ just_head: true
         </div>
     </aside>
 </div>
+
+<!--
+    Order ID: {{ sc:cart:id }}
+-->
+
