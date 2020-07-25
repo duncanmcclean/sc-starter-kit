@@ -59,13 +59,6 @@
                             </div>
 
                             <nav class="flex flex-row items-center">
-                                {{ if logged_in }}
-                                    <a class="font-bold text-gray-800 hover:text-blue-500 mx-4" href="/account">My Account</a>
-                                {{ else }}
-                                    <a class="font-bold text-gray-800 hover:text-blue-500 mx-4" href="/login">Login</a>
-                                    <a class="font-bold text-gray-800 hover:text-blue-500 mx-4" href="/register">Register</a>
-                                {{ /if }}
-
                                 <a class="flex flex-row items-center font-bold text-gray-800 hover:text-blue-500 mx-4" href="/cart">
                                     <i class="fas fa-shopping-cart text-lg mr-2"></i>
                                     {{ sc:cart:count }} Items

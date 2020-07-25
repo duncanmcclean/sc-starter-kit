@@ -15,150 +15,154 @@ just_head: true
 
             <div class="flex flex-col mb-2 py-2 my-6">
                 <h3 class="font-bold text-2xl mb-4 text-gray-800">Your Cart</h3>
-        
-                <table class="table-auto mx-auto w-full">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th class="px-4 py-2">Product</th>
-                            <th class="px-4 py-2">Quantity</th>
-                            <th class="px-4 py-2">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{ sc:cart:items }}
-                            <tr>
-                                <td class="border px-4 py-2">
-                                    <a href="{{ product:url }}">{{ product:title }}</a>
-                                    {{ sc:cart:removeItem :item='id' class='mt-2' }}            
-                                        <button class="text-red-700 font-medium text-sm focus:outline-none" type="submit">Remove</button>
-                                    {{ /sc:cart:removeItem }}
-                                </td>
-                                <td class="border px-4 py-2">
-                                    <div class="flex justify-center items-center">
-                                        {{ sc:cart:updateItem :item='id' class='flex justify-center items-center' }}            
-                                            <select name="quantity" onchange="parentElement.submit()">
-                                                {{ loop from='1' to='5' }}
-                                                    <option value="{{ value }}" {{ if quantity == value }} selected {{ /if }}>{{ value }}x</option>
-                                                {{ /loop }}
-                                            </select>
-                                        {{ /sc:cart:updateItem }}
-                                    </div>
-                                </td>
-                                <td class="border px-4 py-2">{{ total }}</td>
-                            </tr>
-                        {{ /sc:cart:items }}
-                        <tr>
-                            <td class="px-4 py-2"></td>
-                            <td class="py-2">
-                                {{ sc:cart:empty }}
-                                    <button class="text-gray-700 font-medium text-center focus:outline-none" type="submit">Clear Cart</button>
-                                {{ /sc:cart:empty }}
-                            </td>
-                            <td class="py-2"></td>
-                        </tr>
-                    </tbody>
-                </table>
 
-                {{ if {sc:coupon:has} === true }}
-                    {{ sc:coupon }}
-                        <div class="flex flex-col mb-2 py-2">
-                            <h3 class="font-bold text-lg mb-2 text-gray-800">Coupon</h3>
-
-                            <div>
-                                <p class="inline-block"><strong class="font-bold uppercase">{{ slug }}</strong> has been applied to your cart.</p>
-                                {{ sc:coupon:remove class='inline-block' }}
-                                    <button class="text-red-700 font-medium focus:outline-none ml-1" type="submit">Remove</button>
-                                {{ /sc:coupon:remove }}
-                            </div>
-                        </div>
-                    {{ /sc:coupon }}
+                {{ if {sc:cart:count} === 0 }}
+                    <p>There's nothing in your cart. <a class="text-blue-600 font-medium" href="/">Browse products</a></p>
                 {{ else }}
-                    {{ sc:coupon:redeem id='redeemCoupon' }}
-                        <div class="flex flex-col mb-2 py-2">
-                            <h3 class="font-bold text-lg mb-2 text-gray-800">Redeem a Coupon</h3>
+                    <table class="table-auto mx-auto w-full">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-4 py-2">Product</th>
+                                <th class="px-4 py-2">Quantity</th>
+                                <th class="px-4 py-2">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ sc:cart:items }}
+                                <tr>
+                                    <td class="border px-4 py-2">
+                                        <a href="{{ product:url }}">{{ product:title }}</a>
+                                        {{ sc:cart:removeItem :item='id' class='mt-2' }}            
+                                            <button class="text-red-700 font-medium text-sm focus:outline-none" type="submit">Remove</button>
+                                        {{ /sc:cart:removeItem }}
+                                    </td>
+                                    <td class="border px-4 py-2">
+                                        <div class="flex justify-center items-center">
+                                            {{ sc:cart:updateItem :item='id' class='flex justify-center items-center' }}            
+                                                <select name="quantity" onchange="parentElement.submit()">
+                                                    {{ loop from='1' to='5' }}
+                                                        <option value="{{ value }}" {{ if quantity == value }} selected {{ /if }}>{{ value }}x</option>
+                                                    {{ /loop }}
+                                                </select>
+                                            {{ /sc:cart:updateItem }}
+                                        </div>
+                                    </td>
+                                    <td class="border px-4 py-2">{{ total }}</td>
+                                </tr>
+                            {{ /sc:cart:items }}
+                            <tr>
+                                <td class="px-4 py-2"></td>
+                                <td class="py-2">
+                                    {{ sc:cart:empty }}
+                                        <button class="text-gray-700 font-medium text-center focus:outline-none" type="submit">Clear Cart</button>
+                                    {{ /sc:cart:empty }}
+                                </td>
+                                <td class="py-2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                            <div class="flex flex-row items-start w-full">
-                                <input class="md:w-2/3 border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none mr-2" type="text" name="code" placeholder="Coupon Code" value="{{ old:code }}" required>
-                                <div x-data="{ loading: false }" class="md:w-1/3 flex flex-row items-center">
-                                    <button
-                                        x-show="loading === true"
-                                        class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold w-full h-full flex flex-row items-center justify-center"
-                                        type="button">
-                                        <div class="lds-dual-ring mr-6"></div>
-                                    </button>
+                    {{ if {sc:coupon:has} === true }}
+                        {{ sc:coupon }}
+                            <div class="flex flex-col mb-2 py-2">
+                                <h3 class="font-bold text-lg mb-2 text-gray-800">Coupon</h3>
 
-                                    <button
-                                        x-show="loading === false"
-                                        class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold w-full h-full"
-                                        type="button"
-                                        @click.prevent="loading = true; document.getElementById('redeemCoupon').submit()">
-                                        Redeem
-                                    </button>
+                                <div>
+                                    <p class="inline-block"><strong class="font-bold uppercase">{{ slug }}</strong> has been applied to your cart.</p>
+                                    {{ sc:coupon:remove class='inline-block' }}
+                                        <button class="text-red-700 font-medium focus:outline-none ml-1" type="submit">Remove</button>
+                                    {{ /sc:coupon:remove }}
                                 </div>
                             </div>
-                        </div>
-                    {{ /sc:coupon:redeem }}
-                {{ /if }}
-
-                {{ sc:cart:update redirect='/checkout' id='cartAddress' }}
-                    <div x-data="{ billingSameAsShipping: true }">
-                        <div class="flex flex-col mb-2 py-2">
-                            <h3 class="font-bold text-lg mb-2 text-gray-800">Shipping Address</h3>
-    
-                            <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="shipping_name" placeholder="Name" value="{{ old:shipping_name }}">
-                            <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="shipping_address" placeholder="Address" value="{{ old:shipping_address }}">
-                            <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="shipping_city" placeholder="City" value="{{ old:city }}">
-                            <div class="flex flex-row items-stretch mb-2">
-                                <select class="md:w-1/2 border rounded p-2 mb-2 outline-none mr-2" name="shipping_country" value="{{ old:shipping_country }}">
-                                    {{ sc:countries }}
-                                        <option value="{{ iso }}">{{ name }}</option>
-                                    {{ /sc:countries }}
-                                </select>
-                                <input class="md:w-1/2 border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none ml-2" type="text" name="shipping_zip_code" placeholder="Postal Code" value="{{ old:shipping_zip_code }}">
-                            </div>
-                            <label class="mb-2 text-gray-800 flex flex-row items-center">
-                                <input class="border rounded p-2 mr-2" type="checkbox" name="use_shipping_address_for_billing" x-model="billingSameAsShipping">
-                                Use same address for billing
-                            </label>
-                        </div>
-    
-                        <template x-if="billingSameAsShipping === false">
+                        {{ /sc:coupon }}
+                    {{ else }}
+                        {{ sc:coupon:redeem id='redeemCoupon' }}
                             <div class="flex flex-col mb-2 py-2">
-                                <h3 class="font-bold text-lg mb-2 text-gray-800">Billing Address</h3>
-    
-                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="billing_name" placeholder="Name" value="{{ old:billing_name }}">
-                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="billing_address" placeholder="Address" value="{{ old:billing_address }}">
-                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="billing_city" placeholder="City" value="{{ old:billing_city }}">
+                                <h3 class="font-bold text-lg mb-2 text-gray-800">Redeem a Coupon</h3>
+
+                                <div class="flex flex-row items-start w-full">
+                                    <input class="md:w-2/3 border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none mr-2" type="text" name="code" placeholder="Coupon Code" value="{{ old:code }}" required>
+                                    <div x-data="{ loading: false }" class="md:w-1/3 flex flex-row items-center">
+                                        <button
+                                            x-show="loading === true"
+                                            class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold w-full h-full flex flex-row items-center justify-center"
+                                            type="button">
+                                            <div class="lds-dual-ring mr-6"></div>
+                                        </button>
+
+                                        <button
+                                            x-show="loading === false"
+                                            class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold w-full h-full"
+                                            type="button"
+                                            @click.prevent="loading = true; document.getElementById('redeemCoupon').submit()">
+                                            Redeem
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        {{ /sc:coupon:redeem }}
+                    {{ /if }}
+
+                    {{ sc:cart:update redirect='/cart/shipping' id='cartAddress' }}
+                        <div x-data="{ billingSameAsShipping: true }">
+                            <div class="flex flex-col mb-2 py-2">
+                                <h3 class="font-bold text-lg mb-2 text-gray-800">Shipping Address</h3>
+        
+                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="shipping_name" placeholder="Name" value="{{ old:shipping_name }}">
+                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="shipping_address" placeholder="Address" value="{{ old:shipping_address }}">
+                                <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="shipping_city" placeholder="City" value="{{ old:city }}">
                                 <div class="flex flex-row items-stretch mb-2">
-                                    <select class="md:w-1/2 border rounded p-2 mb-2 outline-none mr-2" name="billing_country" value="{{ old:billing_country }}">
+                                    <select class="md:w-1/2 border rounded p-2 mb-2 outline-none mr-2" name="shipping_country" value="{{ old:shipping_country }}">
                                         {{ sc:countries }}
                                             <option value="{{ iso }}">{{ name }}</option>
                                         {{ /sc:countries }}
                                     </select>
-                                    <input class="md:w-1/2 border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none ml-2" type="text" name="billing_zip_code" placeholder="Postal Code" value="{{ old:billing_zip_code }}">
+                                    <input class="md:w-1/2 border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none ml-2" type="text" name="shipping_zip_code" placeholder="Postal Code" value="{{ old:shipping_zip_code }}">
                                 </div>
+                                <label class="mb-2 text-gray-800 flex flex-row items-center">
+                                    <input class="border rounded p-2 mr-2" type="checkbox" name="use_shipping_address_for_billing" x-model="billingSameAsShipping">
+                                    Use same address for billing
+                                </label>
                             </div>
-                        </template>
+        
+                            <template x-if="billingSameAsShipping === false">
+                                <div class="flex flex-col mb-2 py-2">
+                                    <h3 class="font-bold text-lg mb-2 text-gray-800">Billing Address</h3>
+        
+                                    <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="billing_name" placeholder="Name" value="{{ old:billing_name }}">
+                                    <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="billing_address" placeholder="Address" value="{{ old:billing_address }}">
+                                    <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text" name="billing_city" placeholder="City" value="{{ old:billing_city }}">
+                                    <div class="flex flex-row items-stretch mb-2">
+                                        <select class="md:w-1/2 border rounded p-2 mb-2 outline-none mr-2" name="billing_country" value="{{ old:billing_country }}">
+                                            {{ sc:countries }}
+                                                <option value="{{ iso }}">{{ name }}</option>
+                                            {{ /sc:countries }}
+                                        </select>
+                                        <input class="md:w-1/2 border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none ml-2" type="text" name="billing_zip_code" placeholder="Postal Code" value="{{ old:billing_zip_code }}">
+                                    </div>
+                                </div>
+                            </template>
 
-                        <div x-data="{ loading: false }" class="flex justify-center md:w-1/2 mx-auto">
-                            <button
-                                x-show="loading === true"
-                                class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold flex flex-row items-center justify-center"
-                                type="button">
-                                <div class="lds-dual-ring mr-6"></div>
-                                Working...
-                            </button>
-    
-                            <button
-                                x-show="loading === false"
-                                class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold"
-                                type="button"
-                                @click.prevent="loading = true; document.getElementById('cartAddress').submit()">
-                                Go to Checkout
-                            </button>
+                            <div x-data="{ loading: false }" class="flex justify-center md:w-1/2 mx-auto">
+                                <button
+                                    x-show="loading === true"
+                                    class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold flex flex-row items-center justify-center"
+                                    type="button">
+                                    <div class="lds-dual-ring mr-6"></div>
+                                    Working...
+                                </button>
+        
+                                <button
+                                    x-show="loading === false"
+                                    class="bg-blue-600 hover:bg-blue-500 py-2 px-6 uppercase text-white font-bold"
+                                    type="button"
+                                    @click.prevent="loading = true; document.getElementById('cartAddress').submit()">
+                                    Continue
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                {{ /sc:cart:update }}
+                    {{ /sc:cart:update }}
+                {{ /if }}
             </div>
         </div>
     </main>
@@ -168,3 +172,7 @@ just_head: true
         </div>
     </aside>
 </div>
+
+<!--
+    Order ID: {{ sc:cart }}{{ id }}{{ /sc:cart }}
+-->

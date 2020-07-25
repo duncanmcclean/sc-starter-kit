@@ -15,16 +15,14 @@ just_head: true
 
             {{ sc:checkout redirect="/checkout/confirmed" }}
                 <div class="my-6">
-                    {{ if logged_out }}
-                        <div class="flex flex-col mb-2 py-2">
-                            <h3 class="font-bold text-xl mb-2 text-gray-800">Your information</h3>
+                    <div class="flex flex-col mb-2 py-2">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">Your information</h3>
 
-                            <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text"
-                                name="name" placeholder="Full Name" value="{{ old:name }}">
-                            <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="email"
-                                name="email" placeholder="Email" value="{{ old:email }}">
-                        </div>
-                    {{ /if }}
+                        <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="text"
+                            name="name" placeholder="Full Name" value="{{ old:name }}">
+                        <input class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" type="email"
+                            name="email" placeholder="Email" value="{{ old:email }}">
+                    </div>
 
                     <div x-data="{ gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}' }"
                         class="flex flex-col mb-2 py-2">

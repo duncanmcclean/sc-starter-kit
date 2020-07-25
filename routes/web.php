@@ -18,4 +18,6 @@ use Illuminate\Support\Facades\Route;
 // ]);
 
 Route::statamic('/cart', 'cart');
+Route::statamic('/cart/shipping', 'cart-shipping');
 Route::statamic('/checkout', 'checkout');
+Route::statamic('/checkout/confirmed', 'checkout-confirmed');
