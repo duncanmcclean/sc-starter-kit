@@ -1,0 +1,37 @@
+title: Product
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: description
+        field:
+          restrict: false
+          automatic_line_breaks: true
+          automatic_links: false
+          escape_markup: false
+          smartypants: false
+          type: markdown
+          localizable: false
+          listable: hidden
+          display: Description
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: price
+        field:
+          read_only: false
+          type: money
+          localizable: false
+          listable: hidden
+          display: Price
+          factory: 'numberBetween(20, 50)'
+      -
+        handle: sku
+        field:
+          input_type: text
+          type: text
+          localizable: false
+          listable: hidden
+          display: SKU
