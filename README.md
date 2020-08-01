@@ -2,6 +2,8 @@
 
 This is a starter kit for [Simple Commerce](https://github.com/doublethreedigital/simple-commerce), an e-commerce addon for Statamic. The starter kit has some boilerplate views, routing for the cart and checkout and has Simple Commerce pre-installed.
 
+This starter kit is built to show how Simple Commerce works. We recommend tearing out the design that's already here and add add your own. 
+
 ## Quick Start
 
 1. Create the site and install dependencies
