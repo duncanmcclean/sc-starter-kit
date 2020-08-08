@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ site_short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title or site:name }}</title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    </head>
+    <body>
+        <div class="bg-white">
+            <!-- Session messages -->
+
+            <header class="px-12 w-full my-12">
+                <nav class="flex items-center justify-between mb-1">
+                    <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/email" }}">Email</a>
+                    <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/account" }}">Account</a>
+                    <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/address" }}">Address</a>
+                    <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/shipping" }}">Shipping</a>
+                    <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/payment" }}">Payment</a>
+                </nav>
+
+                <div class="w-full h-2 bg-gray-200 rounded-lg relative">
+                    <div class="absolute h-full bg-blue-400" style="width: {{ yield:progress }};"></div>
+                </div>
+            </header>
+
+            <main class="px-12 w-full">
+                {{ template_content }}
+            </main>
+        </div>
+
+        {{ yield:scripts }}
+    </body>
+</html>

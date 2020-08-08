@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::statamic('example', 'example-view', [
-//    'title' => 'Example'
-// ]);
-
 Route::statamic('/cart', 'cart');
-Route::statamic('/cart/shipping', 'cart-shipping');
-Route::statamic('/checkout', 'checkout');
-Route::statamic('/checkout/confirmed', 'checkout-confirmed');
+
+Route::prefix('/checkout')->name('checkout.')->group(function () {
+	Route::redirect('/', '/checkout/email');
+	Route::statamic('/email', 'checkout/email', ['layout' => 'checkout/layout'])->name('email');
+	Route::statamic('/account', 'checkout/account', ['layout' => 'checkout/layout'])->name('account');
+	Route::statamic('/address', 'checkout/address', ['layout' => 'checkout/layout'])->name('address');
+	Route::statamic('/shipping', 'checkout/shipping', ['layout' => 'checkout/layout'])->name('shipping');
+	Route::statamic('/payment', 'checkout/payment', ['layout' => 'checkout/layout'])->name('payment');
+	Route::statamic('/complete', 'checkout/complete', ['layout' => 'checkout/layout'])->name('complete');
+});
