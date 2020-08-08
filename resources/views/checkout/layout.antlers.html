@@ -1,3 +1,7 @@
+{{ if {sc:cart:has} === false }}
+    {{ redirect to='/' }}
+{{ /if }}
+
 <!doctype html>
 <html lang="{{ site_short_locale }}">
     <head>
