@@ -31,15 +31,15 @@ just_head: true
                         <div>
                             <select x-model="gateway" class="h-10 w-full border rounded p-2 mb-2 outline-none mr-2"
                                 name="gateway">
-                                {{ simple-commerce:gateways }}
+                                {{ sc:gateways }}
                                     <option value="{{ class }}">{{ name }}</option>
-                                {{ /simple-commerce:gateways }}
+                                {{ /sc:gateways }}
                             </select>
                         </div>
 
                         {{ sc:gateways }}
                             <div class="mb-6" x-show="gateway === '{{ formatted_class }}'">
-                                {{ partial src="gateways/{ handle }" }}
+                                {{ partial src="partials/gateways/{ handle }" }}
                             </div>
                         {{ /sc:gateways }}
 
