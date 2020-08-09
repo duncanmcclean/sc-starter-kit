@@ -16,6 +16,16 @@
         <div class="bg-white">
             <!-- Session messages -->
 
+            {{ if (errors | count) >= 1 }}
+                <div class="w-full bg-red-600 py-3">
+                    <span class="text-white font-bold px-12">{{ errors }}</span>
+                </div>
+            {{ elseif (session:message) }}
+                <div class="w-full bg-blue-500 py-3">
+                    <span class="text-white font-bold px-12">{{ session:message }}</span>
+                </div>
+            {{ /if }}
+
             <header class="px-12 w-full my-12">
                 <nav class="flex items-center justify-between mb-1">
                     <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/email" }}">Email</a>

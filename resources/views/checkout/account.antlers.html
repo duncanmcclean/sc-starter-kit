@@ -13,6 +13,23 @@
 		<h2 class="text-gray-800 font-bold text-xl mb-4">Register</h2>
 
 		<!-- form errors -->
+
+		<div class="w-full mb-4 flex flex-col">
+			<label 
+				for="name" 
+				class="text-gray-800 font-semibold mb-1"
+			>Name</label>
+
+			<input 
+				class="bg-white p-2 text-gray-800" 
+				id="name" 
+				type="text" 
+				name="name" 
+				placeholder="Duncan M" 
+				value="{{ old:name }}"
+				required
+			>
+		</div>
 	
 		<div class="w-full mb-4 flex flex-col">
 			<label 
@@ -27,6 +44,7 @@
 				name="email" 
 				placeholder="duncan@example.com" 
 				value="{{ old:email }}"
+				required
 			>
 		</div>
 
@@ -43,6 +61,7 @@
 				name="password" 
 				placeholder="" 
 				value="{{ old:password }}"
+				required
 			>
 		</div>
 
@@ -52,7 +71,7 @@
 				type="submit"
 			>Register</button>
 
-			<a class="ml-4 text-blue-500 font-medium" href="#">Continue as Guest</a>
+			<a class="ml-4 text-blue-500 font-medium" href="{{ link to="/checkout/address" }}">Continue as Guest</a>
 		</div>
 	</div>
 {{ /user:register_form }}
@@ -76,6 +95,7 @@
 				name="email" 
 				placeholder="duncan@example.com" 
 				value="{{ old:email }}"
+				required
 			>
 		</div>
 
@@ -92,6 +112,7 @@
 				name="password" 
 				placeholder="" 
 				value="{{ old:password }}"
+				required
 			>
 		</div>
 

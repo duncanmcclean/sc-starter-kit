@@ -1,0 +1,94 @@
+{{ section:progress }}48%{{ /section:progress }}
+
+<h1 class="text-gray-800 font-bold text-2xl mb-4">Addresses</h1>
+
+{{ sc:cart:update redirect="/checkout/shipping" }}
+	<h2 class="text-gray-800 font-bold text-xl mb-4">Shipping Address</h2>
+
+	<div class="flex flex-row flex-wrap space-x-2">
+		<div class="w-full md:w-1/2 mb-4 flex flex-col">
+			<label 
+				for="shipping_name" 
+				class="text-gray-800 font-semibold mb-1"
+			>Name</label>
+
+			<input 
+				class="bg-gray-200 p-2 text-gray-800" 
+				id="shipping_name" 
+				type="text" 
+				name="shipping_name" 
+				placeholder="Duncan M" 
+				value="{{ old:shipping_name }}"
+				required
+			>
+		</div>
+
+		<div class="w-full md:w-1/2 mb-4 flex flex-col">
+			<label 
+				for="shipping_address" 
+				class="text-gray-800 font-semibold mb-1"
+			>Address 1</label>
+
+			<input 
+				class="bg-gray-200 p-2 text-gray-800" 
+				id="shipping_adddress" 
+				type="text" 
+				name="shipping_address" 
+				placeholder="" 
+				value="{{ old:shipping_address }}"
+				required
+			>
+		</div>
+
+		<div class="w-full md:w-1/2 mb-4 flex flex-col">
+			<label 
+				for="shipping_address_2" 
+				class="text-gray-800 font-semibold mb-1"
+			>Address 2</label>
+
+			<input 
+				class="bg-gray-200 p-2 text-gray-800" 
+				id="shipping_adddress_2" 
+				type="text" 
+				name="shipping_address_2" 
+				placeholder="" 
+				value="{{ old:shipping_address_2 }}"
+				required
+			>
+		</div>
+
+		<div class="w-full md:w-1/2 mb-4 flex flex-col">
+			<label 
+				for="shipping_city" 
+				class="text-gray-800 font-semibold mb-1"
+			>City</label>
+
+			<input 
+				class="bg-gray-200 p-2 text-gray-800" 
+				id="shipping_city" 
+				type="text" 
+				name="shipping_city" 
+				placeholder="" 
+				value="{{ old:shipping_city }}"
+				required
+			>
+		</div>
+
+		<div class="w-full md:w-1/2 mb-4 flex flex-col">
+			<label 
+				for="shipping_zip_code" 
+				class="text-gray-800 font-semibold mb-1"
+			>Zip code</label>
+
+			<input 
+				class="bg-gray-200 p-2 text-gray-800" 
+				id="shipping_zip_code" 
+				type="text" 
+				name="shipping_zip_code" 
+				placeholder="" 
+				value="{{ old:shipping_zip_code }}"
+				required
+			>
+		</div>
+	</div>
+{{ /sc:cart:update }}
