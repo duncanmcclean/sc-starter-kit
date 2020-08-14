@@ -3,7 +3,7 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    var stripe = Stripe('{{ config:key }}');
+    var stripe = Stripe('{{ gateway-config:key }}');
     var elements = stripe.elements();
 
     const card = elements.create('card');
