@@ -1,94 +1,244 @@
 {{ section:progress }}48%{{ /section:progress }}
 
-<h1 class="text-gray-800 font-bold text-2xl mb-4">Addresses</h1>
+<div x-data="{ billingSameAsShipping: true }">
+    <h1 class="text-gray-800 font-bold text-2xl mb-4">Addresses</h1>
 
-{{ sc:cart:update redirect="/checkout/shipping" }}
-	<h2 class="text-gray-800 font-bold text-xl mb-4">Shipping Address</h2>
+    {{ sc:cart:update redirect="/checkout/shipping" }}
+        <h2 class="text-gray-800 font-bold text-xl mb-4">Shipping Address</h2>
 
-	<div class="flex flex-row flex-wrap space-x-2">
-		<div class="w-full md:w-1/2 mb-4 flex flex-col">
-			<label 
-				for="shipping_name" 
-				class="text-gray-800 font-semibold mb-1"
-			>Name</label>
+        <div class="flex flex-row flex-wrap max-w-4xl">
+            <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                <label
+                    for="shipping_name"
+                    class="text-gray-800 font-semibold mb-1"
+                >Name</label>
 
-			<input 
-				class="bg-gray-200 p-2 text-gray-800" 
-				id="shipping_name" 
-				type="text" 
-				name="shipping_name" 
-				placeholder="Duncan M" 
-				value="{{ old:shipping_name }}"
-				required
-			>
-		</div>
+                <input
+                    class="bg-gray-200 p-2 text-gray-800"
+                    id="shipping_name"
+                    type="text"
+                    name="shipping_name"
+                    value="{{ old:shipping_name }}"
+                    required
+                >
+            </div>
 
-		<div class="w-full md:w-1/2 mb-4 flex flex-col">
-			<label 
-				for="shipping_address" 
-				class="text-gray-800 font-semibold mb-1"
-			>Address 1</label>
+            <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                <label
+                    for="shipping_address"
+                    class="text-gray-800 font-semibold mb-1"
+                >Address 1</label>
 
-			<input 
-				class="bg-gray-200 p-2 text-gray-800" 
-				id="shipping_adddress" 
-				type="text" 
-				name="shipping_address" 
-				placeholder="" 
-				value="{{ old:shipping_address }}"
-				required
-			>
-		</div>
+                <input
+                    class="bg-gray-200 p-2 text-gray-800"
+                    id="shipping_adddress"
+                    type="text"
+                    name="shipping_address"
+                    value="{{ old:shipping_address }}"
+                    required
+                >
+            </div>
 
-		<div class="w-full md:w-1/2 mb-4 flex flex-col">
-			<label 
-				for="shipping_address_2" 
-				class="text-gray-800 font-semibold mb-1"
-			>Address 2</label>
+            <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                <label
+                    for="shipping_address_2"
+                    class="text-gray-800 font-semibold mb-1"
+                >Address 2</label>
 
-			<input 
-				class="bg-gray-200 p-2 text-gray-800" 
-				id="shipping_adddress_2" 
-				type="text" 
-				name="shipping_address_2" 
-				placeholder="" 
-				value="{{ old:shipping_address_2 }}"
-				required
-			>
-		</div>
+                <input
+                    class="bg-gray-200 p-2 text-gray-800"
+                    id="shipping_adddress_2"
+                    type="text"
+                    name="shipping_address_2"
+                    value="{{ old:shipping_address_2 }}"
+                    required
+                >
+            </div>
 
-		<div class="w-full md:w-1/2 mb-4 flex flex-col">
-			<label 
-				for="shipping_city" 
-				class="text-gray-800 font-semibold mb-1"
-			>City</label>
+            <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                <label
+                    for="shipping_city"
+                    class="text-gray-800 font-semibold mb-1"
+                >City</label>
 
-			<input 
-				class="bg-gray-200 p-2 text-gray-800" 
-				id="shipping_city" 
-				type="text" 
-				name="shipping_city" 
-				placeholder="" 
-				value="{{ old:shipping_city }}"
-				required
-			>
-		</div>
+                <input
+                    class="bg-gray-200 p-2 text-gray-800"
+                    id="shipping_city"
+                    type="text"
+                    name="shipping_city"
+                    value="{{ old:shipping_city }}"
+                    required
+                >
+            </div>
 
-		<div class="w-full md:w-1/2 mb-4 flex flex-col">
-			<label 
-				for="shipping_zip_code" 
-				class="text-gray-800 font-semibold mb-1"
-			>Zip code</label>
+            <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                <label
+                    for="shipping_zip_code"
+                    class="text-gray-800 font-semibold mb-1"
+                >Zip code</label>
 
-			<input 
-				class="bg-gray-200 p-2 text-gray-800" 
-				id="shipping_zip_code" 
-				type="text" 
-				name="shipping_zip_code" 
-				placeholder="" 
-				value="{{ old:shipping_zip_code }}"
-				required
-			>
-		</div>
-	</div>
-{{ /sc:cart:update }}
+                <input
+                    class="bg-gray-200 p-2 text-gray-800"
+                    id="shipping_zip_code"
+                    type="text"
+                    name="shipping_zip_code"
+                    value="{{ old:shipping_zip_code }}"
+                    required
+                >
+            </div>
+
+            <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                <label
+                    for="shipping_country"
+                    class="text-gray-800 font-semibold mb-1"
+                >Country</label>
+
+                <div class="inline-block relative w-full p-2 bg-gray-200">
+                    <select
+                        class="block appearance-none w-full bg-gray-200 text-gray-800 focus:outline-none"
+                        id="shipping_country"
+                        name="shipping_country"
+                        value="{{ old:shipping_country }}"
+                        required
+                    >
+                        {{ sc:countries }}
+                            <option value="{{ iso }}">{{ name }}</option>
+                        {{ /sc:countries }}
+                    </select>
+
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-gray-800 font-bold text-xl mb-4">Billing Address</h2>
+
+        <div>
+            <label
+                for="useShippingAddressForBilling"
+                class="text-gray-800 font-semibold mb-1"
+            >
+                <input class="border rounded p-2 mr-2" id="useShippingAddressForBilling" type="checkbox" name="use_shipping_address_for_billing" x-model="billingSameAsShipping">
+                Use shipping address for billing
+            </label>
+        </div>
+
+        <template x-if="billingSameAsShipping === false">
+            <div class="flex flex-row flex-wrap max-w-4xl">
+                <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                    <label
+                        for="billing_name"
+                        class="text-gray-800 font-semibold mb-1"
+                    >Name</label>
+
+                    <input
+                        class="bg-gray-200 p-2 text-gray-800"
+                        id="billing_name"
+                        type="text"
+                        name="billing_name"
+                        value="{{ old:billing_name }}"
+                        required
+                    >
+                </div>
+
+                <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                    <label
+                        for="billing_address"
+                        class="text-gray-800 font-semibold mb-1"
+                    >Address 1</label>
+
+                    <input
+                        class="bg-gray-200 p-2 text-gray-800"
+                        id="billing_address"
+                        type="text"
+                        name="billing_address"
+                        value="{{ old:billing_address }}"
+                        required
+                    >
+                </div>
+
+                <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                    <label
+                        for="billing_address_2"
+                        class="text-gray-800 font-semibold mb-1"
+                    >Address 2</label>
+
+                    <input
+                        class="bg-gray-200 p-2 text-gray-800"
+                        id="billing_address_2"
+                        type="text"
+                        name="billing_address_2"
+                        value="{{ old:billing_address_2 }}"
+                        required
+                    >
+                </div>
+
+                <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                    <label
+                        for="billing_city"
+                        class="text-gray-800 font-semibold mb-1"
+                    >City</label>
+
+                    <input
+                        class="bg-gray-200 p-2 text-gray-800"
+                        id="billing_city"
+                        type="text"
+                        name="billing_city"
+                        value="{{ old:billing_city }}"
+                        required
+                    >
+                </div>
+
+                <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                    <label
+                        for="billing_zip_code"
+                        class="text-gray-800 font-semibold mb-1"
+                    >Zip code</label>
+
+                    <input
+                        class="bg-gray-200 p-2 text-gray-800"
+                        id="billing_zip_code"
+                        type="text"
+                        name="billing_zip_code"
+                        value="{{ old:billing_zip_code }}"
+                        required
+                    >
+                </div>
+
+                <div class="w-full md:w-1/2 mb-4 flex flex-col pr-4">
+                    <label
+                        for="billing_country"
+                        class="text-gray-800 font-semibold mb-1"
+                    >Country</label>
+
+                    <div class="inline-block relative w-full p-2 bg-gray-200">
+                        <select
+                            class="block appearance-none w-full bg-gray-200 text-gray-800 focus:outline-none"
+                            id="billing_country"
+                            name="billing_country"
+                            value="{{ old:billing_country }}"
+                            required
+                        >
+                            {{ sc:countries }}
+                                <option value="{{ iso }}">{{ name }}</option>
+                            {{ /sc:countries }}
+                        </select>
+
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div class="my-12">
+            <button
+                class="bg-blue-500 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
+                type="submit"
+            >Continue</button>
+        </div>
+    {{ /sc:cart:update }}
+</div>
