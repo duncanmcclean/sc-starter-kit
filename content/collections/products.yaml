@@ -1,6 +1,9 @@
 title: Products
+template: products/show
+layout: layout
 revisions: false
 route: '/products/{slug}'
+sort_dir: asc
 date_behavior:
   past: public
   future: private
