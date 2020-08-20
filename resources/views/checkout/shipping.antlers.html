@@ -19,7 +19,7 @@
             >
                 <option disabled>Choose a Shipping Method</option>
                 {{ sc:shipping:methods }}
-                    <option value="{{ value }}">{{ name }} - {{ cost }}</option>
+                    <option value="{{ handle }}" {{ if first }} selected {{ /if }}>{{ name }} - {{ cost }}</option>
                 {{ /sc:shipping:methods }}
             </select>
 

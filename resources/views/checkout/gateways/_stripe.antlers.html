@@ -1,9 +1,19 @@
-<div class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" id="card-element"></div>
+<div class="w-full md:w-1/2 mb-4 flex flex-col">
+    <label
+        for="card-element"
+        class="text-gray-800 font-semibold mb-1"
+    >Card Details</label>
+
+    <div
+        class="bg-gray-200 p-2 text-gray-800"
+        id="card-element"
+    ></div>
+</div>
 <input id="stripePaymentMethod" type="hidden" name="payment_method">
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    var stripe = Stripe('{{ config:key }}');
+    var stripe = Stripe('{{ gateway-config:key }}');
     var elements = stripe.elements();
 
     const card = elements.create('card');

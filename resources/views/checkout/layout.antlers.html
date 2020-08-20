@@ -46,8 +46,11 @@
 
             <!-- Some useful information to help with debugging. -->
             <footer class="bg-gray-200 px-12 py-8 w-full mt-20">
-                <h2 class="mb-1 font-bold text-grey-800">Debugging Information</h2>
-                <strong class="font-semibold">Cart ID:</strong> {{ sc:cart }}{{ id }}{{ /sc:cart }} <br>
+                {{ sc:cart }}
+                    <h2 class="mb-1 font-bold text-grey-800">Debugging Information</h2>
+                    <strong class="font-semibold">Cart ID:</strong> {{ id }}<br>
+                    <strong class="font-semibold">Has Paid:</strong> {{ is_paid }}<br>
+                {{ /sc:cart }}
             </footer>
         </div>
 
