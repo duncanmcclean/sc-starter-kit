@@ -1,0 +1,51 @@
+{{ section:progress }}69%{{ /section:progress }}
+
+<h1 class="text-gray-800 font-bold text-2xl mb-4">Shipping</h1>
+
+{{ sc:cart:update redirect="/checkout/payment" }}
+    <div class="w-full md:w-1/3 mb-4 flex flex-col">
+		<label
+			for="shipping_method"
+			class="text-gray-800 font-semibold mb-1"
+		>Shipping Method</label>
+
+		<div class="inline-block relative w-full p-2 bg-gray-200">
+            <select
+                class="block appearance-none w-full bg-gray-200 text-gray-800 focus:outline-none"
+                id="shipping_method"
+                name="shipping_method"
+                value="{{ old:shipping_method }}"
+                required
+            >
+                <option disabled>Choose a Shipping Method</option>
+                {{ sc:shipping:methods }}
+                    <option value="{{ value }}">{{ name }} - {{ cost }}</option>
+                {{ /sc:shipping:methods }}
+            </select>
+
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full md:w-1/3 mb-4 flex flex-col">
+		<label
+			for="shipping_note"
+			class="text-gray-800 font-semibold mb-1"
+        >Shipping Note</label>
+
+        <textarea
+            class="bg-gray-200 p-2 text-gray-800"
+            name="shipping_note"
+            id="shipping_note"
+            cols="30"
+            rows="6"
+        >{{ old:shipping_note }}</textarea>
+    </div>
+
+	<button
+		class="bg-blue-500 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
+		type="submit"
+	>Continue</button>
+{{ /sc:cart:update }}
