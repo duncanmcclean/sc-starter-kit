@@ -20,6 +20,11 @@ return [
 
     'gateways' => [
         \DoubleThreeDigital\SimpleCommerce\Gateways\DummyGateway::class => [],
+
+        // \DoubleThreeDigital\SimpleCommerce\Gateways\StripeGateway::class => [
+        //     'key' => env('STRIPE_KEY'),
+        //     'secret' => env('STRIPE_SECRET'),
+        // ],
     ],
 
     'collections' => [
