@@ -1,4 +1,4 @@
-{{ if {sc:cart:has} === false }}
+{{ if {sc:cart:has} === false && segment_2 !== 'complete' }}
     {{ redirect to='/' }}
 {{ /if }}
 
