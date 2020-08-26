@@ -1,0 +1,14 @@
+<a class="w-full md:w-1/4" href="{{ url }}">
+    {{ if listing_image }}
+        <div class="h-48 w-full bg-gray-200 mb-2 flex items-center justify-center">
+            <img src="{{ listing_image }}" alt="{{ title }}">
+        </div>
+    {{ else }}
+        <div class="h-48 w-full bg-gray-200 mb-2"></div>
+    {{ /if }}
+
+    <div class="flex flex-row items-center justify-between">
+        <h3 class="font-bold text-gray-800 text-lg">{{ title }}</h3>
+        <h4 class="whitespace-no-wrap font-medium">{{ price }}</h4>
+    </div>
+</a>

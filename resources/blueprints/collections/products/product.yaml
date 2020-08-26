@@ -4,6 +4,11 @@ sections:
     display: Main
     fields:
       -
+        handle: title
+        field:
+          type: text
+          required: true
+      -
         handle: description
         field:
           restrict: false
@@ -15,6 +20,18 @@ sections:
           localizable: false
           listable: hidden
           display: Description
+      -
+        handle: listing_image
+        field:
+          mode: grid
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          type: assets
+          instructions: 'Will be displayed on product listing pages.'
+          localizable: false
+          listable: hidden
+          display: 'Listing Image'
   sidebar:
     display: Sidebar
     fields:
@@ -27,3 +44,17 @@ sections:
           listable: hidden
           display: Price
           factory: 'numberBetween(20, 50)'
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+      -
+        handle: product_categories
+        field:
+          type: terms
+          taxonomies:
+            - product_categories
+          display: 'Product Categories'
+          mode: select
