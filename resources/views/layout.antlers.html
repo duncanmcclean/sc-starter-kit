@@ -4,98 +4,65 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.1.4/tailwind.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-        <style>
-            .lds-dual-ring {
-                width: 2rem;
-                height: 2rem;
-            }
-            .lds-dual-ring:after {
-                content: " ";
-                display: block;
-                width: 2rem;
-                height: 2rem;
-                border-radius: 50%;
-                border: 3px solid #fff;
-                border-color: #fff transparent #fff transparent;
-                animation: lds-dual-ring 1.2s linear infinite;
-            }
-            @keyframes lds-dual-ring {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-
-        </style>
-        <title>{{ title or site:name }}</title>
+        <title>{{ title }} | {{ site:name }}</title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     </head>
     <body>
-        <div id="app">
-            {{ if (errors | count) >= 1 }}
-                <div class="w-full bg-red-600 text-center font-semibold py-2 text-white">
-                    Something doesn't look quite right.
+        <header class="bg-gray-900 mb-12">
+            <div class="flex items-center justify-between container mx-auto pt-6 pb-2">
+                <a href="/">
+                    <h2 class="text-white text-3xl">{{ site:name }}</h2>
+                </a>
+                <a class="flex items-center text-white space-x-4" href="/cart">
+                    <i class="fas fa-shopping-cart" style="font-size: 25px;"></i>
+                    <span class="flex flex-col">
+                        <span class="text-xl leading-none font-medium">£0.00</span>
+                        <span class="text-sm">0 items</span>
+                    </span>
+                </a>
+            </div>
+            <nav class="flex items-center container mx-auto pt-4 pb-6 space-x-6">
+                {{ nav:pages as='pages' include_home='true' }}
+                    {{ pages }}
+                        <a class="text-white {{ if current_uri === url }} font-semibold {{ else }} font-medium {{ /if }}" href="{{ url }}">{{ title }}</a>
+                    {{ /pages }}
+                {{ /nav:pages }}
+            </nav>
+        </header>
+
+        <main class="container mx-auto">
+            {{ template_content }}
+        </main>
+
+        <footer class="mt-12">
+            <div class="bg-gray-200 py-6">
+                <div class="container mx-auto">
+                    <h2 class="text-gray-800 font-semibold text-lg">Debugging Information</h2>
+                    {{ sc:cart }}
+                        <ul class="flex flex-col md:flex-row items-center flex-wrap">
+                            <li class="md:w-1/2 text-gray-800"><span class="font-semibold">Cart ID:</span> {{ id }}</li>
+                        </ul>
+                    {{ /sc:cart }}
                 </div>
-            {{ /if }}
-
-            {{ if !view:just_head }}
-                <header>
-                    <div class="bg-gray-200 w-full p-2 text-center font-bold text-gray-600 text-sm uppercase">Free shipping for everything over £15</div>
-
-                    <nav class="w-full bg-white p-6">
-                        <div class="container mx-auto flex flex-row items-center justify-between">
-                            <div class="flex flex-row items-center">
-                                <a class="font-bold text-gray-800 text-lg hover:text-blue-500 mr-4 {{ if current_uri === '/products' }} text-blue-500 {{ /if }}" href="/">Home</a>
-
-                                {{ nav as='pages' }}
-                                    {{ pages }}
-                                        <a class="font-bold text-gray-800 text-lg hover:text-blue-500 mx-4 {{ if current_uri === url }} text-blue-500 {{ /if }}" href="{{ url }}">{{ title }}</a>
-                                    {{ /pages }}
-                                {{ /nav }}
-                            </div>
-
-                            <nav class="flex flex-row items-center">
-                                <a class="flex flex-row items-center font-bold text-gray-800 hover:text-blue-500 mx-4" href="/cart">
-                                    <i class="fas fa-shopping-cart text-lg mr-2"></i>
-                                    {{ sc:cart:count }} Items
-                                </a>
-                            </nav>
+            </div>
+            <div class="bg-gray-900 py-8">
+                <div class="container mx-auto">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-2xl text-white font-medium">{{ site:name }}</h2>
+                            <span class="text-white text-sm">&copy {{ now format='Y' }} Copyright</span>
                         </div>
-                    </nav>
-                </header>
 
-                <section class="w-full h-64 bg-gray-200"></section>
-
-                <main class="my-6">
-                    <div class="container mx-auto">
-                        {{ template_content }}
+                        <form action="#">
+                            <input class="bg-white px-3 py-1 text-gray-600 focus:outline-none" type="search" name="query" placeholder="Search this site...">
+                        </form>
                     </div>
-                </main>
-
-                <footer>
-                    <div class="container mx-auto flex flex-row items-center justify-between w-full border-t border-gray-200 py-6">
-                        <div class="text-gray-800 font-semibold text-sm">
-                            <strong class="font-bold text-xl">{{ site:name }}</strong><br>
-                            &copy; {{ now format='Y' }} Copyright
-                        </div>
-
-                        <div class="flex flex-row items-center">
-                            {{ nav as='pages' }}
-                                {{ pages }}
-                                    <a class="text-gray-700 font-semibold mx-4" href="{{ url }}">{{ title }}</a>
-                                {{ /pages }}
-                            {{ /nav }}
-                        </div>
-                    </div>
-                </footer>
-            {{ else }}
-                {{ template_content }}
-            {{ /if }}
-        </div>
+                </div>
+            </div>
+        </footer>
 
         {{ yield:scripts }}
     </body>
