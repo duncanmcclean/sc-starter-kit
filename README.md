@@ -1,12 +1,20 @@
-# Simple Commerce Starter Kit
+TODO Screenshots
 
-This is a starter kit for [Simple Commerce](https://github.com/doublethreedigital/simple-commerce), an e-commerce addon for Statamic. The starter kit has some boilerplate views, routing for the cart and checkout and has Simple Commerce pre-installed.
+# Starter Kit for Simple Commerce
 
-This starter kit is built to show how Simple Commerce works. We recommend tearing out the design that's already here and add add your own. 
+![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
+
+## About starter kit
+
+## Features
+* Step-by-step checkout flow
+* Minimal design
+* Built with [TailwindCSS](https://tailwindcss.com/)
+* Made interactive with bits of [Alpine.js](https://github.com/alpinejs/alpine)
 
 ## Quick Start
 
-1. Create the site and install dependencies
+1. Create site & install dependencies
 
 ```
 git clone git@github.com:doublethreedigital/simple-commerce-starter.git rad-ecommerce-store
@@ -16,7 +24,7 @@ composer install
 cp .env.example .env && php artisan key:generate
 ```
 
-2. Publish Simple Commerce's latest vendor files
+2. Publish Simple Commerce's vendor assets. This will give you our default blueprints, fieldtypes and configuration file.
 
 ```
 php artisan vendor:publish --provider="DoubleThreeDigital\SimpleCommerce\ServiceProvider"
@@ -28,4 +36,4 @@ php artisan vendor:publish --provider="DoubleThreeDigital\SimpleCommerce\Service
 php artisan make:user
 ```
 
-4. **Build your site!**
+4. Get Started!
