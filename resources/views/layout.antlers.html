@@ -4,66 +4,20 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title }} | {{ site:name }}</title>
+        <title>{{ title or view:title }} | {{ site:name }}</title>
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <link href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     </head>
     <body>
-        <header class="bg-gray-900 mb-12">
-            <div class="flex items-center justify-between container mx-auto pt-6 pb-2">
-                <a href="/">
-                    <h2 class="text-white text-3xl">{{ site:name }}</h2>
-                </a>
-                <a class="flex items-center text-white space-x-4" href="/cart">
-                    <i class="fas fa-shopping-cart" style="font-size: 25px;"></i>
-                    <span class="flex flex-col">
-                        <span class="text-xl leading-none font-medium">£0.00</span>
-                        <span class="text-sm">0 items</span>
-                    </span>
-                </a>
-            </div>
-            <nav class="flex items-center container mx-auto pt-4 pb-6 space-x-6">
-                {{ nav:pages as='pages' include_home='true' }}
-                    {{ pages }}
-                        <a class="text-white {{ if current_uri === url }} font-semibold {{ else }} font-medium {{ /if }}" href="{{ url }}">{{ title }}</a>
-                    {{ /pages }}
-                {{ /nav:pages }}
-            </nav>
-        </header>
+        {{ partial:header }}
 
         <main class="container mx-auto">
             {{ template_content }}
         </main>
 
-        <footer class="mt-12">
-            <div class="bg-gray-200 py-6">
-                <div class="container mx-auto">
-                    <h2 class="text-gray-800 font-semibold text-lg">Debugging Information</h2>
-                    {{ sc:cart }}
-                        <ul class="flex flex-col md:flex-row items-center flex-wrap">
-                            <li class="md:w-1/2 text-gray-800"><span class="font-semibold">Cart ID:</span> {{ id }}</li>
-                        </ul>
-                    {{ /sc:cart }}
-                </div>
-            </div>
-            <div class="bg-gray-900 py-8">
-                <div class="container mx-auto">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h2 class="text-2xl text-white font-medium">{{ site:name }}</h2>
-                            <span class="text-white text-sm">&copy {{ now format='Y' }} Copyright</span>
-                        </div>
-
-                        <form action="#">
-                            <input class="bg-white px-3 py-1 text-gray-600 focus:outline-none" type="search" name="query" placeholder="Search this site...">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
+        {{ partial:footer }}
         {{ yield:scripts }}
     </body>
 </html>

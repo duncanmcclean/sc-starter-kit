@@ -1,0 +1,26 @@
+<footer class="mt-12">
+    <div class="bg-gray-200 py-6">
+        <div class="container mx-auto">
+            <h2 class="text-gray-800 font-semibold text-lg">Debugging Information</h2>
+            {{ sc:cart }}
+                <ul class="flex flex-col md:flex-row items-center flex-wrap">
+                    <li class="md:w-1/2 text-gray-800"><span class="font-semibold">Cart ID:</span> {{ id }}</li>
+                </ul>
+            {{ /sc:cart }}
+        </div>
+    </div>
+    <div class="bg-gray-900 py-8">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl text-white font-medium">{{ site:name }}</h2>
+                    <span class="text-white text-sm">&copy {{ now format='Y' }} Copyright</span>
+                </div>
+
+                <form action="#">
+                    <input class="bg-white px-3 py-1 text-gray-600 focus:outline-none" type="search" name="query" placeholder="Search this site...">
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
