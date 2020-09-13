@@ -15,7 +15,6 @@
     <body>
         <div class="bg-white">
             <!-- Session messages -->
-
             {{ if (errors | count) >= 1 }}
                 <div class="w-full bg-red-600 py-3">
                     <span class="text-white font-bold px-12">{{ errors }}</span>
@@ -26,8 +25,8 @@
                 </div>
             {{ /if }}
 
-            <header class="px-12 w-full my-12">
-                <nav class="flex items-center justify-between mb-1">
+            <header class="px-6 md:px-12 w-full my-6 md:my-12">
+                <nav class="hidden md:flex items-center justify-between mb-1">
                     <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/email" }}">Email</a>
                     <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/account" }}">Account</a>
                     <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/address" }}">Address</a>
@@ -35,21 +34,22 @@
                     <a class="flex-1 text-lg text-gray-900" href="{{ link to="/checkout/payment" }}">Payment</a>
                 </nav>
 
+                <h2 class="text-gray-800 text-lg mb-1"><span class="font-semibold">Checkout:</span> {{ yield:stage }}</h2>
+
                 <div class="w-full h-2 bg-gray-200 rounded-lg relative">
                     <div class="absolute h-full bg-blue-400" style="width: {{ yield:progress }};"></div>
                 </div>
             </header>
 
-            <main class="px-12 w-full">
+            <main class="px-6 md:px-12 w-full">
                 {{ template_content }}
             </main>
 
             <!-- Some useful information to help with debugging. -->
-            <footer class="bg-gray-200 px-12 py-8 w-full mt-20">
+            <footer class="bg-gray-200 px-6 md:px-12 py-8 w-full mt-10 md:mt-20">
                 {{ sc:cart }}
                     <h2 class="mb-1 font-bold text-grey-800">Debugging Information</h2>
                     <strong class="font-semibold">Cart ID:</strong> {{ id }}<br>
-                    <strong class="font-semibold">Has Paid:</strong> {{ is_paid }}<br>
                 {{ /sc:cart }}
             </footer>
         </div>
