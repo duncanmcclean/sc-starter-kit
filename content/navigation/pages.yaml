@@ -1,0 +1,9 @@
+title: Pages
+collections:
+  - pages
+root: true
+tree:
+  -
+    entry: home
+  -
+    entry: 23ce50a4-c01c-42dd-89d9-9ef9cfe6cd89

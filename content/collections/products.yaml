@@ -1,6 +1,8 @@
 title: Products
 template: products/show
 layout: layout
+taxonomies:
+  - product_categories
 revisions: false
 route: '/products/{slug}'
 sort_dir: asc

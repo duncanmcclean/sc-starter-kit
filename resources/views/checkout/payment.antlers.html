@@ -1,0 +1,97 @@
+{{ section:progress }}88%{{ /section:progress }}
+{{ section:stage }}Payment{{ /section:stage }}
+
+<h1 class="text-gray-800 font-bold text-2xl mb-4">Payment</h1>
+
+<div class="flex flex-col md:flex-row md:justify-between">
+    {{ sc:checkout redirect="/checkout/complete" class="flex-1 mb-8 md:mb-0" }}
+        <div x-data="{ gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}' }">
+            <div class="w-full md:w-1/2 mb-4 flex flex-col">
+                <label
+                    for="payment_method"
+                    class="text-gray-800 font-semibold mb-1"
+                >Payment Method</label>
+
+                <div class="inline-block relative w-full p-2 bg-gray-200">
+                    <select
+                        x-model="gateway"
+                        class="block appearance-none w-full bg-gray-200 text-gray-800 focus:outline-none"
+                        id="payment_method"
+                        name="gateway"
+                        value="{{ old:gateway }}"
+                        required
+                    >
+                        <option disabled>Choose a Payment Method</option>
+                        {{ sc:gateways }}
+                            <option value="{{ class }}">{{ name }}</option>
+                        {{ /sc:gateways }}
+                    </select>
+
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            {{ sc:gateways }}
+                <div class="w-full" x-show="gateway === '{{ formatted_class }}'">
+                    {{ partial src="checkout/gateways/{ handle }" }}
+                </div>
+            {{ /sc:gateways }}
+
+            <button
+                class="bg-blue-500 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
+                type="submit"
+                @click.prevent="loading = true; if(typeof confirmPayment == 'function' && document.getElementsByName('gateway')[0].value == 'DoubleThreeDigital\\SimpleCommerce\\Gateways\\StripeGateway') { confirmPayment(); } else { document.querySelector('form').submit() }"
+            >Pay {{ sc:cart }}{{ grand_total }}{{ /sc:cart }}</button>
+        </div>
+    {{ /sc:checkout }}
+
+    {{ sc:cart }}
+        <div class="w-full md:w-1/3 bg-gray-200 p-4">
+            <div class="mb-4">
+                <h2 class="text-lg font-semibold mb-1">Shipping to</h2>
+                <p>{{ shipping_name }}</p>
+                <p>{{ shipping_address }}</p>
+                <p>{{ shipping_city }}</p>
+                <p>{{ shipping_zip_code }}</p>
+                <p>{{ shipping_country }}</p>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-lg font-semibold mb-1">Shipping Method</h2>
+                <p>TEMP NAME TODO</p>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-lg font-semibold mb-1">Items</h2>
+
+                {{ sc:cart:items }}
+                    <div class="flex items-center justify-between">
+                        <p>{{ product:title }} x {{ quantity }}</p>
+                        <p class="text-right">{{ total }}</p>
+                    </div>
+                {{ /sc:cart:items }}
+            </div>
+
+            <div class="mb-4">
+                <div class="flex items-center justify-between mb-1">
+                    <p class="text-sm">Shipping</p>
+                    <p class="text-sm text-right">{{ shipping_total }}</p>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                    <p class="text-sm">Tax</p>
+                    <p class="text-sm text-right">{{ tax_total }}</p>
+                </div>
+                <div class="flex items-center justify-between mb-1">
+                    <p class="text-sm">Coupon</p>
+                    <p class="text-sm text-right">{{ coupon_total }}</p>
+                </div>
+                <div class="flex items-center justify-between mb-2">
+                    <p class="font-semibold">Grand Total</p>
+                    <p class="font-semibold text-right">{{ grand_total }}</p>
+                </div>
+            </div>
+        </div>
+    {{ /sc:cart }}
+</div>

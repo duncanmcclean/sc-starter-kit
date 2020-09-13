@@ -1,11 +1,21 @@
-<h2 class="text-center font-bold text-gray-700 text-3xl">Our Products</h2>
+{{ taxonomy:product_categories }}
+    <div class="mb-8 py-4">
+        <h2 class="text-3xl font-semibold mb-4">{{ title }}</h2>
 
-<div class="flex flex-row flex-wrap p-2">
-    {{ collection:products }}
-        <a class="w-1/2 md:w-1/4 px-2 py-4" href="{{ url }}">
-            <div class="h-40 bg-gray-200 mb-2"></div>
-            <h2 class="text-gray-700 font-bold text-xl">{{ title }}</h2>
-            <h3 class="text-gray-700 font-semibold text-sm">{{ price }}</h3>
-        </a>
-    {{ /collection:products }}
+        <div class="flex flex-col md:flex-row space-x-6">
+            {{ collection:products :taxonomy:product_categories="slug" limit="4" }}
+                {{ partial:product_card }}
+            {{ /collection:products }}
+        </div>
+    </div>
+{{ /taxonomy:product_categories }}
+
+<div class="mb-8 py-4">
+    <h2 class="text-3xl font-semibold mb-4">Newest Products</h2>
+
+    <div class="flex flex-col md:flex-row md:space-x-6">
+        {{ collection:products }}
+            {{ partial:product_card }}
+        {{ /collection:products }}
+    </div>
 </div>
