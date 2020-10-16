@@ -1,7 +1,7 @@
 {
-    "name": "statamic/statamic",
-    "description": "Statamic",
-    "keywords": ["statamic", "cms", "flat file", "laravel"],
+    "name": "doublethreedigital/sc-starter-kit",
+    "description": "Starter Kit for Simple Commerce",
+    "keywords": ["statamic", "starter kit", "simple commerce"],
     "type": "project",
     "require": {
         "php": "^7.2.5",
