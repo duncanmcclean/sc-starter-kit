@@ -37,7 +37,7 @@ php artisan vendor:publish --provider="DoubleThreeDigital\SimpleCommerce\Service
 3. Create your first user
 
 ```
-php artisan make:user
+php please make:user
 ```
 
 4. Get Started!
