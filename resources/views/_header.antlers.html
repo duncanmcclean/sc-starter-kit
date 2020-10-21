@@ -6,7 +6,7 @@
         <a class="flex items-center text-white space-x-4" href="{{ link to='/cart' }}">
             <i class="fas fa-shopping-cart" style="font-size: 25px;"></i>
             <span class="flex flex-col">
-                <span class="text-xl leading-none font-medium">{{ sc:cart:total }}</span>
+                <span class="text-xl leading-none font-medium">{{ sc:cart:total ?? '£0.00' }}</span>
                 <span class="text-sm">{{ sc:cart:count }} items</span>
             </span>
         </a>
