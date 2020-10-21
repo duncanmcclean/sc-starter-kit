@@ -1,7 +1,4 @@
-<p style="display: inline-block;">
-	<img src="./screenshot-product-detail.png" width="50%">
-	<img src="./screenshot-checkout.png" width="50%">
-</p>
+<img src="./screenshots.png">
 
 # Starter Kit for Simple Commerce
 
