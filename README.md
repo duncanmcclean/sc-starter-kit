@@ -1,4 +1,5 @@
-TODO Screenshots
+<img src="./screenshot-product-detail.png" width="50%">
+<img src="./screenshot-checkout.png" width="50%">
 
 # Starter Kit for Simple Commerce
 
