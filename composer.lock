@@ -2393,12 +2393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mollie/mollie-api-php.git",
-                "reference": "52bd606724109906d61226698c8b031ccae9e637"
+                "reference": "9cf1aac73d57461eae20f1c6661a1528d4430f80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/52bd606724109906d61226698c8b031ccae9e637",
-                "reference": "52bd606724109906d61226698c8b031ccae9e637",
+                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/9cf1aac73d57461eae20f1c6661a1528d4430f80",
+                "reference": "9cf1aac73d57461eae20f1c6661a1528d4430f80",
                 "shasum": ""
             },
             "require": {
@@ -2471,7 +2471,7 @@
                 "sofortbanking",
                 "subscriptions"
             ],
-            "time": "2020-10-15T12:55:48+00:00"
+            "time": "2020-11-09T10:01:18+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -4046,16 +4046,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.0.25",
+            "version": "v3.0.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "1f3c64d63d20ec19fa12baa3cd7fcecc0ec4fcea"
+                "reference": "dd86bfe6d07e3dd64fba7a83665865d1be61f0ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/1f3c64d63d20ec19fa12baa3cd7fcecc0ec4fcea",
-                "reference": "1f3c64d63d20ec19fa12baa3cd7fcecc0ec4fcea",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/dd86bfe6d07e3dd64fba7a83665865d1be61f0ef",
+                "reference": "dd86bfe6d07e3dd64fba7a83665865d1be61f0ef",
                 "shasum": ""
             },
             "require": {
@@ -4125,7 +4125,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-06T20:49:14+00:00"
+            "time": "2020-11-10T20:52:03+00:00"
         },
         {
             "name": "statamic/stringy",
