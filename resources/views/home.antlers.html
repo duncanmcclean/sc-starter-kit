@@ -3,8 +3,14 @@
         <h2 class="text-3xl font-semibold mb-4">{{ title }}</h2>
 
         <div class="flex flex-col md:flex-row space-x-6">
-            {{ collection:products :taxonomy:product_categories="slug" limit="4" }}
-                {{ partial:product_card }}
+            {{ collection:products :taxonomy:product_categories="slug" limit="4" as="products" }}
+                {{ if no_results }}
+                    <p>No products found.</p>
+                {{ /if }}
+
+                {{ products }}
+                    {{ partial:product_card }}
+                {{ /products }}
             {{ /collection:products }}
         </div>
     </div>
@@ -14,8 +20,14 @@
     <h2 class="text-3xl font-semibold mb-4">Newest Products</h2>
 
     <div class="flex flex-col md:flex-row md:space-x-6">
-        {{ collection:products }}
-            {{ partial:product_card }}
+        {{ collection:products as="products" }}
+            {{ if no_results }}
+                <p>No products found.</p>
+            {{ /if }}
+
+            {{ products }}
+                {{ partial:product_card }}
+            {{ /products }}
         {{ /collection:products }}
     </div>
 </div>
