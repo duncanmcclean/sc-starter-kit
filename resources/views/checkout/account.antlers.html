@@ -8,122 +8,149 @@
 {{ /if }}
 
 <div class="flex flex-col md:flex-row md:space-x-12">
+    {{ user:register_form redirect="/checkout/address" class="mb-4 md:mb-0 w-full md:w-2/5" }}
+        <div class="bg-gray-200 px-4 py-6">
+            <h2 class="text-gray-800 font-bold text-xl mb-4">Register</h2>
 
-{{ user:register_form redirect="/checkout/address" class="mb-4 md:mb-0 w-full md:w-2/5" }}
-	<div class="bg-gray-200 px-4 py-6">
-		<h2 class="text-gray-800 font-bold text-xl mb-4">Register</h2>
+            {{ if errors }}
+                <p class="text-red-600 font-semibold mb-1">There were some issues submitting the form:</p>
+                <ul class="mb-6">
+                    {{ errors }}
+                        <li class="text-sm text-gray-800 mb-1">{{ value }}</li>
+                    {{ /errors }}
+                </ul>
+            {{ /if }}
 
-		<!-- form errors -->
+            <div class="w-full mb-4 flex flex-col">
+                <label
+                    for="name"
+                    class="text-gray-800 font-semibold mb-1"
+                >Name</label>
 
-		<div class="w-full mb-4 flex flex-col">
-			<label
-				for="name"
-				class="text-gray-800 font-semibold mb-1"
-			>Name</label>
+                <input
+                    class="bg-white p-2 text-gray-800"
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Duncan M"
+                    value="{{ old:name }}"
+                    required
+                >
+            </div>
 
-			<input
-				class="bg-white p-2 text-gray-800"
-				id="name"
-				type="text"
-				name="name"
-				placeholder="Duncan M"
-				value="{{ old:name }}"
-				required
-			>
-		</div>
+            <div class="w-full mb-4 flex flex-col">
+                <label
+                    for="email"
+                    class="text-gray-800 font-semibold mb-1"
+                >Email</label>
 
-		<div class="w-full mb-4 flex flex-col">
-			<label
-				for="email"
-				class="text-gray-800 font-semibold mb-1"
-			>Email</label>
+                <input
+                    class="bg-white p-2 text-gray-800"
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="duncan@example.com"
+                    value="{{ old:email }}"
+                    required
+                >
+            </div>
 
-			<input
-				class="bg-white p-2 text-gray-800"
-				id="email"
-				type="email"
-				name="email"
-				placeholder="duncan@example.com"
-				value="{{ old:email }}"
-				required
-			>
-		</div>
+            <div class="w-full mb-4 flex flex-col">
+                <label
+                    for="password"
+                    class="text-gray-800 font-semibold mb-1"
+                >Password</label>
 
-		<div class="w-full mb-4 flex flex-col">
-			<label
-				for="password"
-				class="text-gray-800 font-semibold mb-1"
-			>Password</label>
+                <input
+                    class="bg-white p-2 text-gray-800"
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder=""
+                    required
+                >
+            </div>
 
-			<input
-				class="bg-white p-2 text-gray-800"
-				id="password"
-				type="password"
-				name="password"
-				placeholder=""
-				value="{{ old:password }}"
-				required
-			>
-		</div>
+            <div class="w-full mb-4 flex flex-col">
+                <label
+                    for="password_confirmation"
+                    class="text-gray-800 font-semibold mb-1"
+                >Password confirmation</label>
 
-		<div class="flex flex-row items-center mt-6">
-			<button
-				class="bg-gray-900 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
-				type="submit"
-			>Register</button>
+                <input
+                    class="bg-white p-2 text-gray-800"
+                    id="password_confirmation"
+                    type="password"
+                    name="password_confirmation"
+                    placeholder=""
+                    required
+                >
+            </div>
 
-			<a class="ml-4 text-gray-900 font-medium" href="{{ link to="/checkout/address" }}">Continue as Guest</a>
-		</div>
-	</div>
-{{ /user:register_form }}
+            <div class="flex flex-row items-center mt-6">
+                <button
+                    class="bg-gray-900 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
+                    type="submit"
+                >Register</button>
 
-{{ user:login_form redirect="/checkout/address" class="mb-4 md:mb-0 w-full md:w-2/5" }}
-	<div class="bg-gray-200 px-4 py-6">
-		<h2 class="text-gray-800 font-bold text-xl mb-4">Login</h2>
+                <a class="ml-4 text-gray-900 font-medium" href="{{ link to="/checkout/address" }}">Continue as Guest</a>
+            </div>
+        </div>
+    {{ /user:register_form }}
 
-		<!-- form errors -->
+    {{ user:login_form redirect="/checkout/address" class="mb-4 md:mb-0 w-full md:w-2/5" }}
+        <div class="bg-gray-200 px-4 py-6">
+            <h2 class="text-gray-800 font-bold text-xl mb-4">Login</h2>
 
-		<div class="w-full mb-4 flex flex-col">
-			<label
-				for="email"
-				class="text-gray-800 font-semibold mb-1"
-			>Email</label>
+            {{ if errors }}
+                <p class="text-red-600 font-semibold mb-1">There were some issues submitting the form:</p>
+                <ul class="mb-6">
+                    {{ errors }}
+                        <li class="text-sm text-gray-800 mb-1">{{ value }}</li>
+                    {{ /errors }}
+                </ul>
+            {{ /if }}
 
-			<input
-				class="bg-white p-2 text-gray-800"
-				id="email"
-				type="email"
-				name="email"
-				placeholder="duncan@example.com"
-				value="{{ old:email }}"
-				required
-			>
-		</div>
+            <div class="w-full mb-4 flex flex-col">
+                <label
+                    for="email"
+                    class="text-gray-800 font-semibold mb-1"
+                >Email</label>
 
-		<div class="w-full mb-4 flex flex-col">
-			<label
-				for="password"
-				class="text-gray-800 font-semibold mb-1"
-			>Password</label>
+                <input
+                    class="bg-white p-2 text-gray-800"
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="duncan@example.com"
+                    value="{{ old:email }}"
+                    required
+                >
+            </div>
 
-			<input
-				class="bg-white p-2 text-gray-800"
-				id="password"
-				type="password"
-				name="password"
-				placeholder=""
-				value="{{ old:password }}"
-				required
-			>
-		</div>
+            <div class="w-full mb-4 flex flex-col">
+                <label
+                    for="password"
+                    class="text-gray-800 font-semibold mb-1"
+                >Password</label>
 
-		<div class="flex flex-row items-center mt-6">
-			<button
-				class="bg-gray-900 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
-				type="submit"
-			>Login</button>
-		</div>
-	</div>
-{{ /user:login_form }}
+                <input
+                    class="bg-white p-2 text-gray-800"
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder=""
+                    value="{{ old:password }}"
+                    required
+                >
+            </div>
 
+            <div class="flex flex-row items-center mt-6">
+                <button
+                    class="bg-gray-900 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
+                    type="submit"
+                >Login</button>
+            </div>
+        </div>
+    {{ /user:login_form }}
 </div>
