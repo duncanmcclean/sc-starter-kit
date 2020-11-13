@@ -20,7 +20,7 @@
                     <span class="text-white font-bold px-12">{{ errors }}</span>
                 </div>
             {{ elseif (session:message) }}
-                <div class="w-full bg-blue-500 py-3">
+                <div class="w-full bg-gray-900 py-3">
                     <span class="text-white font-bold px-12">{{ session:message }}</span>
                 </div>
             {{ /if }}
@@ -37,7 +37,7 @@
                 <h2 class="text-gray-800 text-lg mb-1"><span class="font-semibold">Checkout:</span> {{ yield:stage }}</h2>
 
                 <div class="w-full h-2 bg-gray-200 rounded-lg relative">
-                    <div class="absolute h-full bg-blue-400" style="width: {{ yield:progress }};"></div>
+                    <div class="absolute h-full bg-gray-900" style="width: {{ yield:progress }};"></div>
                 </div>
             </header>
 

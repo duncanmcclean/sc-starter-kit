@@ -40,7 +40,7 @@
             {{ /sc:gateways }}
 
             <button
-                class="bg-blue-500 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
+                class="bg-gray-900 text-white font-bold uppercase flex items-center justify-center px-6 py-2"
                 type="submit"
                 @click.prevent="loading = true; if(typeof confirmPayment == 'function' && document.getElementsByName('gateway')[0].value == 'DoubleThreeDigital\\SimpleCommerce\\Gateways\\StripeGateway') { confirmPayment(); } else { document.querySelector('form').submit() }"
             >Pay {{ sc:cart }}{{ grand_total }}{{ /sc:cart }}</button>
@@ -56,11 +56,6 @@
                 <p>{{ shipping_city }}</p>
                 <p>{{ shipping_zip_code }}</p>
                 <p>{{ shipping_country }}</p>
-            </div>
-
-            <div class="mb-4">
-                <h2 class="text-lg font-semibold mb-1">Shipping Method</h2>
-                <p>TEMP NAME TODO</p>
             </div>
 
             <div class="mb-4">
