@@ -26,6 +26,7 @@ cd rad-ecommerce-store
 rm -rf .git
 composer install
 cp .env.example .env && php artisan key:generate
+npm install && npm run dev
 ```
 
 2. Publish Simple Commerce's vendor assets. This will publish Simple Commerce's Control Panel assets and translations.
