@@ -57,3 +57,8 @@ There's also a few commands you can run to compile your assets for various envir
 * `npm run production` - to compile and minify your assets, ready for production
 
 You can of course customise this setup however you want.
+
+## Resources
+* [Documentation](https://sc-docs.doublethree.digital)
+* [Simple Commerce Issues](https://github.com/doublethreedigital/simple-commerce/issues)
+* [Simple Commerce Discussions](https://github.com/doublethreedigital/simple-commerce/discussions)
