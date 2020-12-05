@@ -18,16 +18,27 @@ sections:
           automatic_links: false
           escape_markup: false
           smartypants: false
-          display: Description
           type: markdown
-          icon: markdown
           listable: hidden
+          display: Description
       -
         handle: product_variants
         field:
           display: 'Product Variants'
           type: product_variants
           icon: product_variants
+          listable: hidden
+      -
+        handle: gallery
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          max_files: 3
+          display: 'Gallery Images'
+          type: assets
+          icon: assets
           listable: hidden
   sidebar:
     display: Sidebar

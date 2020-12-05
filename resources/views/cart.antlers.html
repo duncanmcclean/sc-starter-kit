@@ -1,123 +1,60 @@
----
-title: Cart
----
-
-{{ if {sc:cart:has} === false || {sc:cart:count} === 0 }}
-    {{ redirect to='/' }}
-{{ /if }}
-
-<h1 class="text-gray-800 text-4xl font-semibold mb-4">Cart</h1>
-
-{{ sc:cart }}
-    <table class="table-auto w-full">
-        <thead>
-            <tr class="border-b border-gray-200">
-                <th class="px-2 py-2 text-left font-semibold text-sm w-2/3">Name</th>
-                <th class="px-2 py-2 text-left font-semibold text-sm">Qty</th>
-                <th class="px-2 py-2 text-left font-semibold text-sm">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{ items }}
-                <tr class="{{ switch between='bg-white|bg-gray-100' }}">
-                    <td class="text-sm px-2 py-2">
-                        {{ product:title }}
-
-                        {{ sc:cart:removeItem :item='id' class='inline-flex ml-4' }}
-                            <button class="text-gray-700 hover:text-gray-800 text-sm">
-                                <i class="fas fa-times"></i>
-                                Remove
-                            </button>
-                        {{ /sc:cart:removeItem }}
-                    </td>
-                    <td class="text-sm px-2 py-2">
-                        {{ sc:cart:updateItem :item='id' }}
-                            <select name="quantity" onchange="parentElement.submit()">
-                                {{ loop from='1' to='5' }}
-                                    <option value="{{ value }}" {{ if quantity == value }} selected {{ /if }}>{{ value }}x</option>
-                                {{ /loop }}
-                            </select>
-                        {{ /sc:cart:updateItem }}
-                    </td>
-                    <td class="text-sm px-2 py-2">{{ total }}</td>
-                </tr>
-            {{ /items }}
-            <tr>
-                <td></td>
-                <td class="text-sm px-2 py-2">Items Total</td>
-                <td class="text-sm px-2 py-2">{{ items_total }}</td>
-            </tr>
-            {{ if coupon }}
-                <tr>
-                    <td></td>
-                    <td class="text-sm px-2 py-2">Coupon Total</td>
-                    <td class="text-sm px-2 py-2">{{ coupon_total }}</td>
-                </tr>
-            {{ /if }}
-            {{ if shipping_method }}
-                <tr>
-                    <td></td>
-                    <td class="text-sm px-2 py-2">Shipping Total</td>
-                    <td class="text-sm px-2 py-2">{{ shipping_total }}</td>
-                </tr>
-            {{ /if }}
-            {{ if tax_total }}
-                <tr>
-                    <td></td>
-                    <td class="text-sm px-2 py-2">Tax Total</td>
-                    <td class="text-sm px-2 py-2">{{ tax_total }}</td>
-                </tr>
-            {{ /if }}
-            <tr>
-                <td></td>
-                <td class="text-sm px-2 py-2 font-semibold bg-gray-200">Grand Total</td>
-                <td class="text-sm px-2 py-2 bg-gray-200">{{ grand_total }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="flex justify-end my-4">
-        <a
-            class="md:w-1/5 bg-gray-900 hover:bg-gray-800 py-2 px-6 text-center text-white font-bold"
-            href="{{ link to='/checkout' }}"
-        >
-            Continue to checkout
-        </a>
+<section class="py-8 border-b border-gray-200">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-center text-4xl font-semibold mb-2">Your cart</h2>
     </div>
-{{ /sc:cart }}
+</section>
 
-<div class="border-b border-gray-200 my-6"></div>
+<main>
+    <div class="max-w-4xl mx-auto my-12">
+        {{ if {sc:cart:has} === false || {sc:cart:count} === 0 }}
+            <p>Your cart is empty. <a href="/catalog">Start shopping</a>.</p>
+        {{ /if }}
 
-<h2 class="text-gray-800 text-3xl font-semibold mb-4">Redeem a Coupon</h2>
+        {{ sc:cart }}
+            <table class="table-auto w-full">
+                <thead>
+                    <tr class="border-b border-gray-200">
+                        <th class="px-2 py-4 text-left font-semibold text-sm w-2/3">Name</th>
+                        <th class="px-2 py-4 text-left font-semibold text-sm">Price</th>
+                        <th class="px-2 py-4 text-left font-semibold text-sm">Quantity</th>
+                        <th class="px-2 py-4 text-left font-semibold text-sm">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ items }}
+                        <tr class="border-b border-gray-200">
+                            <td class="text-sm px-2 py-4">
+                                <div class="flex flex-row items-center">
+                                    <a class="block" href="{{ product:url }}">
+                                        {{ product:gallery }}
+                                            {{ if first }}
+                                                <img class="w-16" src="{{ url }}" alt="{{ alt }}">
+                                            {{ /if }}
+                                        {{ /product:gallery }}
+                                    </a>
+                                    <div class="px-2">
+                                        <span class="font-semibold">{{ product:title }}</span><br>
+                                        <a class="mt-1 block text-sm text-gray-700" href="#">Remove</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-sm px-2 py-4">{{ product:price }}</td>
+                            <td class="text-sm px-2 py-4">{{ quantity }}</td>
+                            <td class="text-sm px-2 py-4">{{ total }}</td>
+                        </tr>
+                    {{ /items }}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="text-sm px-2 py-4 font-semibold">Items Total</td>
+                        <td class="text-sm px-2 py-4">{{ items_total }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-{{ if {sc:coupon:has} === true }}
-    {{ sc:coupon:remove }}
-        <p>You have already redeemed <span class="font-medium">{{ sc:coupon }}{{ slug }}{{ /sc:coupon }}</span>. To try another coupon, <button class="text-red-600 font-semibold inline-block focus:outline-none">remove this</button> one first.</p>
-    {{ /sc:coupon:remove }}
-{{ else }}
-    {{ sc:coupon:redeem id='redeemCoupon' }}
-        <div class="w-full md:w-2/5 mb-4 flex flex-col">
-            <label
-                for="code"
-                class="text-gray-800 font-semibold mb-1"
-            >Coupon Code</label>
-
-            <input
-                class="bg-gray-200 p-2 text-gray-800"
-                id="code"
-                type="text"
-                name="code"
-                placeholder="BOGOFF"
-                value="{{ old:code }}"
-                required
-            >
-        </div>
-
-        <button
-            class="md:w-2/5 bg-gray-900 hover:bg-gray-800 py-2 px-6 text-white font-bold"
-            type="submit"
-        >
-            Redeem Coupon
-        </button>
-    {{ /sc:coupon:redeem }}
-{{ /if }}
+            <div class="flex items-center justify-end my-12">
+                <a class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2" href="/checkout">Continue to Checkout</a>
+            </div>
+        {{ /sc:cart }}
+    </div>
+</main>

@@ -1,81 +1,33 @@
-<div class="w-full md:w-1/2 mb-4 flex flex-col">
-    <label
-        for="cardholder"
-        class="text-gray-800 font-semibold mb-1"
-    >Cardholder</label>
-
-    <input
-        class="bg-gray-200 p-2 text-gray-800"
-        id="cardholder"
-        type="text"
-        name="cardholder"
-        placeholder="Duncan McClean"
-        value="{{ old:cardholder }}"
-    >
-</div>
-
-<div class="w-full md:w-1/2 mb-4 flex flex-col">
-    <label
-        for="card_number"
-        class="text-gray-800 font-semibold mb-1"
-    >Card Number</label>
-
-    <input
-        class="bg-gray-200 p-2 text-gray-800"
-        id="card_number"
-        type="number"
-        name="card_number"
-        placeholder="4242 4242 4242 4242"
-        value="{{ old:card_number }}"
-    >
-</div>
-
-<div class="w-full md:w-1/2 flex flex-row items-center">
-    <div class="w-full md:w-1/2 mb-4 flex flex-col pr-2">
-        <label
-            for="expiry_month"
-            class="text-gray-800 font-semibold mb-1"
-        >Expiry Month</label>
-
-        <input
-            class="bg-gray-200 p-2 text-gray-800"
-            id="expiry_month"
-            type="number"
-            name="expiry_month"
-            placeholder="09"
-            value="{{ old:expiry_month }}"
-        >
+<div class="flex flex-row space-x-4 mb-4">
+    <div class="flex-1 flex flex-col mb-2">
+        <label for="cardholder" class="mb-1 text-xs text-gray-700">Cardholder</label>
+        <input type="text" id="cardholder" name="cardholder" placeholder="Mr Alistair Murray" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:cardholder }}">
     </div>
 
-    <div class="w-full md:w-1/2 mb-4 flex flex-col pl-2">
-        <label
-            for="expiry_year"
-            class="text-gray-800 font-semibold mb-1"
-        >Expiry Year</label>
-
-        <input
-            class="bg-gray-200 p-2 text-gray-800"
-            id="expiry_year"
-            type="number"
-            name="expiry_year"
-            placeholder="2023"
-            value="{{ old:expiry_year }}"
-        >
+    <div class="flex-1 flex flex-col mb-2">
+        <label for="card_number" class="mb-1 text-xs text-gray-700">Card Number</label>
+        <input type="number" id="card_number" name="card_number" placeholder="4242 4242 4242 4242" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:card_number }}">
     </div>
 </div>
 
-<div class="w-full md:w-1/2 mb-4 flex flex-col">
-    <label
-        for="cvc"
-        class="text-gray-800 font-semibold mb-1"
-    >CVC (Security Code)</label>
+<div class="flex flex-row space-x-4 mb-4">
+    <div class="flex-1 flex flex-col mb-2">
+        <label for="expiry_month" class="mb-1 text-xs text-gray-700">Expiry Month</label>
+        <input type="number" id="expiry_month" name="expiry_month" placeholder="09" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:expiry_month }}">
+    </div>
 
-    <input
-        class="bg-gray-200 p-2 text-gray-800"
-        id="cvc"
-        type="number"
-        name="cvc"
-        placeholder="961"
-        value="{{ old:cvc }}"
-    >
+    <div class="flex-1 flex flex-col mb-2">
+        <label for="expiry_year" class="mb-1 text-xs text-gray-700">Expiry Year</label>
+        <input type="number" id="expiry_year" name="expiry_year" placeholder="23" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:expiry_year }}">
+    </div>
+</div>
+
+
+<div class="flex flex-row space-x-4 mb-4">
+    <div class="flex-1 flex flex-col mb-2">
+        <label for="cvc" class="mb-1 text-xs text-gray-700">CVC (Security Code)</label>
+        <input type="number" id="cvc" name="cvc" placeholder="123" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:cvc }}">
+    </div>
+
+    <div></div>
 </div>

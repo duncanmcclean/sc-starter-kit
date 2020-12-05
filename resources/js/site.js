@@ -1,1 +1,3 @@
-// This is all you.
+import mediumZoom from 'medium-zoom'
+
+mediumZoom('[data-zoomable]')

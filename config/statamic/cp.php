@@ -39,16 +39,6 @@ return [
 
     'widgets' => [
         'getting_started',
-        [
-            'type' => 'collection',
-            'collection' => 'products',
-            'width' => 50,
-        ],
-        [
-            'type' => 'collection',
-            'collection' => 'orders',
-            'width' => 50,
-        ],
     ],
 
     /*

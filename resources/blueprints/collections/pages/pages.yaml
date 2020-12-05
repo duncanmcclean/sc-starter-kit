@@ -8,6 +8,8 @@ sections:
         field:
           type: text
           required: true
+          validate:
+            - required
       -
         handle: content
         field:
@@ -23,6 +25,8 @@ sections:
           type: slug
           required: true
           localizable: true
+          validate:
+            - required
       -
         handle: parent
         field:
@@ -31,3 +35,10 @@ sections:
             - pages
           max_items: 1
           listable: false
+          localizable: true
+      -
+        handle: template
+        field:
+          type: template
+          display: Template
+          localizable: true

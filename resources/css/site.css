@@ -1,9 +1,7 @@
-@tailwind base;
+@import "tailwindcss/base";
 
-@tailwind components;
+@import "site";
 
-@tailwind utilities;
+@import "tailwindcss/components";
 
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css";
-
-/* The rest is all you. */
+@import "tailwindcss/utilities";

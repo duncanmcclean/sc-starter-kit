@@ -1,11 +1,11 @@
 {
     "name": "doublethreedigital/sc-starter-kit",
-    "description": "Starter Kit for Simple Commerce",
+    "description": "Simple Commerce - Starter Kit",
     "keywords": ["statamic", "starter kit", "simple commerce"],
     "type": "project",
     "require": {
         "php": "^7.3",
-        "doublethreedigital/simple-commerce": "^2.0@beta",
+        "doublethreedigital/simple-commerce": "^2.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

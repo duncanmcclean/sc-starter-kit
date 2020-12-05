@@ -1,22 +1,72 @@
 <!doctype html>
-<html lang="{{ site_short_locale }}">
+<html lang="{{ site:short_locale }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title or view:title }} | {{ site:name }}</title>
+        <title>{{ title ?? site:name }}</title>
         <link rel="stylesheet" href="{{ mix src='css/site.css' }}">
-        <script src="{{ mix src='js/site.js' }}"></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
-    <body class="w-full">
-        {{ partial:header }}
+    <body>
+        {{ if !view:hide_header }}
+            <header>
+                <div class="max-w-4xl mx-auto flex items-center justify-between py-4">
+                    <h2>
+                        <a class="text-gray-900 font-semibold text-xl" href="{{ site:url }}">{{ site:name }}</a>
+                    </h2>
 
-        <main class="px-6 md:px-0 container md:mx-auto">
-            {{ template_content }}
-        </main>
+                    <nav>
+                        {{ nav:pages }}
+                            <a class="mx-4 {{ if is_current }} border-b-2 border-gray-900 pb-1 {{ /if }}" href="{{ url }}">{{ title }}</a>
+                        {{ /nav:pages }}
+                    </nav>
 
-        {{ partial:footer }}
-        {{ yield:scripts }}
+                    <div>
+                        <a class="mx-2" href="/cart">Cart</a>
+                    </div>
+                </div>
+            </header>
+        {{ /if }}
+
+        {{ template_content }}
+
+        <footer class="bg-gray-100">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex py-12">
+                    <div class="w-2/3">
+                        <h2 class="text-lg text-gray-900 font-semibold mb-2">Pages</h2>
+                        <div class="flex flex-col">
+                            {{ nav:pages }}
+                                <a class="mb-1 text-gray-700" href="{{ url }}">{{ title }}</a>
+                            {{ /nav:pages }}
+                        </div>
+                    </div>
+
+                    <div class="w-1/3">
+                        <h2 class="text-lg text-gray-900 font-semibold mb-2">Search</h2>
+
+                        <form action="/search/results">
+                            <div class="flex flex-row bg-white rounded overflow-hidden">
+                                <input class="p-2 w-full focus:outline-none" type="search" name="q" placeholder="Tartan Kilt">
+                                <button class="px-4 py-2 font-semibold focus:outline-none bg-gray-300" type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full bg-gray-300 h-1"></div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center justify-between py-6">
+                    <p class="text-gray-700 text-sm">All major payment cards accepted.</p>
+
+                    <p class="text-gray-700 text-sm">&copy {{ now format="Y" }} All Rights Reserved</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{{ mix src='/js/site.js' }}"></script>
     </body>
 </html>

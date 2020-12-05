@@ -271,6 +271,18 @@ sections:
           display: 'Order Date'
           validate: required
       -
+        handle: order_status
+        field:
+          max_items: 1
+          mode: default
+          taxonomies:
+            - order_statuses
+          type: terms
+          localizable: false
+          listable: hidden
+          display: 'Order Status'
+          default: cart
+      -
         handle: is_paid
         field:
           type: toggle

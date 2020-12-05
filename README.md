@@ -1,16 +1,16 @@
-<img src="./screenshots.png">
-
-# Starter Kit for Simple Commerce
+# Simple Commerce Starter Kit
 
 ![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
 
-This starter kit is the recommended way of creating a new Simple Commerce store. It also demonstrates how certain features and tags are implemented inside Simple Commerce sites. This store is meant for creating new stores from **and** should be customised before it goes into a production environment.
+This starter kit is the recommended starting place for creating Simple Commerce sites. It includes a minimal, boilerplate design which demonstrates most of the features and functionality Simple Commerce has to offer. You're free to make any changes you want, even redesign the whole front-end to build what you need to build.
 
 ## Features
 * Minimal design
-* Step-by-step checkout flow
-* Built with TailwindCSS & Alpine.js
-* Easy to customise
+* Step by step checkout process
+* Built with TailwindCSS and Alpine.js
+* Demonstrates Simple Commerce functionality
+* Supports both standalone and variant products
+* Includes basic product filtering
 
 ## About Simple Commerce
 
@@ -21,8 +21,8 @@ This starter kit is the recommended way of creating a new Simple Commerce store.
 1. Create site & install dependencies
 
 ```
-git clone git@github.com:doublethreedigital/simple-commerce-starter.git rad-ecommerce-store
-cd rad-ecommerce-store
+git clone git@github.com:doublethreedigital/simple-commerce-starter.git bobs-sweet-shop
+cd bobs-sweet-shop
 rm -rf .git
 composer install
 cp .env.example .env && php artisan key:generate
