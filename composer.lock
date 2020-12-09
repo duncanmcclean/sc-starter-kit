@@ -3739,16 +3739,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.0.32",
+            "version": "v3.0.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "ee6970ddb58a163b81454137bc3af7cbc559acf7"
+                "reference": "af3afbc0da7737e4564af538cf16511632f3a170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/ee6970ddb58a163b81454137bc3af7cbc559acf7",
-                "reference": "ee6970ddb58a163b81454137bc3af7cbc559acf7",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/af3afbc0da7737e4564af538cf16511632f3a170",
+                "reference": "af3afbc0da7737e4564af538cf16511632f3a170",
                 "shasum": ""
             },
             "require": {
@@ -3818,7 +3818,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-02T18:28:11+00:00"
+            "time": "2020-12-08T21:21:47+00:00"
         },
         {
             "name": "statamic/stringy",
