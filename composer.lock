@@ -3739,16 +3739,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.0.32",
+            "version": "v3.0.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "ee6970ddb58a163b81454137bc3af7cbc559acf7"
+                "reference": "100ae64ee18c6cdb3ac54fa3fd64bd744e6e6931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/ee6970ddb58a163b81454137bc3af7cbc559acf7",
-                "reference": "ee6970ddb58a163b81454137bc3af7cbc559acf7",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/100ae64ee18c6cdb3ac54fa3fd64bd744e6e6931",
+                "reference": "100ae64ee18c6cdb3ac54fa3fd64bd744e6e6931",
                 "shasum": ""
             },
             "require": {
@@ -3756,7 +3756,7 @@
                 "ext-json": "*",
                 "facade/ignition-contracts": "^1.0",
                 "guzzlehttp/guzzle": "^6.3 || ^7.0",
-                "laravel/framework": "^6.0 || ^7.0 || ^8.0",
+                "laravel/framework": "^6.0 || ^7.0 || ^8.18.1",
                 "laravel/helpers": "^1.1",
                 "league/commonmark": "^1.5",
                 "league/csv": "^9.0",
@@ -3765,11 +3765,12 @@
                 "pixelfear/composer-dist-plugin": "^0.1.4",
                 "spatie/blink": "^1.1.2",
                 "statamic/stringy": "^3.1",
+                "symfony/http-foundation": "^4.3.3 || ^5.1.4",
                 "symfony/lock": "^5.1",
                 "symfony/var-exporter": "^4.3",
                 "symfony/yaml": "^4.1 || ^5.1",
-                "ueberdosis/html-to-prosemirror": "^1.0",
-                "ueberdosis/prosemirror-to-html": "^2.0",
+                "ueberdosis/html-to-prosemirror": "^1.3",
+                "ueberdosis/prosemirror-to-html": "^2.2",
                 "wilderborn/partyline": "^1.0"
             },
             "require-dev": {
@@ -3818,25 +3819,28 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-02T18:28:11+00:00"
+            "time": "2020-12-09T20:23:32+00:00"
         },
         {
             "name": "statamic/stringy",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/Stringy.git",
-                "reference": "e281758654e668c9b267886815d6b302e8991da1"
+                "reference": "7c2be439de2e4ab29f8e1a461567d36fb984b4b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/Stringy/zipball/e281758654e668c9b267886815d6b302e8991da1",
-                "reference": "e281758654e668c9b267886815d6b302e8991da1",
+                "url": "https://api.github.com/repos/statamic/Stringy/zipball/7c2be439de2e4ab29f8e1a461567d36fb984b4b8",
+                "reference": "7c2be439de2e4ab29f8e1a461567d36fb984b4b8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
                 "symfony/polyfill-mbstring": "~1.1"
+            },
+            "replace": {
+                "danielstjules/stringy": "1.10.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
@@ -3862,7 +3866,7 @@
                 },
                 {
                     "name": "Statamic",
-                    "email": "gentlemen@statamic.com",
+                    "email": "hello@statamic.com",
                     "homepage": "https://statamic.com"
                 }
             ],
@@ -3879,7 +3883,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2019-01-11T14:47:27+00:00"
+            "time": "2020-12-09T23:24:32+00:00"
         },
         {
             "name": "stripe/stripe-php",
