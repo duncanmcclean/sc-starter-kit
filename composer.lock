@@ -812,16 +812,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.1.13",
+            "version": "v2.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "41531f0bb4062bd2f8b386d6acb3a3df82a838e2"
+                "reference": "35b41560b9a67890d3fd4c5fa8c89dbcd8cb2418"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/41531f0bb4062bd2f8b386d6acb3a3df82a838e2",
-                "reference": "41531f0bb4062bd2f8b386d6acb3a3df82a838e2",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/35b41560b9a67890d3fd4c5fa8c89dbcd8cb2418",
+                "reference": "35b41560b9a67890d3fd4c5fa8c89dbcd8cb2418",
                 "shasum": ""
             },
             "require": {
@@ -864,7 +864,7 @@
                 "proprietary"
             ],
             "description": "A perfectly simple e-commerce addon for Statamic",
-            "time": "2020-12-05T18:03:29+00:00"
+            "time": "2020-12-12T13:55:49+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2293,12 +2293,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mollie/mollie-api-php.git",
-                "reference": "f3858701cfd29e303b47e39070d66c3776c16763"
+                "reference": "21e45488a8a97bb3ab3f3479dbe07ac594d3cf7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/f3858701cfd29e303b47e39070d66c3776c16763",
-                "reference": "f3858701cfd29e303b47e39070d66c3776c16763",
+                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/21e45488a8a97bb3ab3f3479dbe07ac594d3cf7b",
+                "reference": "21e45488a8a97bb3ab3f3479dbe07ac594d3cf7b",
                 "shasum": ""
             },
             "require": {
@@ -2372,7 +2372,7 @@
                 "sofortbanking",
                 "subscriptions"
             ],
-            "time": "2020-12-08T08:37:01+00:00"
+            "time": "2020-12-10T10:26:11+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -3887,16 +3887,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.66.1",
+            "version": "v7.67.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "a2ebaa272a8797b21e81afaf8d5ba0953ff15e13"
+                "reference": "935d2c67912007f6d17b6c08a62050252c509129"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a2ebaa272a8797b21e81afaf8d5ba0953ff15e13",
-                "reference": "a2ebaa272a8797b21e81afaf8d5ba0953ff15e13",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/935d2c67912007f6d17b6c08a62050252c509129",
+                "reference": "935d2c67912007f6d17b6c08a62050252c509129",
                 "shasum": ""
             },
             "require": {
@@ -3906,7 +3906,7 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "2.16.5",
+                "friendsofphp/php-cs-fixer": "2.17.1",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^5.7",
                 "squizlabs/php_codesniffer": "^3.3",
@@ -3940,7 +3940,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2020-12-01T18:44:12+00:00"
+            "time": "2020-12-09T19:00:34+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
