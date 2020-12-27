@@ -1,0 +1,36 @@
+<div class="bg-gray-200 p-4">
+    <h2 class="text-gray-600 text-sm mb-4">Your cart</h2>
+
+    {{ sc:cart:items }}
+        <a class="flex items-center justify-between mb-2 text-sm" href="{{ product:url }}">
+            <span>{{ quantity }}x {{ product:title }}</span>
+            <span>{{ total }}</span>
+        </a>
+    {{ /sc:cart:items }}
+
+    {{ if {sc:cart:shippingTotal} !== 0 }}
+        <div class="flex items-center justify-between mb-2 text-sm">
+            <span>Shipping</span>
+            <span>{{ sc:cart:shippingTotal }}</span>
+        </div>
+    {{ /if }}
+
+    {{ if {sc:cart:taxTotal} !== 0 }}
+        <div class="flex items-center justify-between mb-2 text-sm">
+            <span>Shipping</span>
+            <span>{{ sc:cart:taxTotal }}</span>
+        </div>
+    {{ /if }}
+
+    {{ if {sc:coupon:has} === true }}
+        <div class="flex items-center justify-between mb-2 text-sm">
+            <span>Coupon Discount</span>
+            <span>{{ sc:cart:couponTotal }}</span>
+        </div>
+    {{ /if }}
+
+    <div class="flex items-center justify-between mb-2 text-sm">
+        <span class="font-semibold">Grand Total</span>
+        <span class="font-semibold">{{ sc:cart:grandTotal }}</span>
+    </div>
+</div>
