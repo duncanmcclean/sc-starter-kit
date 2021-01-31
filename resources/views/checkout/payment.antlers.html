@@ -17,7 +17,7 @@
 
                     {{ partial:checkout/errors }}
 
-                    {{ sc:checkout redirect="/checkout/complete" }}
+                    {{ sc:checkout id="checkout-form" redirect="/checkout/complete" }}
                         <div x-data="{ gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}' }">
                             <div class="flex flex-col border-b border-gray-200 pb-4 mb-4">
                                 <label for="payment_method" class="mb-1 text-xs text-gray-700">Payment Method</label>
