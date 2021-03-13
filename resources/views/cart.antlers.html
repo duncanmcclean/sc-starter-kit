@@ -34,7 +34,9 @@
                                     </a>
                                     <div class="px-2">
                                         <span class="font-semibold">{{ product:title }}</span><br>
-                                        <a class="mt-1 block text-sm text-gray-700" href="#">Remove</a>
+                                        {{ sc:cart:removeItem :item="id" }}
+                                            <button class="mt-1 block text-sm text-gray-700">Remove</button>
+                                        {{ /sc:cart:removeItem }}
                                     </div>
                                 </div>
                             </td>
