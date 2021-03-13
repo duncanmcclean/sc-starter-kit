@@ -38,7 +38,13 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-sm px-2 py-4">{{ product:price }}</td>
+                            <td class="text-sm px-4 py-4">
+                                {{ if variant }}
+                                    {{ variant:price }}
+                                {{ else }}
+                                    {{ product:price }}
+                                {{ /if }}
+                            </td>
                             <td class="text-sm px-2 py-4">{{ quantity }}</td>
                             <td class="text-sm px-2 py-4">{{ total }}</td>
                         </tr>
