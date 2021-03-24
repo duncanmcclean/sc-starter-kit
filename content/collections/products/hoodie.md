@@ -6,6 +6,6 @@ updated_by: b298ae11-348c-4ae8-abb9-4b9e7b91e16c
 updated_at: 1606557135
 gallery:
   - hoodie.jpeg
-stock: 2
+stock: 3
 id: 78a49ad7-42ea-4eb5-a3a9-fc2e2950c41d
 ---
