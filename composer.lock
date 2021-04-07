@@ -1688,16 +1688,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.35.1",
+            "version": "v8.36.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d118c0df39e7524131176aaf76493eae63a8a602"
+                "reference": "91c454715b81b9a39f718651d4e2f8104d45e7c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d118c0df39e7524131176aaf76493eae63a8a602",
-                "reference": "d118c0df39e7524131176aaf76493eae63a8a602",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/91c454715b81b9a39f718651d4e2f8104d45e7c2",
+                "reference": "91c454715b81b9a39f718651d4e2f8104d45e7c2",
                 "shasum": ""
             },
             "require": {
@@ -1852,7 +1852,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-03-30T21:34:17+00:00"
+            "time": "2021-04-06T21:14:06+00:00"
         },
         {
             "name": "laravel/helpers",
@@ -4078,16 +4078,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "e1095375508a1450fe6aa5b810e39a6d3cbd4de5"
+                "reference": "3e3983fd886278b7b0f1d8b3ead02e7a790199b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/e1095375508a1450fe6aa5b810e39a6d3cbd4de5",
-                "reference": "e1095375508a1450fe6aa5b810e39a6d3cbd4de5",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/3e3983fd886278b7b0f1d8b3ead02e7a790199b1",
+                "reference": "3e3983fd886278b7b0f1d8b3ead02e7a790199b1",
                 "shasum": ""
             },
             "require": {
@@ -4102,7 +4102,7 @@
                 "league/glide": "^1.1",
                 "michelf/php-smartypants": "^1.8",
                 "pixelfear/composer-dist-plugin": "^0.1.4",
-                "rebing/graphql-laravel": "^6.1",
+                "rebing/graphql-laravel": "^6.5",
                 "spatie/blink": "^1.1.2",
                 "statamic/stringy": "^3.1",
                 "symfony/http-foundation": "^4.3.3 || ^5.1.4",
@@ -4155,7 +4155,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.3"
+                "source": "https://github.com/statamic/cms/tree/v3.1.4"
             },
             "funding": [
                 {
@@ -4163,7 +4163,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-02T16:11:33+00:00"
+            "time": "2021-04-06T18:26:58+00:00"
         },
         {
             "name": "statamic/stringy",
