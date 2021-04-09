@@ -51,4 +51,3 @@ sections:
           localizable: true
           validate:
             - required
-      -
