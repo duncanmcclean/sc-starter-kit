@@ -51,11 +51,3 @@ sections:
           localizable: true
           validate:
             - required
-      -
-        handle: product_categories
-        field:
-          type: terms
-          taxonomies:
-            - product_categories
-          display: 'Product Categories'
-          mode: select

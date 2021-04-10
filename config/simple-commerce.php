@@ -86,11 +86,6 @@ return [
         'customers' => 'customers',
     ],
 
-    'taxonomies' => [
-        'product_categories' => 'product_categories',
-        'order_statuses'     => 'order_statuses',
-    ],
-
     /*
     |--------------------------------------------------------------------------
     | Cart
