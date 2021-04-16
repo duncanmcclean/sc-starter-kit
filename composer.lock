@@ -4078,16 +4078,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.6",
+            "version": "v3.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "430a878700c7f52c9cb106421ba780c765c4965e"
+                "reference": "87237100aa05916d4f288ca27066e537ea80b21e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/430a878700c7f52c9cb106421ba780c765c4965e",
-                "reference": "430a878700c7f52c9cb106421ba780c765c4965e",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/87237100aa05916d4f288ca27066e537ea80b21e",
+                "reference": "87237100aa05916d4f288ca27066e537ea80b21e",
                 "shasum": ""
             },
             "require": {
@@ -4155,7 +4155,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.6"
+                "source": "https://github.com/statamic/cms/tree/v3.1.7"
             },
             "funding": [
                 {
@@ -4163,7 +4163,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-12T17:20:37+00:00"
+            "time": "2021-04-15T18:36:24+00:00"
         },
         {
             "name": "statamic/stringy",
@@ -6939,16 +6939,16 @@
         },
         {
             "name": "ueberdosis/prosemirror-to-html",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ueberdosis/prosemirror-to-html.git",
-                "reference": "e8527f7f9aefe73b54f5a999a6104e2b57b07c82"
+                "reference": "659eeea45245f349d6c27b0652352765371015ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ueberdosis/prosemirror-to-html/zipball/e8527f7f9aefe73b54f5a999a6104e2b57b07c82",
-                "reference": "e8527f7f9aefe73b54f5a999a6104e2b57b07c82",
+                "url": "https://api.github.com/repos/ueberdosis/prosemirror-to-html/zipball/659eeea45245f349d6c27b0652352765371015ca",
+                "reference": "659eeea45245f349d6c27b0652352765371015ca",
                 "shasum": ""
             },
             "require": {
@@ -6957,7 +6957,7 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.15",
                 "league/climate": "^3.5",
-                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+                "phpunit/phpunit": "^7.5.20"
             },
             "type": "library",
             "autoload": {
@@ -6980,7 +6980,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ueberdosis/prosemirror-to-html/issues",
-                "source": "https://github.com/ueberdosis/prosemirror-to-html/tree/2.4.0"
+                "source": "https://github.com/ueberdosis/prosemirror-to-html/tree/2.5.0"
             },
             "funding": [
                 {
@@ -6988,7 +6988,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-19T11:40:25+00:00"
+            "time": "2021-04-15T20:01:18+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
