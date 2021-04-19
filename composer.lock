@@ -867,16 +867,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.2.19",
+            "version": "v2.2.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "67feeaf41d7a8f2e03143b67b774a63230f5cf78"
+                "reference": "d3fdbbd42c8fbaad383aef2d9b25182ed115fdc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/67feeaf41d7a8f2e03143b67b774a63230f5cf78",
-                "reference": "67feeaf41d7a8f2e03143b67b774a63230f5cf78",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/d3fdbbd42c8fbaad383aef2d9b25182ed115fdc7",
+                "reference": "d3fdbbd42c8fbaad383aef2d9b25182ed115fdc7",
                 "shasum": ""
             },
             "require": {
@@ -922,9 +922,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.2.19"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.2.20"
             },
-            "time": "2021-04-02T12:09:56+00:00"
+            "time": "2021-04-16T20:56:23+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -4235,16 +4235,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.76.0",
+            "version": "v7.77.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "47e66d4186712be33c593fe820dccf270a04d5d6"
+                "reference": "f6724447481f6fb8c2e714165e092adad9ca470a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/47e66d4186712be33c593fe820dccf270a04d5d6",
-                "reference": "47e66d4186712be33c593fe820dccf270a04d5d6",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/f6724447481f6fb8c2e714165e092adad9ca470a",
+                "reference": "f6724447481f6fb8c2e714165e092adad9ca470a",
                 "shasum": ""
             },
             "require": {
@@ -4290,9 +4290,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v7.76.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v7.77.0"
             },
-            "time": "2021-03-22T16:50:21+00:00"
+            "time": "2021-04-12T17:19:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
