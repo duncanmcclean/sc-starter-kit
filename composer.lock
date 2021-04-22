@@ -867,16 +867,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.2.20",
+            "version": "v2.2.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "d3fdbbd42c8fbaad383aef2d9b25182ed115fdc7"
+                "reference": "9cedd4a3945340e9eb2344afdb9d7811e194b854"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/d3fdbbd42c8fbaad383aef2d9b25182ed115fdc7",
-                "reference": "d3fdbbd42c8fbaad383aef2d9b25182ed115fdc7",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/9cedd4a3945340e9eb2344afdb9d7811e194b854",
+                "reference": "9cedd4a3945340e9eb2344afdb9d7811e194b854",
                 "shasum": ""
             },
             "require": {
@@ -922,9 +922,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.2.20"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.2.21"
             },
-            "time": "2021-04-16T20:56:23+00:00"
+            "time": "2021-04-20T16:52:56+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -1688,16 +1688,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.37.0",
+            "version": "v8.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "cf4082973abc796ec285190f0603380021f6d26f"
+                "reference": "26a73532c54d2c090692bf2e3e64e449669053ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/cf4082973abc796ec285190f0603380021f6d26f",
-                "reference": "cf4082973abc796ec285190f0603380021f6d26f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/26a73532c54d2c090692bf2e3e64e449669053ba",
+                "reference": "26a73532c54d2c090692bf2e3e64e449669053ba",
                 "shasum": ""
             },
             "require": {
@@ -1852,7 +1852,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-04-13T13:49:49+00:00"
+            "time": "2021-04-20T13:50:21+00:00"
         },
         {
             "name": "laravel/helpers",
@@ -2439,12 +2439,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mollie/mollie-api-php.git",
-                "reference": "c3eb21214583f21655d4182b4c5b2f73e5a1dd0e"
+                "reference": "85afa180898cb90c08a3acbdd5c07d6d430aef0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/c3eb21214583f21655d4182b4c5b2f73e5a1dd0e",
-                "reference": "c3eb21214583f21655d4182b4c5b2f73e5a1dd0e",
+                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/85afa180898cb90c08a3acbdd5c07d6d430aef0e",
+                "reference": "85afa180898cb90c08a3acbdd5c07d6d430aef0e",
                 "shasum": ""
             },
             "require": {
@@ -2521,9 +2521,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mollie/mollie-api-php/issues",
-                "source": "https://github.com/mollie/mollie-api-php/tree/v2.30.2"
+                "source": "https://github.com/mollie/mollie-api-php/tree/master"
             },
-            "time": "2021-03-31T14:44:26+00:00"
+            "time": "2021-04-19T13:33:17+00:00"
         },
         {
             "name": "moneyphp/money",
