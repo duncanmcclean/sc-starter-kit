@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed3db78400513cf7615c0f1862d49537",
+    "content-hash": "407d1695829a6f64c1e4987d3370c32b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -937,25 +937,26 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.2.21",
+            "version": "v2.3.0-beta.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "9cedd4a3945340e9eb2344afdb9d7811e194b854"
+                "reference": "d34a91e77e00a8defa866a68bf23122a7919d176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/9cedd4a3945340e9eb2344afdb9d7811e194b854",
-                "reference": "9cedd4a3945340e9eb2344afdb9d7811e194b854",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/d34a91e77e00a8defa866a68bf23122a7919d176",
+                "reference": "d34a91e77e00a8defa866a68bf23122a7919d176",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/laravel-dompdf": "^0.9.0",
-                "mollie/mollie-api-php": "dev-master",
+                "mollie/mollie-api-php": "^2.30.0",
                 "moneyphp/money": "^3.0",
                 "php": "^7.4 || ^8.0",
                 "pixelfear/composer-dist-plugin": "^0.1.0",
-                "statamic/cms": "^3.0 || ^3.1",
+                "statamic/cms": "3.1.*",
+                "stillat/proteus": "^1.0",
                 "stripe/stripe-php": "^7.7"
             },
             "require-dev": {
@@ -992,9 +993,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.2.21"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.0-beta.2"
             },
-            "time": "2021-04-20T16:52:56+00:00"
+            "time": "2021-04-23T21:00:41+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2505,16 +2506,16 @@
         },
         {
             "name": "mollie/mollie-api-php",
-            "version": "dev-master",
+            "version": "v2.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mollie/mollie-api-php.git",
-                "reference": "85afa180898cb90c08a3acbdd5c07d6d430aef0e"
+                "reference": "3d5b6b5390fd88d5877b7729d5f68db96ff4fc4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/85afa180898cb90c08a3acbdd5c07d6d430aef0e",
-                "reference": "85afa180898cb90c08a3acbdd5c07d6d430aef0e",
+                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/3d5b6b5390fd88d5877b7729d5f68db96ff4fc4b",
+                "reference": "3d5b6b5390fd88d5877b7729d5f68db96ff4fc4b",
                 "shasum": ""
             },
             "require": {
@@ -2533,7 +2534,6 @@
             "suggest": {
                 "mollie/oauth2-mollie-php": "Use OAuth to authenticate with the Mollie API. This is needed for some endpoints. Visit https://docs.mollie.com/ for more information."
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2591,9 +2591,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mollie/mollie-api-php/issues",
-                "source": "https://github.com/mollie/mollie-api-php/tree/master"
+                "source": "https://github.com/mollie/mollie-api-php/tree/v2.31.0"
             },
-            "time": "2021-04-19T13:33:17+00:00"
+            "time": "2021-04-23T10:10:31+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -4148,16 +4148,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.12",
+            "version": "v3.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "99e7e6eb1600aabd04e1187ed350ce7c332428fa"
+                "reference": "cae93ec6f3040c0bcac27ad9c72050ef814ec5e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/99e7e6eb1600aabd04e1187ed350ce7c332428fa",
-                "reference": "99e7e6eb1600aabd04e1187ed350ce7c332428fa",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/cae93ec6f3040c0bcac27ad9c72050ef814ec5e9",
+                "reference": "cae93ec6f3040c0bcac27ad9c72050ef814ec5e9",
                 "shasum": ""
             },
             "require": {
@@ -4225,7 +4225,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.12"
+                "source": "https://github.com/statamic/cms/tree/v3.1.10"
             },
             "funding": [
                 {
@@ -4233,7 +4233,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-06T19:44:27+00:00"
+            "time": "2021-04-23T15:19:44+00:00"
         },
         {
             "name": "statamic/stringy",
@@ -4302,6 +4302,58 @@
                 "source": "https://github.com/statamic/Stringy"
             },
             "time": "2020-12-09T23:24:32+00:00"
+        },
+        {
+            "name": "stillat/proteus",
+            "version": "v1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Stillat/proteus.git",
+                "reference": "9cab2ba8a9c6e2c49300207b36ea05cf2356cc58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Stillat/proteus/zipball/9cab2ba8a9c6e2c49300207b36ea05cf2356cc58",
+                "reference": "9cab2ba8a9c6e2c49300207b36ea05cf2356cc58",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0 || ^8.0",
+                "nikic/php-parser": "^4.10.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0 || ^6.0",
+                "phpunit/phpunit": "^8.5 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Stillat\\Proteus\\WriterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stillat\\Proteus\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Koster",
+                    "email": "john@stillat.com"
+                }
+            ],
+            "description": "Provides utilities for parsing and updating Laravel-style PHP configuration files.",
+            "support": {
+                "issues": "https://github.com/Stillat/proteus/issues",
+                "source": "https://github.com/Stillat/proteus/tree/v1.0.8"
+            },
+            "time": "2021-04-12T21:50:10+00:00"
         },
         {
             "name": "stripe/stripe-php",
