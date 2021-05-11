@@ -937,16 +937,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.3.0-beta.2",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "d34a91e77e00a8defa866a68bf23122a7919d176"
+                "reference": "54e1955e148eefe3f238b473b31d6e77d7de31ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/d34a91e77e00a8defa866a68bf23122a7919d176",
-                "reference": "d34a91e77e00a8defa866a68bf23122a7919d176",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/54e1955e148eefe3f238b473b31d6e77d7de31ad",
+                "reference": "54e1955e148eefe3f238b473b31d6e77d7de31ad",
                 "shasum": ""
             },
             "require": {
@@ -993,9 +993,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.0-beta.2"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.0"
             },
-            "time": "2021-04-23T21:00:41+00:00"
+            "time": "2021-05-10T17:13:06+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2051,16 +2051,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "19a9673b833cc37770439097b381d86cd125bfe8"
+                "reference": "2651c497f005de305c7ba3f232cbd87b8c00ee8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/19a9673b833cc37770439097b381d86cd125bfe8",
-                "reference": "19a9673b833cc37770439097b381d86cd125bfe8",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/2651c497f005de305c7ba3f232cbd87b8c00ee8c",
+                "reference": "2651c497f005de305c7ba3f232cbd87b8c00ee8c",
                 "shasum": ""
             },
             "require": {
@@ -2148,7 +2148,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-01T19:00:49+00:00"
+            "time": "2021-05-08T16:08:00+00:00"
         },
         {
             "name": "league/csv",
@@ -2506,16 +2506,16 @@
         },
         {
             "name": "mollie/mollie-api-php",
-            "version": "v2.31.0",
+            "version": "v2.31.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mollie/mollie-api-php.git",
-                "reference": "3d5b6b5390fd88d5877b7729d5f68db96ff4fc4b"
+                "reference": "c1a500d251255e29919c6250d5c741ae4fe4e178"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/3d5b6b5390fd88d5877b7729d5f68db96ff4fc4b",
-                "reference": "3d5b6b5390fd88d5877b7729d5f68db96ff4fc4b",
+                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/c1a500d251255e29919c6250d5c741ae4fe4e178",
+                "reference": "c1a500d251255e29919c6250d5c741ae4fe4e178",
                 "shasum": ""
             },
             "require": {
@@ -2591,9 +2591,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mollie/mollie-api-php/issues",
-                "source": "https://github.com/mollie/mollie-api-php/tree/v2.31.0"
+                "source": "https://github.com/mollie/mollie-api-php/tree/v2.31.1"
             },
-            "time": "2021-04-23T10:10:31+00:00"
+            "time": "2021-04-26T11:38:41+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -2872,16 +2872,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.10.4",
+            "version": "v4.10.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "c6d052fc58cb876152f89f532b95a8d7907e7f0e"
+                "reference": "4432ba399e47c66624bc73c8c0f811e5c109576f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c6d052fc58cb876152f89f532b95a8d7907e7f0e",
-                "reference": "c6d052fc58cb876152f89f532b95a8d7907e7f0e",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4432ba399e47c66624bc73c8c0f811e5c109576f",
+                "reference": "4432ba399e47c66624bc73c8c0f811e5c109576f",
                 "shasum": ""
             },
             "require": {
@@ -2922,9 +2922,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.4"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.5"
             },
-            "time": "2020-12-20T10:01:03+00:00"
+            "time": "2021-05-03T19:11:20+00:00"
         },
         {
             "name": "opis/closure",
@@ -4148,16 +4148,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.10",
+            "version": "v3.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "cae93ec6f3040c0bcac27ad9c72050ef814ec5e9"
+                "reference": "43d36ae3e1b607ff1c7c88c10239a337ea4cea0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/cae93ec6f3040c0bcac27ad9c72050ef814ec5e9",
-                "reference": "cae93ec6f3040c0bcac27ad9c72050ef814ec5e9",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/43d36ae3e1b607ff1c7c88c10239a337ea4cea0a",
+                "reference": "43d36ae3e1b607ff1c7c88c10239a337ea4cea0a",
                 "shasum": ""
             },
             "require": {
@@ -4225,7 +4225,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.10"
+                "source": "https://github.com/statamic/cms/tree/v3.1.13"
             },
             "funding": [
                 {
@@ -4233,7 +4233,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-23T15:19:44+00:00"
+            "time": "2021-05-10T20:45:52+00:00"
         },
         {
             "name": "statamic/stringy",
@@ -4357,16 +4357,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.77.0",
+            "version": "v7.78.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "f6724447481f6fb8c2e714165e092adad9ca470a"
+                "reference": "6ec33fa8e9de2322be93d28dfd685661c67ca549"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/f6724447481f6fb8c2e714165e092adad9ca470a",
-                "reference": "f6724447481f6fb8c2e714165e092adad9ca470a",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/6ec33fa8e9de2322be93d28dfd685661c67ca549",
+                "reference": "6ec33fa8e9de2322be93d28dfd685661c67ca549",
                 "shasum": ""
             },
             "require": {
@@ -4412,9 +4412,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v7.77.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v7.78.0"
             },
-            "time": "2021-04-12T17:19:16+00:00"
+            "time": "2021-05-05T23:55:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7324,16 +7324,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.6.2",
+            "version": "v14.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f"
+                "reference": "e3f807a06c44a04d66f83021b28667983d344a50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f",
-                "reference": "bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/e3f807a06c44a04d66f83021b28667983d344a50",
+                "reference": "e3f807a06c44a04d66f83021b28667983d344a50",
                 "shasum": ""
             },
             "require": {
@@ -7378,7 +7378,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.2"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.3"
             },
             "funding": [
                 {
@@ -7386,7 +7386,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-04-23T09:26:03+00:00"
+            "time": "2021-05-10T15:30:40+00:00"
         },
         {
             "name": "wilderborn/partyline",
