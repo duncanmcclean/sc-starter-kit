@@ -937,16 +937,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "54e1955e148eefe3f238b473b31d6e77d7de31ad"
+                "reference": "4fea6942edf5c3a113d62c23c194d1bc8ab28b64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/54e1955e148eefe3f238b473b31d6e77d7de31ad",
-                "reference": "54e1955e148eefe3f238b473b31d6e77d7de31ad",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/4fea6942edf5c3a113d62c23c194d1bc8ab28b64",
+                "reference": "4fea6942edf5c3a113d62c23c194d1bc8ab28b64",
                 "shasum": ""
             },
             "require": {
@@ -993,9 +993,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.0"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.1"
             },
-            "time": "2021-05-10T17:13:06+00:00"
+            "time": "2021-05-16T15:21:38+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -4148,16 +4148,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.13",
+            "version": "v3.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "43d36ae3e1b607ff1c7c88c10239a337ea4cea0a"
+                "reference": "e519cc2e4608939b1243ed4332ba903b122f9704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/43d36ae3e1b607ff1c7c88c10239a337ea4cea0a",
-                "reference": "43d36ae3e1b607ff1c7c88c10239a337ea4cea0a",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/e519cc2e4608939b1243ed4332ba903b122f9704",
+                "reference": "e519cc2e4608939b1243ed4332ba903b122f9704",
                 "shasum": ""
             },
             "require": {
@@ -4225,7 +4225,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.13"
+                "source": "https://github.com/statamic/cms/tree/v3.1.14"
             },
             "funding": [
                 {
@@ -4233,7 +4233,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-10T20:45:52+00:00"
+            "time": "2021-05-14T18:26:56+00:00"
         },
         {
             "name": "statamic/stringy",
@@ -5341,16 +5341,16 @@
         },
         {
             "name": "symfony/lock",
-            "version": "v5.2.6",
+            "version": "v5.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/lock.git",
-                "reference": "b7d5a102834472f1f8fd40f09977a97496b8a23e"
+                "reference": "a2be88e2d81824143396e8329c67904c8ed3ab5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/lock/zipball/b7d5a102834472f1f8fd40f09977a97496b8a23e",
-                "reference": "b7d5a102834472f1f8fd40f09977a97496b8a23e",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/a2be88e2d81824143396e8329c67904c8ed3ab5a",
+                "reference": "a2be88e2d81824143396e8329c67904c8ed3ab5a",
                 "shasum": ""
             },
             "require": {
@@ -5401,7 +5401,7 @@
                 "semaphore"
             ],
             "support": {
-                "source": "https://github.com/symfony/lock/tree/v5.2.6"
+                "source": "https://github.com/symfony/lock/tree/v5.2.8"
             },
             "funding": [
                 {
@@ -5417,7 +5417,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-28T09:42:18+00:00"
+            "time": "2021-05-04T16:02:46+00:00"
         },
         {
             "name": "symfony/mime",
@@ -6805,16 +6805,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.2.7",
+            "version": "v5.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "01184a5ab95eb9500b9b0ef3e525979e003d9c81"
+                "reference": "d26db2d2b2d7eb2c1adb8545179f8803998b8237"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/01184a5ab95eb9500b9b0ef3e525979e003d9c81",
-                "reference": "01184a5ab95eb9500b9b0ef3e525979e003d9c81",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/d26db2d2b2d7eb2c1adb8545179f8803998b8237",
+                "reference": "d26db2d2b2d7eb2c1adb8545179f8803998b8237",
                 "shasum": ""
             },
             "require": {
@@ -6858,7 +6858,7 @@
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v5.3.0-BETA1"
+                "source": "https://github.com/symfony/var-exporter/tree/v5.3.0-BETA3"
             },
             "funding": [
                 {
@@ -6874,7 +6874,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-01T10:42:13+00:00"
+            "time": "2021-05-07T13:42:21+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -7324,16 +7324,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.6.3",
+            "version": "v14.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "e3f807a06c44a04d66f83021b28667983d344a50"
+                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/e3f807a06c44a04d66f83021b28667983d344a50",
-                "reference": "e3f807a06c44a04d66f83021b28667983d344a50",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
+                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
                 "shasum": ""
             },
             "require": {
@@ -7378,7 +7378,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.3"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.4"
             },
             "funding": [
                 {
@@ -7386,7 +7386,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-05-10T15:30:40+00:00"
+            "time": "2021-05-11T12:37:43+00:00"
         },
         {
             "name": "wilderborn/partyline",
