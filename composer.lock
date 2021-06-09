@@ -1759,16 +1759,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.45.1",
+            "version": "v8.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "dc2f0bb02c3eb4b27669d626bb3e810db8e7749d"
+                "reference": "a18266c612e0e6aba5e0174b3c873d2d217dccfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/dc2f0bb02c3eb4b27669d626bb3e810db8e7749d",
-                "reference": "dc2f0bb02c3eb4b27669d626bb3e810db8e7749d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a18266c612e0e6aba5e0174b3c873d2d217dccfb",
+                "reference": "a18266c612e0e6aba5e0174b3c873d2d217dccfb",
                 "shasum": ""
             },
             "require": {
@@ -1923,7 +1923,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-06-03T16:39:17+00:00"
+            "time": "2021-06-08T13:36:46+00:00"
         },
         {
             "name": "laravel/helpers",
@@ -4148,16 +4148,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.19",
+            "version": "v3.1.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "690e395e85fd498b5a86d5034c3085c8f1744ab5"
+                "reference": "860b4f84914c44d90f676c8a3d7c09faaa4aa5d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/690e395e85fd498b5a86d5034c3085c8f1744ab5",
-                "reference": "690e395e85fd498b5a86d5034c3085c8f1744ab5",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/860b4f84914c44d90f676c8a3d7c09faaa4aa5d8",
+                "reference": "860b4f84914c44d90f676c8a3d7c09faaa4aa5d8",
                 "shasum": ""
             },
             "require": {
@@ -4225,7 +4225,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.19"
+                "source": "https://github.com/statamic/cms/tree/v3.1.20"
             },
             "funding": [
                 {
@@ -4233,7 +4233,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-07T17:57:45+00:00"
+            "time": "2021-06-08T19:13:13+00:00"
         },
         {
             "name": "statamic/stringy",
