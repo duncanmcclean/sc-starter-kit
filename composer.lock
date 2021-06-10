@@ -937,16 +937,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.3.3",
+            "version": "v2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "4101a987d15ce33ed0bcc70a39dc2f6322f0fada"
+                "reference": "938ca595d5a40c1d7db4b90928132a991e1f0c12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/4101a987d15ce33ed0bcc70a39dc2f6322f0fada",
-                "reference": "4101a987d15ce33ed0bcc70a39dc2f6322f0fada",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/938ca595d5a40c1d7db4b90928132a991e1f0c12",
+                "reference": "938ca595d5a40c1d7db4b90928132a991e1f0c12",
                 "shasum": ""
             },
             "require": {
@@ -993,9 +993,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.3"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.4"
             },
-            "time": "2021-06-05T16:12:21+00:00"
+            "time": "2021-06-09T18:05:16+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2506,16 +2506,16 @@
         },
         {
             "name": "mollie/mollie-api-php",
-            "version": "v2.32.0",
+            "version": "v2.32.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mollie/mollie-api-php.git",
-                "reference": "8bbb42e09a2860e9b48a38d57a337df9cced18ec"
+                "reference": "48d3ce280a86e2aa18f56c94b2ae63e30468b773"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/8bbb42e09a2860e9b48a38d57a337df9cced18ec",
-                "reference": "8bbb42e09a2860e9b48a38d57a337df9cced18ec",
+                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/48d3ce280a86e2aa18f56c94b2ae63e30468b773",
+                "reference": "48d3ce280a86e2aa18f56c94b2ae63e30468b773",
                 "shasum": ""
             },
             "require": {
@@ -2591,9 +2591,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mollie/mollie-api-php/issues",
-                "source": "https://github.com/mollie/mollie-api-php/tree/v2.32.0"
+                "source": "https://github.com/mollie/mollie-api-php/tree/v2.32.2"
             },
-            "time": "2021-06-03T09:07:40+00:00"
+            "time": "2021-06-08T06:03:46+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -4357,16 +4357,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.82.0",
+            "version": "v7.83.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "218f5296923265fab4692a7f8a083ff2e7e35a21"
+                "reference": "bb7244c7334ad8bf30d31bb4972d5aff57df1563"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/218f5296923265fab4692a7f8a083ff2e7e35a21",
-                "reference": "218f5296923265fab4692a7f8a083ff2e7e35a21",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/bb7244c7334ad8bf30d31bb4972d5aff57df1563",
+                "reference": "bb7244c7334ad8bf30d31bb4972d5aff57df1563",
                 "shasum": ""
             },
             "require": {
@@ -4412,9 +4412,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v7.82.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v7.83.0"
             },
-            "time": "2021-06-04T23:26:37+00:00"
+            "time": "2021-06-07T23:15:45+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
