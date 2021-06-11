@@ -937,16 +937,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.3.4",
+            "version": "v2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "938ca595d5a40c1d7db4b90928132a991e1f0c12"
+                "reference": "09fccd93375979028029ce3fcd48ef9b295f5c5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/938ca595d5a40c1d7db4b90928132a991e1f0c12",
-                "reference": "938ca595d5a40c1d7db4b90928132a991e1f0c12",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/09fccd93375979028029ce3fcd48ef9b295f5c5f",
+                "reference": "09fccd93375979028029ce3fcd48ef9b295f5c5f",
                 "shasum": ""
             },
             "require": {
@@ -993,9 +993,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.4"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.5"
             },
-            "time": "2021-06-09T18:05:16+00:00"
+            "time": "2021-06-10T17:02:57+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
