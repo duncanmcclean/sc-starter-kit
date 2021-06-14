@@ -937,16 +937,16 @@
         },
         {
             "name": "doublethreedigital/simple-commerce",
-            "version": "v2.3.5",
+            "version": "v2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doublethreedigital/simple-commerce.git",
-                "reference": "09fccd93375979028029ce3fcd48ef9b295f5c5f"
+                "reference": "abe71e85a33124596f332f3dcca2798213e9f189"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/09fccd93375979028029ce3fcd48ef9b295f5c5f",
-                "reference": "09fccd93375979028029ce3fcd48ef9b295f5c5f",
+                "url": "https://api.github.com/repos/doublethreedigital/simple-commerce/zipball/abe71e85a33124596f332f3dcca2798213e9f189",
+                "reference": "abe71e85a33124596f332f3dcca2798213e9f189",
                 "shasum": ""
             },
             "require": {
@@ -993,9 +993,9 @@
             "description": "A perfectly simple e-commerce addon for Statamic",
             "support": {
                 "issues": "https://github.com/doublethreedigital/simple-commerce/issues",
-                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.5"
+                "source": "https://github.com/doublethreedigital/simple-commerce/tree/v2.3.6"
             },
-            "time": "2021-06-10T17:02:57+00:00"
+            "time": "2021-06-11T16:35:00+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -4148,16 +4148,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.21",
+            "version": "v3.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "6b3d6187a9e06ec55288a8fe068d7b0e6780f99d"
+                "reference": "d00e9ede1d11d2e55774ee6fffeea85efbb4cfbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/6b3d6187a9e06ec55288a8fe068d7b0e6780f99d",
-                "reference": "6b3d6187a9e06ec55288a8fe068d7b0e6780f99d",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/d00e9ede1d11d2e55774ee6fffeea85efbb4cfbb",
+                "reference": "d00e9ede1d11d2e55774ee6fffeea85efbb4cfbb",
                 "shasum": ""
             },
             "require": {
@@ -4225,7 +4225,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.21"
+                "source": "https://github.com/statamic/cms/tree/v3.1.22"
             },
             "funding": [
                 {
@@ -4233,7 +4233,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-09T15:43:55+00:00"
+            "time": "2021-06-11T14:25:19+00:00"
         },
         {
             "name": "statamic/stringy",
