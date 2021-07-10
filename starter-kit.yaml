@@ -1,0 +1,19 @@
+export_paths:
+  - config/simple-commerce.php
+  - content
+  - public/assets
+  - public/css/site.css
+  - public/js/site.js
+  - resources/blueprints
+  - resources/css/site.css
+  - resources/js/site.js
+  - resources/views
+  - routes/web.php
+  - banner.png
+  - package.json
+  - README.md
+  - tailwind.config.js
+  - upgrade-cli-notice.php
+  - webpack.mix.js
+dependencies:
+  doublethreedigital/simple-commerce: 2.3.*
