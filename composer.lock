@@ -2794,22 +2794,23 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.50.0",
+            "version": "2.51.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "f47f17d17602b2243414a44ad53d9f8b9ada5fdb"
+                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f47f17d17602b2243414a44ad53d9f8b9ada5fdb",
-                "reference": "f47f17d17602b2243414a44ad53d9f8b9ada5fdb",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
+                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
                 "symfony/polyfill-mbstring": "^1.0",
+                "symfony/polyfill-php80": "^1.16",
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
@@ -2828,8 +2829,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev",
-                    "dev-3.x": "3.x-dev"
+                    "dev-3.x": "3.x-dev",
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -2883,7 +2884,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-28T22:38:45+00:00"
+            "time": "2021-07-28T13:16:28+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4315,16 +4316,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.1.30",
+            "version": "v3.1.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "a188fb1c627f203db708d66bc0a02d560a2e6ca3"
+                "reference": "83ba17ca62d6a8f380e0743e4dba6f7634cbc425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/a188fb1c627f203db708d66bc0a02d560a2e6ca3",
-                "reference": "a188fb1c627f203db708d66bc0a02d560a2e6ca3",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/83ba17ca62d6a8f380e0743e4dba6f7634cbc425",
+                "reference": "83ba17ca62d6a8f380e0743e4dba6f7634cbc425",
                 "shasum": ""
             },
             "require": {
@@ -4392,7 +4393,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.1.30"
+                "source": "https://github.com/statamic/cms/tree/v3.1.31"
             },
             "funding": [
                 {
@@ -4400,7 +4401,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-26T17:17:02+00:00"
+            "time": "2021-07-28T14:19:59+00:00"
         },
         {
             "name": "statamic/stringy",
