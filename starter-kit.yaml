@@ -5,6 +5,7 @@ export_paths:
   - public/assets
   - public/css/site.css
   - public/js/site.js
+  - public/mix-manifest.json
   - resources/blueprints
   - resources/css/site.css
   - resources/js/site.js
