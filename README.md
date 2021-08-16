@@ -1,6 +1,10 @@
+<!-- statamic:hide -->
+
 ![Banner](https://raw.githubusercontent.com/doublethreedigital/sc-starter-kit/master/banner.png)
 
 ## Starter Kit
+
+<!-- /statamic:hide -->
 
 This starter kit is the recommended starting place for creating Simple Commerce sites. It includes a minimal, boilerplate design which demonstrates most of the features and functionality Simple Commerce has to offer. You're free to make any changes you want, even redesign the whole front-end to build what you need to build.
 
