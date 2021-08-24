@@ -2,7 +2,9 @@
 
 ![Banner](https://raw.githubusercontent.com/doublethreedigital/sc-starter-kit/master/banner.png)
 
-## Starter Kit
+## Simle Commerce Starter Kit
+
+<!-- /statamic:hide -->
 
 <!-- /statamic:hide -->
 
