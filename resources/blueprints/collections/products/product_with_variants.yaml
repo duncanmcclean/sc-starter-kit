@@ -1,4 +1,4 @@
-title: 'Product with Variants'
+title: 'Variant Product'
 sections:
   main:
     display: Main
@@ -51,4 +51,3 @@ sections:
           localizable: true
           validate:
             - required
-
