@@ -10,7 +10,7 @@ This starter kit is the recommended starting ground for creating new Simle Comme
 
 It includes a minimal boilerplate design which aims to demonstrate most of the functionality available with Simple Commerce. Feel free to change it as much as you want, redesign the whole thing if you want. Also, feel free to just take snippets of code and pop them in your own project. The source code is available on [GitHub](https://github.com/doublethreedigital/sc-starter-kit).
 
-Before using Simple Commerce in production, please remember to [purchase a Simple Commerce license](https://statamic.com/simple-commerce), from the Statamic Marketplace.
+You **must** purchase a Simple Commerce license from the [Statamic Marketplace](https://statamic.com/simple-commerce) to use this starter kit in a production environment.
 
 ## Features
 
@@ -70,4 +70,4 @@ You can of course customise this setup however you want.
 
 ---
 
-For more information on using Simple Commerce, you can review the [Simple Commerce documentation](https://sc-docs.doublethree.digital).
+For more information on using Simple Commerce, you can review the [Simple Commerce documentation](https://simple-commerce.duncanmcclean.com).
