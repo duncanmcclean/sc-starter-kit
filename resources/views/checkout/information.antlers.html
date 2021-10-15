@@ -36,24 +36,36 @@
                             <div class="flex flex-row space-x-4 mb-2">
                                 <div class="flex-1 flex flex-col mb-2">
                                     <label for="shipping_name" class="mb-1 text-xs text-gray-700">Name</label>
-                                    <input type="text" id="shipping_name" name="shipping_name" placeholder="Alistair Murray" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_name }}">
+                                    <input type="text" id="shipping_name" name="shipping_name" placeholder="William Wallace" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_name }}">
                                 </div>
 
                                 <div class="flex-1 flex flex-col mb-2">
-                                    <label for="shipping_address" class="mb-1 text-xs text-gray-700">Address</label>
-                                    <input type="text" id="shipping_address" name="shipping_address" placeholder="123 George Square" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_address }}">
+                                    <label for="shipping_address_line1" class="mb-1 text-xs text-gray-700">Address Line 1</label>
+                                    <input type="text" id="shipping_address_line1" name="shipping_address_line1" placeholder="300 Cornwall Street" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_address_line1 }}">
                                 </div>
                             </div>
 
                             <div class="flex flex-row space-x-4 mb-2">
                                 <div class="flex-1 flex flex-col mb-2">
-                                    <label for="shipping_city" class="mb-1 text-xs text-gray-700">City</label>
-                                    <input type="text" id="shipping_city" name="shipping_city" placeholder="Glasgow" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_city }}">
+                                    <label for="shipping_address_line2" class="mb-1 text-xs text-gray-700">Address Line 2</label>
+                                    <input type="text" id="shipping_address_line2" name="shipping_address_line2" placeholder="" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_address_line2 }}">
+                                </div>
+
+                                <div class="flex-1 flex flex-col mb-2">
+                                    <label for="shipping_city" class="mb-1 text-xs text-gray-700">Town/City</label>
+                                    <input type="text" id="shipping_city" name="shipping_city" placeholder="East Kilbride" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_city }}">
+                                </div>
+                            </div>
+
+                            <div class="flex flex-row space-x-4 mb-2">
+                                <div class="flex-1 flex flex-col mb-2">
+                                    <label for="shipping_region" class="mb-1 text-xs text-gray-700">Region</label>
+                                    <input type="text" id="shipping_region" name="shipping_region" placeholder="South Lanarkshire" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_region }}">
                                 </div>
 
                                 <div class="flex-1 flex flex-col mb-2">
                                     <label for="shipping_zip_code" class="mb-1 text-xs text-gray-700">Postal code</label>
-                                    <input type="text" id="shipping_zip_code" name="shipping_zip_code" placeholder="G12 345" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_zip_code }}">
+                                    <input type="text" id="shipping_zip_code" name="shipping_zip_code" placeholder="G74 1LL" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:shipping_zip_code }}">
                                 </div>
                             </div>
 
@@ -61,7 +73,7 @@
                                 <div class="flex-1 flex flex-col mb-2">
                                     <label for="shipping_country" class="mb-1 text-xs text-gray-700">Country</label>
                                     <select name="shipping_country" id="shipping_country" class="bg-gray-200 rounded-md p-2 text-gray-800" value="{{ old:shipping_country }}">
-                                        {{ sc:countries }}
+                                        {{ sc:countries common="GB" }}
                                             <option value="{{ iso }}">{{ name }}</option>
                                         {{ /sc:countries }}
                                     </select>
@@ -81,24 +93,36 @@
                                 <div class="flex flex-row space-x-4 mb-2">
                                     <div class="flex-1 flex flex-col mb-2">
                                         <label for="billing_name" class="mb-1 text-xs text-gray-700">Name</label>
-                                        <input type="text" id="billing_name" name="billing_name" placeholder="Alistair Murray" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_name }}">
+                                        <input type="text" id="billing_name" name="billing_name" placeholder="William Wallace" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_name }}">
                                     </div>
 
                                     <div class="flex-1 flex flex-col mb-2">
-                                        <label for="billing_address" class="mb-1 text-xs text-gray-700">Address</label>
-                                        <input type="text" id="billing_address" name="billing_address" placeholder="123 George Square" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_address }}">
+                                        <label for="billing_address_line1" class="mb-1 text-xs text-gray-700">Address</label>
+                                        <input type="text" id="billing_address_line1" name="billing_address_line1" placeholder="300 Cornwall Street" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_address_line1 }}">
                                     </div>
                                 </div>
 
                                 <div class="flex flex-row space-x-4 mb-2">
                                     <div class="flex-1 flex flex-col mb-2">
-                                        <label for="billing_city" class="mb-1 text-xs text-gray-700">City</label>
-                                        <input type="text" id="billing_city" name="billing_city" placeholder="Glasgow" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_city }}">
+                                        <label for="billing_address_line2" class="mb-1 text-xs text-gray-700">Address Line 2</label>
+                                        <input type="text" id="billing_address_line2" name="billing_address_line2" placeholder="" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_address_line2 }}">
+                                    </div>
+
+                                    <div class="flex-1 flex flex-col mb-2">
+                                        <label for="billing_city" class="mb-1 text-xs text-gray-700">Town/City</label>
+                                        <input type="text" id="billing_city" name="billing_city" placeholder="East Kilbride" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_city }}">
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-row space-x-4 mb-2">
+                                    <div class="flex-1 flex flex-col mb-2">
+                                        <label for="billing_region" class="mb-1 text-xs text-gray-700">Region</label>
+                                        <input type="text" id="billing_region" name="billing_region" placeholder="South Lanarkshire" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_region }}">
                                     </div>
 
                                     <div class="flex-1 flex flex-col mb-2">
                                         <label for="billing_zip_code" class="mb-1 text-xs text-gray-700">Postal code</label>
-                                        <input type="text" id="billing_zip_code" name="billing_zip_code" placeholder="G12 345" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_zip_code }}">
+                                        <input type="text" id="billing_zip_code" name="billing_zip_code" placeholder="G74 1LL" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:billing_zip_code }}">
                                     </div>
                                 </div>
 
@@ -106,7 +130,7 @@
                                     <div class="flex-1 flex flex-col mb-2">
                                         <label for="billing_country" class="mb-1 text-xs text-gray-700">Country</label>
                                         <select name="billing_country" id="billing_country" class="bg-gray-200 rounded-md p-2 text-gray-800" value="{{ old:billing_country }}">
-                                            {{ sc:countries }}
+                                            {{ sc:countries common="GB" }}
                                                 <option value="{{ iso }}">{{ name }}</option>
                                             {{ /sc:countries }}
                                         </select>
