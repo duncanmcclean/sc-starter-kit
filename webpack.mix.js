@@ -24,3 +24,21 @@ mix.setPublicPath('public')
 if (mix.inProduction()) {
    mix.version();
 }
+
+/*
+ |--------------------------------------------------------------------------
+ | Statamic Control Panel
+ |--------------------------------------------------------------------------
+ |
+ | Feel free to add your own JS or CSS to the Statamic Control Panel.
+ | https://statamic.dev/extending/control-panel#adding-css-and-js-assets
+ |
+ */
+
+// mix.js('resources/js/cp.js', 'public/vendor/app/js')
+//    .postCss('resources/css/cp.css', 'public/vendor/app/css', [
+//     require('postcss-import'),
+//     require('tailwindcss'),
+//     require('postcss-nested'),
+//     require('postcss-preset-env')({stage: 0})
+// ])
