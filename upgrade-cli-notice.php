@@ -1,6 +1,7 @@
 <?php
 
-function printError($message) {
+function printError($message)
+{
     echo "\033[41;37m{$message}\033[0;37m\n";
 }
 
