@@ -8,14 +8,14 @@
         </a>
     {{ /sc:cart:items }}
 
-    {{ if {sc:cart:shippingTotal} !== 0 }}
+    {{ if {sc:cart:shippingTotal} !== null }}
         <div class="flex items-center justify-between mb-2 text-sm">
             <span>Shipping</span>
             <span>{{ sc:cart:shippingTotal }}</span>
         </div>
     {{ /if }}
 
-    {{ if {sc:cart:taxTotal} !== 0 }}
+    {{ if {sc:cart:taxTotal} !== null }}
         <div class="flex items-center justify-between mb-2 text-sm">
             <span>Tax</span>
             <span>{{ sc:cart:taxTotal }}</span>
