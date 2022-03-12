@@ -13,6 +13,7 @@ export_paths:
   - resources/js
   - resources/views
   - routes/web.php
+  - .styleci.yml
   - banner.png
   - package.json
   - README.md
@@ -20,4 +21,4 @@ export_paths:
   - upgrade-cli-notice.php
   - webpack.mix.js
 dependencies:
-  doublethreedigital/simple-commerce: '2.4.*'
+  doublethreedigital/simple-commerce: "2.4.*"
