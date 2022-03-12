@@ -1,67 +1,104 @@
 <section class="py-8 border-b border-gray-200">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-center text-4xl font-semibold mb-2">Product Catalog</h2>
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-center text-4xl font-semibold mb-2">Catalog</h2>
     </div>
 </section>
 
-{{ collection:products sort="{ get:sort | urldecode }" as="products" paginate="true" limit="12" }}
-<div class="py-4 border-b border-gray-200">
-    <div class="max-w-4xl mx-auto">
-        <div class="flex items-center justify-between">
-            <form id="sort-form" class="flex items-center" action="{{ current_url }}" method="get">
-                <label class="text-gray-700 mr-3 font-semibold" for="sort">Sort by</label>
+{{ collection:products sort="{get:sort | urldecode}" as="products" paginate="true" limit="12" }}
+    <div class="py-4 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center justify-between">
+                <form id="sort-form" class="flex items-center" action="{{ current_url }}" method="get">
+                    <label class="text-gray-700 mr-3 font-semibold" for="sort">Sort by</label>
 
-                <select id="sort" name="sort" class="bg-gray-200 p-1 rounded" onchange="document.getElementById('sort-form').submit()">
-                    <option value="title:asc" {{ if get:sort == 'title:asc' }} selected {{ /if }}>Alphabetically, A-Z</option>
-                    <option value="title:desc" {{ if get:sort == 'title:desc' }} selected {{ /if }}>Alphabetically, Z-A</option>
-                    <option value="price:asc" {{ if get:sort == 'price:asc' }} selected {{ /if }}>Price, Low-High</option>
-                    <option value="price:desc" {{ if get:sort == 'price:desc' }} selected {{ /if }}>Price, High-Low</option>
-                </select>
-            </form>
+                    <select id="sort" name="sort" class="bg-gray-100 w-48 py-1 px-2 rounded"
+                        onchange="document.getElementById('sort-form').submit()">
+                        <option value="title:asc" {{ if get:sort == 'title:asc' }}
+                                                      selected
+                                                  {{ /if }}>Alphabetically, A-Z</option>
+                        <option value="title:desc" {{ if get:sort == 'title:desc' }}
+                                                       selected
+                                                   {{ /if }}>Alphabetically, Z-A</option>
+                        <option value="price:asc" {{ if get:sort == 'price:asc' }}
+                                                      selected
+                                                  {{ /if }}>Price, Low-High</option>
+                        <option value="price:desc" {{ if get:sort == 'price:desc' }}
+                                                       selected
+                                                   {{ /if }}>Price, High-Low</option>
+                    </select>
+                </form>
 
-            <span class="text-gray-700 text-sm">{{ paginate }}{{ total_items }}{{ /paginate }} products</span>
-        </div>
-    </div>
-</div>
-
-<main>
-    <div class="max-w-4xl mx-auto">
-        {{ if no_results }}
-            <p>Aw snap! There's no products that match your filters.</p>
-        {{ /if }}
-
-        <div class="grid grid-cols-3 gap-6 my-12">
-            {{ products }}
-                <a class="block" href="{{ url }}">
-                    <div class="w-full h-64 bg-gray-200 mb-2 p-2 flex items-center justify-center">
-                        {{ gallery }}
-                            {{ if first }}
-                                <img class="max-h-full" src="{{ url }}" alt="{{ alt }}">
-                            {{ /if }}
-                        {{ /gallery }}
-                    </div>
-                    <h2 class="text-lg text-gray-900 font-semibold mb-1">
-                        {{ title }}
-                        <span class="text-sm ml-1">
-                            {{ if product_variants }}
-                                From {{ product_variants:options }}{{ if first }}{{ price }}{{ /if }}{{ /product_variants:options }}
-                            {{ else }}
-                                {{ price }}
-                            {{ /if }}
-                        </span>
-                    </h2>
-                    <p class="text-sm text-gray-900">{{ description | truncate:90 }}</p>
-                </a>
-            {{ /products }}
-        </div>
-
-        {{ paginate }}
-            <div class="flex items-center justify-between w-1/2 mx-auto my-12">
-                <a class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2 {{ if !prev_page }} cursor-not-allowed {{ /if }}" href="{{ prev_page }}">Previous</a>
-                <p>{{ current_page }} of {{ total_pages }} pages</p>
-                <a class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2 {{ if !next_page }} cursor-not-allowed {{ /if }}" href="{{ next_page }}">Next</a>
+                <span class="text-gray-700 text-sm">
+                    {{ paginate }}
+                        {{ total_items }}
+                    {{ /paginate }} products
+                </span>
             </div>
-        {{ /paginate }}
+        </div>
     </div>
-</main>
+
+    <main>
+        <div class="max-w-5xl mx-auto">
+            {{ if no_results }}
+                <p>Aw snap! There's no products that match your filters.</p>
+            {{ /if }}
+
+            <div class="grid grid-cols-3 gap-6 my-12">
+                {{ products }}
+                    <a class="block transition hover:opacity-90" href="{{ url }}">
+                        <div class="w-full mb-2 flex items-center justify-center">
+                            {{ gallery }}
+                                {{ if first }}
+                                    <img class="rounded-sm" src="{{ glide:url square="500" }}"
+                                        alt="{{ alt }}" height="500" width="500">
+                                {{ /if }}
+                            {{ /gallery }}
+                        </div>
+                        <h2 class="text-xl text-gray-900 text-center font-semibold flex items-center justify-center">
+                            <span>{{ title }}</span>
+                            <span class="text-sm font-light ml-1">
+                                &mdash; {{ if product_variants }}
+                                    From
+                                    {{ product_variants:options }}
+                                        {{ if first }}
+                                            {{ price }}
+                                        {{ /if }}
+                                    {{ /product_variants:options }}
+
+                                {{ else }}
+                                    {{ price }}
+                                {{ /if }}
+                            </span>
+                        </h2>
+                    </a>
+                {{ /products }}
+            </div>
+
+            {{ if prev_page || next_page }}
+                {{ paginate }}
+                    <div class="mt-16 mb-6 border-t mx-auto py-8">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                {{ if prev_page }}
+                                    <a
+                                        class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
+                                        href="{{ prev_page }}">← Previous</a>
+                                {{ /if }}
+                            </div>
+
+                            <p class="font-medium">Page {{ current_page }} of
+                                {{ total_pages }}</p>
+                            <div>
+                                {{ if next_page }}
+                                    <a
+                                        class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
+                                        href="{{ next_page }}">→ Next</a>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </div>
+                {{ /paginate }}
+            {{ /if }}
+        </div>
+    </main>
 {{ /collection:products }}

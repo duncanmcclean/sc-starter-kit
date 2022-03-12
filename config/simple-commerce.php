@@ -7,19 +7,16 @@ return [
     | Sites
     |--------------------------------------------------------------------------
     |
-    | For each of your Statamic sites, you can setup a new store which allows you
-    | to use different currencies, tax rates and shipping methods.
+    | You may configure a different currency & different shipping methods for each
+    | of your 'multi-site' sites.
+    |
+    | https://simple-commerce.duncanmcclean.com/multi-site
     |
     */
 
     'sites' => [
         'default' => [
             'currency' => 'GBP',
-
-            'tax' => [
-                'rate'               => 20,
-                'included_in_prices' => false,
-            ],
 
             'shipping' => [
                 'methods' => [
@@ -31,16 +28,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Gateways
+    | Payment Gateways
     |--------------------------------------------------------------------------
     |
-    | You can setup multiple payment gateways for your store with Simple Commerce.
-    | Here's where you can configure the gateways in use.
+    | This is where you configure the payment gateways you wish to use across
+    | your site. You may configure as many as you like.
+    |
+    | https://simple-commerce.duncanmcclean.com/gateways
     |
     */
 
     'gateways' => [
-        \DoubleThreeDigital\SimpleCommerce\Gateways\Builtin\DummyGateway::class => [],
+        \DoubleThreeDigital\SimpleCommerce\Gateways\Builtin\DummyGateway::class => [
+            'display' => 'Card',
+        ],
+
+        // \DoubleThreeDigital\SimpleCommerce\Gateways\Builtin\StripeGateway::class => [
+        //     'key' => env('STRIPE_KEY'),
+        //     'secret' => env('STRIPE_SECRET'),
+        // ],
     ],
 
     /*
@@ -48,21 +54,70 @@ return [
     | Notifications
     |--------------------------------------------------------------------------
     |
-    | Simple Commerce can automatically send notifications after events occur in your store.
-    | eg. a cart being completed.
+    | Simple Commerce is able to send notifications after certain 'events' happen,
+    | like an order being marked as paid. You may configure these notifications
+    | below.
     |
-    | Here's where you can toggle if certain notifications are enabled/disabled.
+    | https://simple-commerce.duncanmcclean.com/notifications
     |
     */
 
     'notifications' => [
         'order_paid' => [
-            \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderPaid::class => [
-                'to' => 'customer',
-            ],
-            \DoubleThreeDigital\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => [
-                'to' => 'duncan@example.com',
-            ],
+            \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderPaid::class   => ['to' => 'customer'],
+            \DoubleThreeDigital\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => ['to' => 'duncan@example.com'],
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Stock Running Low
+    |--------------------------------------------------------------------------
+    |
+    | Simple Commerce will emit events when stock is running low for a product.
+    | You may configure the threshold used to decide 'when' a product is
+    | running low.
+    |
+    | https://simple-commerce.duncanmcclean.com/stock
+    |
+    */
+
+    'low_stock_threshold' => 10,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Tax
+    |--------------------------------------------------------------------------
+    |
+    | Configure the 'tax engine' you'd like to be used to calculate tax rates
+    | throughout your site.
+    |
+    | https://simple-commerce.duncanmcclean.com/tax
+    |
+    */
+
+    'tax_engine' => \DoubleThreeDigital\SimpleCommerce\Tax\BasicTaxEngine::class,
+
+    'tax_engine_config' => [
+        // Basic Engine
+        'rate'               => 20,
+        'included_in_prices' => false,
+
+        // Standard Tax Engine
+        'address' => 'billing',
+
+        'behaviour' => [
+            'no_address_provided' => 'default_address',
+            'no_rate_available' => 'prevent_checkout',
+        ],
+
+        'default_address' => [
+            'address_line_1' => '',
+            'address_line_2' => '',
+            'city' => '',
+            'region' => '',
+            'country' => '',
+            'zip_code' => '',
         ],
     ],
 
@@ -71,10 +126,12 @@ return [
     | Content Drivers
     |--------------------------------------------------------------------------
     |
-    | Simple Commerce stores all products, orders, coupons etc as flat-file entries.
-    | This works great for store stores where you want to keep everything simple. But
-    | sometimes, for more complex stores, you may want use a database instead. To do so,
-    | just swap out the 'content driver' in place below.
+    | Normally, all of your products, orders, coupons & customers are stored as flat
+    | file entries. This works great for small stores where you want to keep everything
+    | simple. However, for more complex stores, you may want store your data somewhere else
+    | (like a database). Here's where you'd swap that out.
+    |
+    | https://simple-commerce.duncanmcclean.com/extending/content-drivers
     |
     */
 
@@ -83,58 +140,21 @@ return [
             'driver' => \DoubleThreeDigital\SimpleCommerce\Orders\Order::class,
             'collection' => 'orders',
         ],
+
         'products' => [
             'driver' => \DoubleThreeDigital\SimpleCommerce\Products\Product::class,
             'collection' => 'products',
         ],
+
         'coupons' => [
             'driver' => \DoubleThreeDigital\SimpleCommerce\Coupons\Coupon::class,
             'collection' => 'coupons',
         ],
+
         'customers' => [
-            'driver' => \DoubleThreeDigital\SimpleCommerce\Customers\Customer::class,
+            'driver' => \DoubleThreeDigital\SimpleCommerce\Customers\Customer::class, // Change to `UserCustomer` if you'd prefer to use Users as your customers
             'collection' => 'customers',
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Cart
-    |--------------------------------------------------------------------------
-    |
-    | Configure the Cart Driver in use on your site. It's what stores/gets the
-    | Cart ID from the user's browser on every request.
-    |
-    */
-
-    'cart' => [
-        'driver' => \DoubleThreeDigital\SimpleCommerce\Orders\Cart\Drivers\CookieDriver::class,
-        'key' => 'simple-commerce-cart',
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Order Number
-    |--------------------------------------------------------------------------
-    |
-    | If you want to, you can change the minimum order number for your store. This won't
-    | affect past orders, just ones in the future.
-    |
-    */
-
-    'minimum_order_number' => 2000,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Stock Running Low
-    |--------------------------------------------------------------------------
-    |
-    | Simple Commerce can be configured to emit events when stock is running low for
-    | products. Here is where you can configure the threshold when we start sending
-    | those notifications.
-    |
-    */
-
-    'low_stock_threshold' => 25,
 
 ];
