@@ -6,6 +6,7 @@ export_paths:
   - content/assets
   - content/collections
   - content/navigation
+  - content/trees
   - public/assets
   - public/css
   - public/js

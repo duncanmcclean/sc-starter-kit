@@ -1,3 +1,4 @@
 title: Pages
 collections:
   - pages
+root: true
