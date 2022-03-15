@@ -5,6 +5,7 @@ export_paths:
   - config/simple-commerce.php
   - content/assets
   - content/collections
+  - content/navigation
   - public/assets
   - public/css
   - public/js
