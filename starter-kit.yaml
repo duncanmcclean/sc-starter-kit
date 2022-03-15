@@ -3,6 +3,7 @@ export_paths:
   - app/Tags/JsonRegions.php
   - config/statamic/editions.php
   - config/simple-commerce.php
+  - content/assets
   - content/collections
   - public/assets
   - public/css
