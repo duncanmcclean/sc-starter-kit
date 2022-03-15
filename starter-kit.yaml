@@ -1,16 +1,19 @@
 export_paths:
-  - config/filesystems.php
+  - app/Http/Middleware/VerifyCsrfToken.php
+  - app/Tags/JsonRegions.php
+  - config/statamic/editions.php
   - config/simple-commerce.php
-  - content
+  - content/collections
   - public/assets
-  - public/css/site.css
-  - public/js/site.js
+  - public/css
+  - public/js
   - public/mix-manifest.json
   - resources/blueprints
-  - resources/css/site.css
-  - resources/js/site.js
+  - resources/css
+  - resources/js
   - resources/views
   - routes/web.php
+  - .styleci.yml
   - banner.png
   - package.json
   - README.md
@@ -18,4 +21,4 @@ export_paths:
   - upgrade-cli-notice.php
   - webpack.mix.js
 dependencies:
-  doublethreedigital/simple-commerce: 2.3.*
+  doublethreedigital/simple-commerce: "2.4.*"

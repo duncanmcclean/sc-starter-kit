@@ -9,8 +9,8 @@
 </section>
 
 <main>
-    <div class="max-w-4xl mx-auto my-12">
-        <div class="flex flex-row w-full">
+    <div class="max-w-4xl mx-auto my-12 px-4">
+        <div class="flex flex-col md:flex-row w-full">
             <div class="w-full">
                 <div class="max-w-lg">
                     <h2 class="text-gray-900 font-semibold text-2xl mb-6">Shipping</h2>
@@ -20,26 +20,34 @@
                     {{ sc:cart:update redirect="/checkout/payment" }}
                         <div class="flex flex-col mb-4">
                             <label for="shipping_method" class="mb-1 text-xs text-gray-700">Shipping Method</label>
-                            <select name="shipping_method" id="shipping_method" class="bg-gray-200 rounded-md p-2 text-gray-800" value="{{ old:shipping_method }}">
+                            <select name="shipping_method" id="shipping_method"
+                                class="bg-gray-100 rounded-md p-2 text-gray-800" value="{{ old:shipping_method }}">
                                 {{ sc:shipping:methods }}
-                                    <option value="{{ handle }}" {{ if first }} selected {{ /if }}>{{ name }} ({{ cost }})</option>
+                                    <option value="{{ handle }}" {{ if first }}
+                                        selected
+                                                                 {{ /if }}>{{ name }}
+                                        ({{ cost }})</option>
                                 {{ /sc:shipping:methods }}
                             </select>
                         </div>
 
                         <div class="flex flex-col mb-4">
                             <label for="shipping_note" class="mb-1 text-xs text-gray-700">Shipping Note</label>
-                            <textarea name="shipping_note" id="shipping_note" cols="30" rows="10" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800">{{ old:shipping_note }}</textarea>
+                            <textarea name="shipping_note" id="shipping_note" cols="30" rows="10"
+                                class="bg-white rounded-md border border-gray-200 p-2 text-gray-800">{{ old:shipping_note }}</textarea>
                         </div>
 
                         <div class="my-6 flex justify-end">
-                            <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2 focus:outline-none">Continue to Payment</button>
+                            <button
+                                class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2">Continue
+                                to
+                                Payment</button>
                         </div>
                     {{ /sc:cart:update }}
                 </div>
             </div>
 
-            <div class="w-1/3">
+            <div class="w-full md:w-1/3 mb-4 md:mb-0">
                 {{ partial:checkout/cart }}
             </div>
         </div>

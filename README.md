@@ -6,20 +6,20 @@
 
 <!-- /statamic:hide -->
 
-This starter kit is the recommended starting ground for creating new Simle Commerce sites or playing around with Simple Commerce for the first time.
+This starter kit is the **recommended starting point** for building new Simple Commerce sites. It's also useful to test out Simple Commerce before committing to it.
 
-It includes a minimal boilerplate design which aims to demonstrate most of the functionality available with Simple Commerce. Feel free to change it as much as you want, redesign the whole thing if you want. Also, feel free to just take snippets of code and pop them in your own project. The source code is available on [GitHub](https://github.com/doublethreedigital/sc-starter-kit).
+It provides a minimal design which aims to demonstrate how features in Simple Commerce should be implemented & how they work. You're free to change as much or as little as you want or even just take snippets of code and pop them in your own project. The source code is available on [GitHub](https://github.com/doublethreedigital/sc-starter-kit).
 
-You **must** purchase a Simple Commerce license from the [Statamic Marketplace](https://statamic.com/simple-commerce) to use this starter kit in a production environment.
+**Note:** Remember to purchase a license from the [Statamic Marketplace](https://statamic.com/simple-commerce) before using Simple Commerce in production.
 
 ## Features
 
-* Minimal design
-* Step by step checkout process
-* Built with TailwindCSS and Alpine.js
-* Demonstrates Simple Commerce functionality
-* Supports both standalone and variant products
-* Includes basic product filtering
+-   Minimal design
+-   Step by step checkout process
+-   Built with TailwindCSS and Alpine.js
+-   Demonstrates Simple Commerce functionality
+-   Supports both standalone and variant products
+-   Includes basic product filtering
 
 ## Quick Start
 
@@ -28,7 +28,7 @@ You **must** purchase a Simple Commerce license from the [Statamic Marketplace](
 You can create a new site using the [Statamic CLI Tool](https://github.com/statamic/cli):
 
 ```
-statamic new awesome-ecom-site doublethreedigital/sc-starter-kit
+statamic new artisan-bakery doublethreedigital/sc-starter-kit
 ```
 
 ### 2. Make a new user
@@ -51,23 +51,21 @@ npm run production
 
 ### 4. Do your thing!
 
-If you're using [Laravel Valet](https://laravel.com/docs/valet) (or similar), your site should be available at `http://awesome-ecom-site.test`. You can access the control panel at `http://awesome-ecom-site.test/cp` and login with your new user. Open up the source code, follow along with the [Statamic 3](https://statamic.dev), /[Simple Commerce](https://sc-docs.doublethree.digital) documentation and enjoy!
+If you're using [Laravel Valet](https://laravel.com/docs/valet) (or similar), your site should be available at `http://awesome-ecom-site.test`. You can access the control panel at `http://artisan-bakery.test/cp` and login with your new user. Open up the source code, follow along with the [Statamic](https://statamic.dev)/[Simple Commerce](https://simple-commerce.duncanmcclean.com) documentation and enjoy!
 
-## Build Process
+## Front-end stack
 
-This starter kit uses [Laravel Mix](https://laravel.com/docs/master/mix) to build & compile assets. Out of the box, it ships with one stylesheet and one JavaScript file.
+Tailwind CSS & Alpine.js are used out-of-the-box but feel free to change them out if you're more comfortable with something else. For building CSS & JS, this starter kit uses [Laravel Mix](https://laravel.com/docs/master/mix). It's configured to compile one CSS file and one JS file.
 
-* `resources/css/site.css` -> `public/css/site.css`
-* `resources/js/site.js` -> `public/js/site.js`
+-   `resources/css/site.css` -> `public/css/site.css`
+-   `resources/js/site.js` -> `public/js/site.js`
 
 There's also a few commands you can run to compile your assets for various environments.
 
-* `npm run dev` - to compile your assets locally
-* `npm run watch` - to compile your assets locally and start a watcher looking out for file changes
-* `npm run production` - to compile and minify your assets, ready for production
-
-You can of course customise this setup however you want.
+-   `npm run dev` - to compile your assets locally
+-   `npm run watch` - to compile your assets locally and start a watcher looking out for file changes
+-   `npm run production` - to compile and minify your assets, ready for production
 
 ---
 
-For more information on using Simple Commerce, you can review the [Simple Commerce documentation](https://simple-commerce.duncanmcclean.com).
+For more information on using Simple Commerce, please review the [Simple Commerce documentation](https://simple-commerce.duncanmcclean.com).

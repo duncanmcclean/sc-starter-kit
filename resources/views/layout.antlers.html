@@ -1,72 +1,91 @@
 <!doctype html>
 <html lang="{{ site:short_locale }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title ?? site:name }}</title>
-        <link rel="stylesheet" href="{{ mix src='/css/site.css' }}">
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    </head>
-    <body>
-        {{ if !view:hide_header }}
-            <header>
-                <div class="max-w-4xl mx-auto flex items-center justify-between py-4">
-                    <h2>
-                        <a class="text-gray-900 font-semibold text-xl" href="{{ site:url }}">{{ site:name }}</a>
-                    </h2>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title ?? site:name }}</title>
+    <link rel="stylesheet" href="{{ mix src='/css/site.css' }}">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-                    <nav>
+    {{ yield:header_scripts }}
+</head>
+<body>
+    <header class="border-b">
+        <div class="max-w-5xl mx-auto flex items-center justify-between py-4 px-4">
+            <h2>
+                <a class="text-gray-900 font-semibold text-xl"
+                    href="{{ site:url }}">{{ site:name }}</a>
+            </h2>
+
+            <nav class="flex items-center">
+                {{ nav:pages }}
+                    <a class="mx-4 {{ if is_current }} font-bold{{ /if }}"
+                        href="{{ url }}">{{ title }}</a>
+                {{ /nav:pages }}
+
+                <a class="mx-2 flex items-center {{ if segment_1 === 'cart' }} font-bold{{ /if }}"
+                    href="/cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    Cart ({{ sc:cart:count }})
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    {{ template_content }}
+
+    <footer class="bg-gray-100">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex py-12 px-4">
+                <div class="md:w-2/3">
+                    <h2 class="text-lg text-gray-900 font-semibold mb-2">Pages</h2>
+
+                    <div class="flex flex-col mb-6">
                         {{ nav:pages }}
-                            <a class="mx-4 {{ if is_current }} border-b-2 border-gray-900 pb-1 {{ /if }}" href="{{ url }}">{{ title }}</a>
+                            <a class="mb-1 text-gray-700" href="{{ url }}">{{ title }}</a>
                         {{ /nav:pages }}
-                    </nav>
-
-                    <div>
-                        <a class="mx-2" href="/cart">Cart</a>
                     </div>
+
+                    <p class="text-gray-700 text-xs">&copy {{ now format="Y" }} All Rights
+                        Reserved
+                    </p>
                 </div>
-            </header>
-        {{ /if }}
+                <div class="md:w-1/3">
+                    <p class="font-semibold text-sm mb-1">Simple Commerce Links:</p>
 
-        {{ template_content }}
-
-        <footer class="bg-gray-100">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex py-12">
-                    <div class="w-2/3">
-                        <h2 class="text-lg text-gray-900 font-semibold mb-2">Pages</h2>
-                        <div class="flex flex-col">
-                            {{ nav:pages }}
-                                <a class="mb-1 text-gray-700" href="{{ url }}">{{ title }}</a>
-                            {{ /nav:pages }}
-                        </div>
-                    </div>
-
-                    <div class="w-1/3">
-                        <h2 class="text-lg text-gray-900 font-semibold mb-2">Search</h2>
-
-                        <form action="/search" method="get">
-                            <div class="flex flex-row bg-white rounded overflow-hidden">
-                                <input class="p-2 w-full focus:outline-none" type="search" name="q" placeholder="Tartan Kilt">
-                                <button class="px-4 py-2 font-semibold focus:outline-none bg-gray-300" type="submit">Search</button>
-                            </div>
-                        </form>
+                    <div class="flex items-center space-x-3">
+                        <a href="https://simple-commerce.duncanmcclean.com?ref=sc_starter_kit"
+                            class="text-sm text-simple-commerce" target="_blank">Documentation</a>
+                        <a href="https://github.com/doublethreedigital/simple-commerce?ref=sc_starter_kit"
+                            class="text-sm text-simple-commerce" target="_blank">GitHub</a>
+                        <a href="mailto:help@doublethree.digital" class="text-sm text-simple-commerce"
+                            target="_blank">Support</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </footer>
 
-            <div class="w-full bg-gray-300 h-1"></div>
+    <div
+        class="fixed bottom-0 left-0 bg-black py-2 px-4 text-white w-full flex flex-col md:flex-row md:items-center md:justify-center">
+        <p class="text-white font-bold mr-8 mb-2 md:mb-0">Debug Info:</p>
+        <ul class="flex flex-col md:flex-row md:items-center md:space-x-8 text-sm">
+            <li><strong>Cart ID:</strong> {{ sc:cart:id }}
+            </li>
+            <li><strong>Cart Items Total:</strong>
+                {{ sc:cart:itemsTotal }}</li>
+            <li><strong>Cart Tax Total:</strong>
+                {{ sc:cart:taxTotal }}</li>
+            <li><strong>Cart Grand Total:</strong>
+                {{ sc:cart:grandTotal }}</li>
+        </ul>
+    </div>
 
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center justify-between py-6">
-                    <p class="text-gray-700 text-sm">All major payment cards accepted.</p>
-
-                    <p class="text-gray-700 text-sm">&copy {{ now format="Y" }} All Rights Reserved</p>
-                </div>
-            </div>
-        </footer>
-
-        <script src="{{ mix src='/js/site.js' }}"></script>
-    </body>
+    <script src="{{ mix src='/js/site.js' }}"></script>
+</body>
 </html>

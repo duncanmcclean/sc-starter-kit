@@ -1,19 +1,18 @@
 module.exports = {
-    purge: {
-        content: [
-            "./resources/**/*.antlers.html",
-            "./resources/**/*.blade.php",
-            "./content/**/*.md"
-        ]
-    },
+    content: ["./resources/**/*.antlers.html", "./resources/**/*.blade.php"],
     important: true,
     theme: {
         extend: {
+            colors: {
+                "simple-commerce": "#041B34",
+            },
             height: {
-                82: "24rem"
-            }
-        }
+                82: "24rem",
+            },
+            width: {
+                "30rem": "30rem",
+            },
+        },
     },
-    variants: {},
-    plugins: []
+    plugins: [require("@tailwindcss/typography")],
 };
