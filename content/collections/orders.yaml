@@ -1,2 +1,4 @@
 title: Orders
 revisions: false
+title_format:
+  default: '#{order_number}'
