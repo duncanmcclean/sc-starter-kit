@@ -3,13 +3,11 @@ sections:
   main:
     display: Main
     fields:
-      - handle: title
+      -
+        handle: title
         field:
-          input_type: text
-          type: text
-          localizable: false
-          listable: hidden
-          display: Title
+          type: hidden
+          required: false
       - handle: name
         field:
           input_type: text
