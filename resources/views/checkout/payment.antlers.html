@@ -13,6 +13,46 @@
         <div class="flex flex-col md:flex-row w-full">
             <div class="w-full">
                 <div class="max-w-lg">
+                    <h2 class="text-gray-900 font-semibold text-2xl mb-2">Coupon</h2>
+
+                    {{ if {sc:coupon:has} === true }}
+                        <div class="mb-6 flex items-center justify-between">
+                            <p><strong>Coupon:</strong> {{ sc:coupon }}{{ slug | upper }}{{ /sc:coupon }}</p>
+
+                            {{ sc:coupon:remove }}
+                                <button 
+                                    type="submit"
+                                    class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
+                                >
+                                    Remove
+                                </button>
+                            {{ /sc:coupon:remove }}
+                        </div>
+                    {{ else }}
+                        {{ sc:coupon:redeem class="border-b border-gray-100 mt-4 mb-6" }}
+                            <div class="flex flex-col mb-2">
+                                <label for="code" class="mb-1 text-xs text-gray-700">Coupon Code</label>
+
+                                <input 
+                                    type="text" 
+                                    id="code" 
+                                    name="code"
+                                    class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
+                                    value="{{ old:code }}"
+                                >
+                            </div>
+
+                            <div class="w-full md:w-1/3 mb-4 md:mb-6">
+                                <button 
+                                    type="submit"
+                                    class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
+                                >
+                                    Redeem
+                                </button>
+                            </div>
+                        {{ /sc:coupon:redeem }}
+                    {{ /if }}
+
                     <h2 class="text-gray-900 font-semibold text-2xl mb-6">Payment</h2>
 
                     {{ partial:checkout/errors }}
@@ -37,7 +77,12 @@
                         </div>
 
                         <div class="w-full md:w-1/3 mb-4 md:mb-0">
-                            <button class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2">Finish and Pay</button>
+                            <button 
+                                type="submit"
+                                class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
+                            >
+                                Finish and Pay
+                            </button>
                         </div>
                     {{ /sc:checkout }}
                 </div>
