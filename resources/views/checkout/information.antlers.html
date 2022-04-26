@@ -17,7 +17,7 @@
 
                     {{ partial:checkout/errors }}
 
-                    {{ sc:cart:update redirect="/checkout/shipping" }}
+                    {{ sc:cart:update id="checkout-information-form" redirect="/checkout/shipping" }}
                         <div class="flex flex-row space-x-4 border-b border-gray-200 pb-4 mb-4">
                             <div class="flex-1 flex flex-col mb-2">
                                 <label for="name" class="mb-1 text-xs text-gray-700">Name</label>
@@ -308,7 +308,10 @@
                         </div>
 
                         <div class="my-6 flex justify-end">
-                            <button class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2">
+                            <button 
+                                type="submit"
+                                class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
+                            >
                                 Continue to Shipping
                             </button>
                         </div>
@@ -326,7 +329,21 @@
 {{ section:header_scripts }}
     {{ cache for="24 hours" }}
         <script>
-            window.regions = {{ json_regions }}
+            window.regions = {{ json_regions }};
+
+            document.addEventListener('load', () => {
+                let checkoutInformationForm = document.getElementById('checkout-information-form')
+    
+                if (checkoutInformationForm) {
+                    checkoutInformationForm.addEventListener('submit', (e) => {
+                        e.preventDefault()
+    
+                        checkoutInformationForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled')
+    
+                        checkoutInformationForm.submit()
+                    })
+                }
+            })
         </script>
     {{ /cache }}
 {{ /section:header_scripts }}

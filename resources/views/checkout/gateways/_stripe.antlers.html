@@ -3,6 +3,8 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
+    const checkoutForm = document.getElementById('checkout-form')
+
     var stripe = Stripe('{{ gateway-config:key }}');
     var elements = stripe.elements();
 
@@ -25,16 +27,21 @@
         }).then(function (result) {
             if (result.error) {
                 alert(result.error.message);
+
+                checkoutForm.querySelector('button[type="submit"]').removeAttribute('disabled')
             } else if (result.paymentIntent.status === 'succeeded') {
                 var paymentMethod = document.getElementById('stripePaymentMethod');
                 paymentMethod.value = result.paymentIntent.payment_method;
+
                 document.getElementById('checkout-form').submit();
             }
         });
     }
 
-    document.getElementById('checkout-form').addEventListener('submit', (e) => {
+    checkoutForm.addEventListener('submit', (e) => {
         e.preventDefault()
+
+        checkoutForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled')
 
         const gateway = document.getElementsByName('gateway')[0].value;
 
