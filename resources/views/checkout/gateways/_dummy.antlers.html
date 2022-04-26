@@ -1,3 +1,5 @@
+<p class="mb-6 text-sm text-gray-600">The <strong>Dummy Gateway</strong> is intented for use in testing/development. You can enter any card details and you'll get a successful payment.</p>
+
 <div class="flex flex-row space-x-4 mb-4">
     <div class="flex-1 flex flex-col mb-2">
         <label for="cardholder" class="mb-1 text-xs text-gray-700">Cardholder</label>
@@ -13,12 +15,32 @@
 <div class="flex flex-row space-x-4 mb-4">
     <div class="flex-1 flex flex-col mb-2">
         <label for="expiry_month" class="mb-1 text-xs text-gray-700">Expiry Month</label>
-        <input type="number" id="expiry_month" name="expiry_month" placeholder="09" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:expiry_month }}">
+        
+        <select name="expiry_month" id="expiry_month" class="bg-gray-100 rounded-md p-2 text-gray-800" value="{{ old:expiry_month }}">
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
     </div>
 
     <div class="flex-1 flex flex-col mb-2">
         <label for="expiry_year" class="mb-1 text-xs text-gray-700">Expiry Year</label>
-        <input type="number" id="expiry_year" name="expiry_year" placeholder="23" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:expiry_year }}">
+        
+        <select name="expiry_year" id="expiry_year" class="bg-gray-100 rounded-md p-2 text-gray-800" value="{{ old:expiry_year }}">
+            <option value="22">2022</option>
+            <option value="23">2023</option>
+            <option value="24">2024</option>
+            <option value="25">2025</option>
+        </select>
     </div>
 </div>
 
