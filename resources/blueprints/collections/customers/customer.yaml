@@ -8,7 +8,8 @@ sections:
         field:
           type: hidden
           required: false
-      - handle: name
+      -
+        handle: name
         field:
           input_type: text
           type: text
@@ -17,7 +18,8 @@ sections:
           listable: hidden
           display: Name
           validate: required
-      - handle: email
+      -
+        handle: email
         field:
           input_type: email
           type: text
@@ -29,10 +31,11 @@ sections:
   sidebar:
     display: Sidebar
     fields:
-      - handle: slug
+      -
+        handle: slug
         field:
-          input_type: text
           type: text
           localizable: false
+          input_type: text
           listable: hidden
           display: Slug
