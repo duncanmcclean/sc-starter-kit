@@ -11,20 +11,39 @@
                 <form id="sort-form" class="flex items-center" action="{{ current_url }}" method="get">
                     <label class="text-gray-700 mr-3 font-semibold" for="sort">Sort by</label>
 
-                    <select id="sort" name="sort" class="bg-gray-100 w-48 py-1 px-2 rounded"
-                        onchange="document.getElementById('sort-form').submit()">
-                        <option value="title:asc" {{ if get:sort == 'title:asc' }}
-                                                      selected
-                                                  {{ /if }}>Alphabetically, A-Z</option>
-                        <option value="title:desc" {{ if get:sort == 'title:desc' }}
-                                                       selected
-                                                   {{ /if }}>Alphabetically, Z-A</option>
-                        <option value="price:asc" {{ if get:sort == 'price:asc' }}
-                                                      selected
-                                                  {{ /if }}>Price, Low-High</option>
-                        <option value="price:desc" {{ if get:sort == 'price:desc' }}
-                                                       selected
-                                                   {{ /if }}>Price, High-Low</option>
+                    <select 
+                        id="sort" 
+                        name="sort" 
+                        class="bg-gray-100 w-48 py-1 px-2 rounded"
+                        onchange="document.getElementById('sort-form').submit()"
+                    >
+                        <option 
+                            value="title:asc" 
+                            {{ if get:sort == 'title:asc' }} selected {{ /if }}
+                        >
+                            Alphabetically, A-Z
+                        </option>
+
+                        <option 
+                            value="title:desc" 
+                            {{ if get:sort == 'title:desc' }} selected {{ /if }}
+                        >
+                            Alphabetically, Z-A
+                        </option>
+
+                        <option 
+                            value="price:asc" 
+                            {{ if get:sort == 'price:asc' }} selected {{ /if }}
+                        >
+                            Price, Low-High
+                        </option>
+
+                        <option 
+                            value="price:desc" 
+                            {{ if get:sort == 'price:desc' }} selected {{ /if }}
+                        >
+                            Price, High-Low
+                        </option>
                     </select>
                 </form>
 
@@ -64,6 +83,7 @@
                         </div>
                         <h2 class="text-xl text-gray-900 text-center font-semibold flex items-center justify-center">
                             <span>{{ title }}</span>
+
                             <span class="text-sm font-light ml-1">
                                 &mdash; {{ if product_variants }}
                                     From
@@ -90,7 +110,10 @@
                                 {{ if prev_page }}
                                     <a
                                         class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
-                                        href="{{ prev_page }}">← Previous</a>
+                                        href="{{ prev_page }}"
+                                    >
+                                        ← Previous
+                                    </a>
                                 {{ /if }}
                             </div>
 
@@ -100,7 +123,10 @@
                                 {{ if next_page }}
                                     <a
                                         class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
-                                        href="{{ next_page }}">→ Next</a>
+                                        href="{{ next_page }}"
+                                    >
+                                        → Next
+                                    </a>
                                 {{ /if }}
                             </div>
                         </div>
