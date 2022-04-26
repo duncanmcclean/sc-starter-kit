@@ -47,12 +47,18 @@
                 {{ products }}
                     <a class="block transition hover:opacity-90" href="{{ url }}">
                         <div class="w-full mb-2 flex items-center justify-center">
-                            {{ gallery }}
-                                {{ if first }}
-                                    <img class="rounded-sm" src="{{ glide:url square="500" }}"
-                                        alt="{{ alt }}" height="500" width="500">
-                                {{ /if }}
-                            {{ /gallery }}
+                            {{ if gallery }}
+                                {{ gallery }}
+                                    {{ if first }}
+                                        <img class="rounded-sm" src="{{ glide:url square="500" }}"
+                                            alt="{{ alt }}" height="500" width="500">
+                                    {{ /if }}
+                                {{ /gallery }}
+                            {{ else }}
+                                <div class="h-[325px] w-full bg-gray-100 rounded-sm">
+
+                                </div>
+                            {{ /if }}
                         </div>
                         <h2 class="text-xl text-gray-900 text-center font-semibold flex items-center justify-center">
                             <span>{{ title }}</span>
