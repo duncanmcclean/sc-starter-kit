@@ -9,14 +9,14 @@
         <div class="flex flex-row w-full">
             <div class="w-full">
                 <div class="max-w-lg">
-                    <h2 class="text-gray-900 font-semibold text-2xl mb-6">Complete</h2>
+                    <h2 class="text-gray-900 font-semibold text-2xl mb-6">Thanks for your purchase!</h2>
 
-                    <p>The checkout process has been succesful. We will be in touch about your order in the next couple of minutes.</p>
+                    <p>You've checked out successfully. Your order number is <strong>{{ order_number }}</strong> We'll be in touch regarding your order shortly.</p>
                 </div>
             </div>
 
             <div class="w-1/3">
-                <!--  -->
+                {{ partial:checkout/cart }}
             </div>
         </div>
     </div>

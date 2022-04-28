@@ -7,7 +7,7 @@
     <title>{{ title ?? site:name }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="">
+<body>
     <div class="bg-gray-100 min-h-screen flex items-center justify-center">
         <div class="bg-white rounded-lg p-6 w-[40rem]">
             <div class="flex justify-center mb-6">
@@ -26,44 +26,105 @@
                 </svg>
             </div>
 
-            <h2 class="text-xl font-semibold text-center mb-4">Getting Started with Simple Commerce:</h2>
+            <h2 class="text-xl font-semibold text-center mb-4">
+                Getting Started with Simple Commerce:
+            </h2>
 
             <ul class="list-disc pl-4 mb-8">
-                <li class="mb-2">If you're new, have a <a
-                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" href="/catalog">play
-                        around</a> with the demo content
-                    available.</li>
-                <li class="mb-2">Bring in your own design - <a
-                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline"
-                        href="https://tailwindcss.com" target="_blank">Tailwind CSS</a> & <a
-                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline"
-                        href="https://alpinejs.dev/" target="_blank">Alpine.js</a> are already setup but feel free to
-                    use whatever
-                    you want.</li>
-                <li class="mb-2">Build any <a class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline"
-                        target="_blank"
-                        href="https://simple-commerce.duncanmcclean.com/shipping#content-creating-a-shipping-method?ref=sc_starter_kit">custom
-                        shipping methods</a> you need. Maybe in-store pickup or next-day delivery?
+                <li class="mb-2">
+                    If you're new, have a 
+                    <a
+                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" 
+                        href="/catalog"
+                    >
+                        play around
+                    </a>
+                    with the demo content available.
                 </li>
-                <li class="mb-2">Hook up with your chosen payment gateway. <a
-                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" target="_blank"
-                        href="https://simple-commerce.duncanmcclean.com/gateways/stripe?ref=sc_starter_kit">Stripe</a>,
-                    <a class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" target="_blank"
-                        href="https://simple-commerce.duncanmcclean.com/gateways/mollie?ref=sc_starter_kit">Mollie</a> &
-                    <a class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" target="_blank"
-                        href="https://simple-commerce.duncanmcclean.com/gateways/paypal?ref=sc_starter_kit">PayPal</a>
-                    are supported
-                    out-of-the-box.
+
+                <li class="mb-2">
+                    Bring in your own design - 
+                    <a
+                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline"
+                        href="https://tailwindcss.com" 
+                        target="_blank"
+                    >
+                        Tailwind CSS
+                    </a>     
+                    & 
+                    <a
+                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline"
+                        href="https://alpinejs.dev/" 
+                        target="_blank"
+                    >
+                        Alpine.js
+                    </a> 
+                    are already setup but feel free to use whatever you want.
+                </li>
+
+                <li class="mb-2">
+                    Build any 
+                    <a 
+                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline"
+                        target="_blank"
+                        href="https://simple-commerce.duncanmcclean.com/shipping#content-creating-a-shipping-method?ref=sc_starter_kit"
+                    >
+                        custom shipping methods
+                    </a> 
+                    you need. Maybe in-store pickup or next-day delivery?
+                </li>
+
+                <li class="mb-2">
+                    Hook up with your chosen payment gateway. 
+                    <a
+                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" 
+                        target="_blank"
+                        href="https://simple-commerce.duncanmcclean.com/gateways/stripe?ref=sc_starter_kit"
+                    >
+                        Stripe
+                    </a>,
+                    <a 
+                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" 
+                        target="_blank"
+                        href="https://simple-commerce.duncanmcclean.com/gateways/mollie?ref=sc_starter_kit"
+                    >
+                        Mollie
+                    </a> &
+                    <a 
+                        class="text-[#041B34] hover:text-[#00CDE0] font-medium hover:underline" 
+                        target="_blank"
+                        href="https://simple-commerce.duncanmcclean.com/gateways/paypal?ref=sc_starter_kit"
+                    >
+                        PayPal
+                    </a>
+                    are supported out-of-the-box.
                 </li>
             </ul>
 
             <div class="flex items-center justify-center space-x-4">
-                <a href="https://simple-commerce.duncanmcclean.com?ref=sc_starter_kit"
-                    class="text-sm text-[#041B34] hover:text-[#00CDE0] font-medium" target="_blank">Documentation</a>
-                <a href="https://github.com/doublethreedigital/simple-commerce?ref=sc_starter_kit"
-                    class="text-sm text-[#041B34] hover:text-[#00CDE0] font-medium" target="_blank">GitHub</a>
-                <a href="mailto:help@doublethree.digital" class="text-sm text-[#041B34] hover:text-[#00CDE0] font-medium"
-                    target="_blank">Support</a>
+                <a 
+                    href="https://simple-commerce.duncanmcclean.com?ref=sc_starter_kit"
+                    class="text-sm text-[#041B34] hover:text-[#00CDE0] font-medium"
+                    target="_blank"
+                >
+                    Documentation
+                </a>
+
+                <a 
+                    href="https://github.com/doublethreedigital/simple-commerce?ref=sc_starter_kit"
+                    class="text-sm text-[#041B34] hover:text-[#00CDE0] font-medium"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
+
+                <a 
+                    href="mailto:help@doublethree.digital" 
+                    class="text-sm text-[#041B34] hover:text-[#00CDE0] font-medium"
+                    target="_blank"
+                >
+                    Support
+                </a>
             </div>
         </div>
     </div>

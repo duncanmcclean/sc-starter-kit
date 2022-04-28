@@ -2,55 +2,100 @@
     <div class="max-w-5xl mx-auto my-12 px-4 md:px-0">
         <div class="flex flex-col md:flex-row md:items-stretch">
             <div class="md:w-1/2 flex flex-wrap justify-center items-center">
-                {{ gallery }}
-                    <img
-                        class="rounded my-2 md:h-32 {{ page:gallery }}{{ if last }}{{ if count === 1 }} md:h-82 {{ elseif count === 2 }} md:w-1/2 {{ elseif count === 3 }} md:w-1/3 {{ /if }}{{ /if }}{{ /page:gallery }}"
-                        src="{{ url }}"
-                        alt="{{ alt }}"
-                        data-zoomable="true"
+                {{ if gallery }} 
+                    {{ gallery }}
+                        <img
+                            class="rounded my-2 md:h-32 {{ page:gallery }}{{ if last }}{{ if count === 1 }} md:h-82 {{ elseif count === 2 }} md:w-1/2 {{ elseif count === 3 }} md:w-1/3 {{ /if }}{{ /if }}{{ /page:gallery }}"
+                            src="{{ url }}"
+                            alt="{{ alt }}"
+                            data-zoomable="true"
+                        />
+                    {{ /gallery }} 
+                {{ else }}
+                    <div
+                        class="rounded md:h-82 bg-gray-100 w-full flex items-center justify-center"
                     >
-                {{ /gallery }}
+                        <p class="text-gray-600 font-medium text-center">
+                            If this product had an image, it would go here.
+                        </p>
+                    </div>
+                {{ /if }}
             </div>
+
             <div class="md:w-1/2 md:px-6">
                 <h1 class="text-3xl font-semibold mb-1">{{ title }}</h1>
+
                 <h3 class="text-lg font-semibold">
-                    {{ if product_variants }}
-                        From {{ product_variants:options }}{{ if first }}{{ price }}{{ /if }}{{ /product_variants:options }}
+                    {{ if product_variants }} 
+                        From 
+                        {{ product_variants:options }}
+                            {{ if first }}
+                                {{ price }}
+                            {{ /if }}
+                        {{ /product_variants:options }}
                     {{ else }}
                         {{ price }}
                     {{ /if }}
                 </h3>
-                <div class="py-4 text-sm prose">
-                    {{ description }}
-                </div>
+
+                <div class="py-4 text-sm prose">{{ description }}</div>
 
                 {{ if {sc:cart:alreadyExists :product="id"} == true }}
-                    <div class="border-t border-gray-200 py-4 flex justify-between items-center">
-                        <span class="font-medium">This product is already in your cart.</span>
+                    <div
+                        class="border-t border-gray-200 py-4 flex justify-between items-center"
+                    >
+                        <span class="font-medium"
+                            >This product is already in your cart.</span
+                        >
 
-                        <a class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2" href="/cart">View Cart</a>
+                        <a
+                            class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
+                            href="/cart"
+                        >
+                            View Cart
+                        </a>
                     </div>
-                {{ else }}
-                    {{ sc:cart:addItem class="border-t border-gray-200 py-4 flex justify-between items-center" redirect="/cart" }}
-                        <input type="hidden" name="product" value="{{ id }}">
+                {{ else }} 
+                    {{ sc:cart:addItem id="add-to-cart-form" class="border-t border-gray-200 py-4 flex justify-between items-center" redirect="/cart" }}
+                        <input type="hidden" name="product" value="{{ id }}" />
 
                         <div class="flex flex-col">
                             {{ if product_variants }}
                                 <div class="flex flex-row items-center mb-2">
-                                    <label class="text-gray-700 mr-3 font-semibold w-1/2" for="variant">Variant</label>
+                                    <label
+                                        class="text-gray-700 mr-3 font-semibold w-1/2"
+                                        for="variant"
+                                    >
+                                        Variant
+                                    </label>
 
-                                    <select id="variant" class="bg-gray-100 p-1 rounded w-16" name="variant">
+                                    <select
+                                        id="variant"
+                                        class="bg-gray-100 p-1 rounded w-16"
+                                        name="variant"
+                                    >
                                         {{ product_variants:options }}
-                                            <option value="{{ key }}">{{ variant }} ({{ price }})</option>
+                                            <option value="{{ key }}">
+                                                {{ variant }} ({{ price }})
+                                            </option>
                                         {{ /product_variants:options }}
                                     </select>
                                 </div>
                             {{ /if }}
 
                             <div class="flex flex-row items-center mb-2">
-                                <label class="text-gray-700 mr-3 font-semibold w-1/2" for="quantity">Quantity</label>
+                                <label
+                                    class="text-gray-700 mr-3 font-semibold w-1/2"
+                                    for="quantity"
+                                >
+                                    Quantity
+                                </label>
 
-                                <select id="quantity" class="bg-gray-100 p-1 rounded w-16" name="quantity">
+                                <select
+                                    id="quantity"
+                                    class="bg-gray-100 p-1 rounded w-16"
+                                    name="quantity"
+                                >
                                     {{ loop from="1" to="5" }}
                                         <option value="{{ value }}">{{ value }}</option>
                                     {{ /loop }}
@@ -58,10 +103,33 @@
                             </div>
                         </div>
 
-                        <button class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2">Add to Cart</button>
+                        <button
+                            type="submit"
+                            class="bg-green-100 hover:opacity-75 disabled:cursor-not-allowed text-gray-700 font-semibold rounded-lg px-4 py-2"
+                        >
+                            Add to Cart
+                        </button>
                     {{ /sc:cart:addItem }}
                 {{ /if }}
             </div>
         </div>
     </div>
 </article>
+
+{{ section:header_scripts }}
+    <script>
+        document.addEventListener('load', () => {
+            let addToCartForm = document.getElementById('add-to-cart-form')
+
+            if (addToCartForm) {
+                addToCartForm.addEventListener('submit', (e) => {
+                    e.preventDefault()
+
+                    addToCartForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled')
+
+                    addToCartForm.submit()
+                })
+            }
+        })
+    </script>
+{{ /section:header_scripts }}

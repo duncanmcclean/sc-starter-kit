@@ -20,7 +20,7 @@ return [
 
             'shipping' => [
                 'methods' => [
-                    \DoubleThreeDigital\SimpleCommerce\Shipping\StandardPost::class,
+                    \DoubleThreeDigital\SimpleCommerce\Shipping\StandardPost::class => [],
                 ],
             ],
         ],
@@ -64,9 +64,44 @@ return [
 
     'notifications' => [
         'order_paid' => [
-            \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderPaid::class   => ['to' => 'customer'],
-            \DoubleThreeDigital\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => ['to' => 'duncan@example.com'],
+            \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderPaid::class => [
+                'to' => 'customer',
+            ],
+
+            \DoubleThreeDigital\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => [
+                'to' => 'duncan@example.com',
+            ],
         ],
+
+        'order_shipped' => [
+            \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderShipped::class => [
+                'to' => 'customer',
+            ],
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Field Whitelist
+    |--------------------------------------------------------------------------
+    |
+    | You may configure the fields you wish to be editable via front-end forms
+    | below. Wildcards are not accepted due to security concerns.
+    |
+    | https://simple-commerce.duncanmcclean.com/tags#field-whitelisting
+    |
+    */
+
+    'field_whitelist' => [
+        'orders' => [
+            'shipping_name', 'shipping_address_line1', 'shipping_address_line2', 'shipping_city', 'shipping_region',
+            'shipping_postal_code', 'shipping_country', 'use_shipping_address_for_billing', 'billing_name', 'billing_address_line1',
+            'billing_address_line2', 'billing_city', 'billing_region', 'billing_postal_code', 'billing_country',
+        ],
+
+        'line_items' => [],
+
+        'customers' => ['name', 'email'],
     ],
 
     /*
@@ -126,34 +161,33 @@ return [
     | Content Drivers
     |--------------------------------------------------------------------------
     |
-    | Normally, all of your products, orders, coupons & customers are stored as flat
-    | file entries. This works great for small stores where you want to keep everything
-    | simple. However, for more complex stores, you may want store your data somewhere else
-    | (like a database). Here's where you'd swap that out.
+    | Normally, all products/orders/etc are stored as entries. However, as your
+    | store grows you may which to use a database instead. This is where you
+    | come to switch out the 'entry driver' for the 'database driver'.
     |
     | https://simple-commerce.duncanmcclean.com/extending/content-drivers
     |
     */
 
     'content' => [
-        'orders' => [
-            'driver' => \DoubleThreeDigital\SimpleCommerce\Orders\Order::class,
-            'collection' => 'orders',
-        ],
-
-        'products' => [
-            'driver' => \DoubleThreeDigital\SimpleCommerce\Products\Product::class,
-            'collection' => 'products',
-        ],
-
         'coupons' => [
-            'driver' => \DoubleThreeDigital\SimpleCommerce\Coupons\Coupon::class,
+            'repository' => \DoubleThreeDigital\SimpleCommerce\Coupons\EntryCouponRepository::class,
             'collection' => 'coupons',
         ],
 
         'customers' => [
-            'driver' => \DoubleThreeDigital\SimpleCommerce\Customers\Customer::class, // Change to `UserCustomer` if you'd prefer to use Users as your customers
+            'repository' => \DoubleThreeDigital\SimpleCommerce\Customers\EntryCustomerRepository::class,
             'collection' => 'customers',
+        ],
+
+        'orders' => [
+            'repository' => \DoubleThreeDigital\SimpleCommerce\Orders\EntryOrderRepository::class,
+            'collection' => 'orders',
+        ],
+
+        'products' => [
+            'repository' => \DoubleThreeDigital\SimpleCommerce\Products\EntryProductRepository::class,
+            'collection' => 'products',
         ],
     ],
 
