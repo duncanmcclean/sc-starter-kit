@@ -3,7 +3,7 @@
 
     {{ sc:cart:items }}
         <a class="flex items-center justify-between mb-2 text-sm" href="{{ product:url }}">
-            <span>{{ quantity }}x {{ product:title }}</span>
+            <span>{{ quantity }}x {{ product:title }} {{ if variant }}({{ variant:variant }}){{ /if }}</span>
             <span>{{ total }}</span>
         </a>
     {{ /sc:cart:items }}
