@@ -34,7 +34,12 @@
                                             {{ /product:gallery }}
                                         </a>
                                         <div class="md:px-4">
-                                            <span class="font-semibold">{{ product:title }}</span><br>
+                                            <span class="font-semibold">
+                                                {{ product:title }} 
+                                                {{ if variant }}({{ variant:variant }}){{ /if }}
+                                            </span>
+                                            
+                                            <br>
 
                                             {{ sc:cart:removeItem :item="id" }}
                                                 <button class="mt-1 block text-sm text-gray-700">Remove</button>
