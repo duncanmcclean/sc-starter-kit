@@ -24,4 +24,4 @@ export_paths:
   - upgrade-cli-notice.php
   - webpack.mix.js
 dependencies:
-  doublethreedigital/simple-commerce: "3.0.*"
+  doublethreedigital/simple-commerce: "3.2.*"
