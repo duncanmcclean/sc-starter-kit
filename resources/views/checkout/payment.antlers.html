@@ -58,8 +58,10 @@
                     {{ partial:checkout/errors }}
 
                     {{ sc:checkout id="checkout-form" redirect="/checkout/complete" }}
-                        <div x-data="{ gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}' }">
-                            <div class="flex flex-col border-b border-gray-200 pb-4 mb-4">
+                        <div x-data="{ 
+                            gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}'
+                        }">
+                            <div class="flex flex-col border-b border-gray-200 pb-4 mb-4 {{ if {sc:gateways:count} == 1 }} hidden {{ /if }}">
                                 <label for="payment_method" class="mb-1 text-xs text-gray-700">Payment Method</label>
                                 
                                 <select name="gateway" id="payment_method" class="bg-gray-100 rounded-md p-2 text-gray-800" value="{{ old:gateway }}" x-model="gateway">
