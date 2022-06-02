@@ -1,0 +1,28 @@
+{{ if {gateway-config:mode} === 'onsite' }}
+    <div id="paypal-button"></div>
+    <input id="paypal-payment-id" type="hidden" name="payment_id">
+
+    <script
+        src="https://www.paypal.com/sdk/js?client-id={{ gateway-config:client_id }}&currency={{ result.currency_code }}">
+    </script>
+
+    <script>
+        paypal.Buttons({
+            createOrder: () => {
+                return Promise.resolve('{{ result.id }}');
+            },
+            onApprove: (data, actions) => {
+                document.getElementById('paypal-payment-id').value = data.orderID;
+                document.getElementById('checkout-form').submit();
+            },
+        }).render('#paypal-button');
+    </script>
+
+{{ else }}
+    <a
+        class="w-full flex justify-center" 
+        href="/checkout/offsite/paypal"
+    >
+        <img src="/assets/paypal-checkout-button.png" alt="Checkout with PayPal">
+    </a>
+{{ /if }}

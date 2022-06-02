@@ -20,3 +20,6 @@ Route::statamic('/checkout/information', 'checkout.information', ['title' => 'Ch
 Route::statamic('/checkout/shipping', 'checkout.shipping', ['title' => 'Checkout - Shipping']);
 Route::statamic('/checkout/payment', 'checkout.payment', ['title' => 'Checkout - Payment']);
 Route::statamic('/checkout/complete', 'checkout.complete', ['title' => 'Checkout - Complete']);
+
+Route::statamic('/checkout/offsite/mollie', 'checkout.offsite.mollie');
+Route::statamic('/checkout/offsite/paypal', 'checkout.offsite.paypal');
