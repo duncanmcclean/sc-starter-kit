@@ -2,7 +2,7 @@
     <div class="max-w-5xl mx-auto my-12 px-4 md:px-0">
         <div class="flex flex-col md:flex-row md:items-stretch">
             <div class="md:w-1/2 flex flex-wrap justify-center items-center">
-                {{ if gallery }} 
+                {{ if gallery }}
                     {{ gallery }}
                         <img
                             class="rounded my-2 md:h-32 {{ page:gallery }}{{ if last }}{{ if count === 1 }} md:h-82 {{ elseif count === 2 }} md:w-1/2 {{ elseif count === 3 }} md:w-1/3 {{ /if }}{{ /if }}{{ /page:gallery }}"
@@ -10,7 +10,7 @@
                             alt="{{ alt }}"
                             data-zoomable="true"
                         />
-                    {{ /gallery }} 
+                    {{ /gallery }}
                 {{ else }}
                     <div
                         class="rounded md:h-82 bg-gray-100 w-full flex items-center justify-center"
@@ -26,8 +26,8 @@
                 <h1 class="text-3xl font-semibold mb-1">{{ title }}</h1>
 
                 <h3 class="text-lg font-semibold">
-                    {{ if product_variants }} 
-                        From 
+                    {{ if product_variants }}
+                        From
                         {{ product_variants:options }}
                             {{ if first }}
                                 {{ price }}
@@ -45,17 +45,27 @@
                         class="border-t border-gray-200 py-4 flex justify-between items-center"
                     >
                         <span class="font-medium"
-                            >This product is already in your cart.</span
+                            >This product is already in your cart. <a class="text-green-500 hover:opacity-75" href="/cart">View Cart</a></span
                         >
 
-                        <a
-                            class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
-                            href="/cart"
-                        >
-                            View Cart
-                        </a>
+                        {{ sc:cart:updateItem :product="id" }}
+                            <select 
+                                class="bg-white p-1 rounded w-16" 
+                                name="quantity"
+                                onchange="this.parentElement.submit()"
+                            >
+                                {{ loop from="1" to="5" }}
+                                    <option 
+                                        value="{{ value }}"
+                                        {{ if quantity == value }} selected {{ /if }}
+                                    >
+                                        {{ value }}
+                                    </option>
+                                {{ /loop }}
+                            </select>
+                        {{ /sc:cart:updateItem }}
                     </div>
-                {{ else }} 
+                {{ else }}
                     {{ sc:cart:addItem id="add-to-cart-form" class="border-t border-gray-200 py-4 flex justify-between items-center" redirect="/cart" }}
                         <input type="hidden" name="product" value="{{ id }}" />
 
