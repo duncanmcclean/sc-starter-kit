@@ -7,15 +7,10 @@ sections:
         handle: title
         field:
           type: text
-          required: true
-      -
-        handle: is_paid
-        field:
-          type: toggle
-          listable: false
-          display: 'Is Paid?'
+          required: false
           width: 50
-          read_only: true
+          validate:
+            - required
       -
         handle: customer
         field:
@@ -24,22 +19,81 @@ sections:
           collections:
             - customers
           type: entries
-          listable: hidden
+          listable: true
           display: Customer
           width: 50
           read_only: true
+          instructions_position: above
+          create: true
       -
-        handle: coupon
+        handle: order_number
         field:
-          max_items: 1
-          mode: select
-          collections:
-            - coupons
-          type: entries
-          listable: false
-          display: Coupon
-          width: 50
+          type: hidden
+      -
+        handle: totals
+        field:
+          display: Totals
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: items_total
+        field:
+          type: money
+          display: 'Items Total'
           read_only: true
+          validate: required
+          width: 33
+          listable: hidden
+          instructions_position: above
+      -
+        handle: coupon_total
+        field:
+          type: money
+          display: 'Coupon Total'
+          read_only: true
+          validate: required
+          width: 33
+          listable: false
+      -
+        handle: tax_total
+        field:
+          type: money
+          display: 'Tax Total'
+          read_only: true
+          validate: required
+          width: 33
+          listable: false
+      -
+        handle: shipping_total
+        field:
+          type: money
+          display: 'Shipping Total'
+          read_only: true
+          validate: required
+          width: 33
+          listable: false
+      -
+        handle: grand_total
+        field:
+          type: money
+          display: 'Grand Total'
+          read_only: true
+          validate: required
+          width: 33
+          listable: true
+          instructions_position: above
+      -
+        handle: order_details
+        field:
+          display: 'Order Details'
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          read_only: false
       -
         handle: items
         field:
@@ -110,15 +164,28 @@ sections:
           display: 'Line Items'
           min_rows: 1
           add_row: 'Add Line Item'
-  addresses:
-    display: Addresses
-    fields:
       -
-        handle: shipping_section
+        handle: coupon
         field:
-          type: section
+          max_items: 1
+          mode: select
+          collections:
+            - coupons
+          type: entries
           listable: false
-          display: 'Shipping Address'
+          display: Coupon
+          width: 50
+          read_only: true
+      -
+        handle: shipping_method
+        field:
+          display: 'Shipping Method'
+          type: shipping_method
+          read_only: true
+          width: 50
+  shipping_address:
+    display: 'Shipping Address'
+    fields:
       -
         handle: shipping_name
         field:
@@ -158,6 +225,15 @@ sections:
           width: 50
           read_only: true
       -
+        handle: shipping_postal_code
+        field:
+          input_type: text
+          type: text
+          width: 50
+          listable: false
+          display: 'Shipping Postal Code'
+          read_only: true
+      -
         handle: shipping_region
         field:
           max_items: 1
@@ -167,15 +243,6 @@ sections:
           icon: region
           width: 50
           listable: hidden
-          read_only: true
-      -
-        handle: shipping_postal_code
-        field:
-          input_type: text
-          type: text
-          width: 50
-          listable: false
-          display: 'Shipping Postal Code'
           read_only: true
       -
         handle: shipping_country
@@ -188,20 +255,18 @@ sections:
           listable: hidden
           width: 50
           read_only: true
-      -
-        handle: billing_section
-        field:
-          type: section
-          listable: false
-          display: 'Billing Address'
+  billing_address:
+    display: 'Billing Address'
+    fields:
       -
         handle: use_shipping_address_for_billing
         field:
           type: toggle
           listable: false
-          display: 'Same Shipping Address?'
+          display: 'Use Shipping Address for Billing?'
           default: true
           read_only: true
+          instructions_position: above
       -
         handle: billing_name
         field:
@@ -249,6 +314,17 @@ sections:
           width: 50
           read_only: true
       -
+        handle: billing_postal_code
+        field:
+          input_type: text
+          type: text
+          width: 50
+          listable: false
+          display: 'Billing Postal Code'
+          unless:
+            use_shipping_address_for_billing: 'equals true'
+          read_only: true
+      -
         handle: billing_region
         field:
           max_items: 1
@@ -258,17 +334,6 @@ sections:
           icon: region
           width: 50
           listable: hidden
-          unless:
-            use_shipping_address_for_billing: 'equals true'
-          read_only: true
-      -
-        handle: billing_postal_code
-        field:
-          input_type: text
-          type: text
-          width: 50
-          listable: false
-          display: 'Billing Postal Code'
           unless:
             use_shipping_address_for_billing: 'equals true'
           read_only: true
@@ -293,12 +358,27 @@ sections:
         field:
           type: hidden
           localizable: true
-          required: true
           display: Slug
           icon: hidden
           listable: false
           validate:
             - required
+          read_only: true
+      -
+        handle: payment
+        field:
+          display: Payment
+          type: section
+          icon: section
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: is_paid
+        field:
+          type: toggle
+          listable: false
+          display: 'Is Paid?'
           read_only: true
       -
         handle: paid_date
@@ -312,68 +392,15 @@ sections:
           columns: 1
           rows: 1
           type: date
-          listable: hidden
-          display: 'Paid Date'
+          listable: true
+          display: 'Paid At'
           validate: required
           read_only: true
-      -
-        handle: items_total
-        field:
-          type: money
-          display: 'Items Total'
-          read_only: true
-          validate: required
-          width: 33
-          listable: hidden
-      -
-        handle: coupon_total
-        field:
-          type: money
-          display: 'Coupon Total'
-          read_only: true
-          validate: required
-          width: 33
-          listable: false
-      -
-        handle: tax_total
-        field:
-          type: money
-          display: 'Tax Total'
-          read_only: true
-          validate: required
-          width: 33
-          listable: false
-      -
-        handle: shipping_total
-        field:
-          type: money
-          display: 'Shipping Total'
-          read_only: true
-          validate: required
-          width: 33
-          listable: false
-      -
-        handle: grand_total
-        field:
-          type: money
-          display: 'Grand Total'
-          read_only: true
-          validate: required
-          width: 33
-          listable: hidden
+          instructions_position: above
+          time_seconds_enabled: false
       -
         handle: gateway
         field:
           display: Gateway
           type: gateway
           read_only: true
-      -
-        handle: shipping_method
-        field:
-          display: 'Shipping Method'
-          type: shipping_method
-          read_only: true
-      -
-        handle: order_number
-        field:
-          type: hidden
