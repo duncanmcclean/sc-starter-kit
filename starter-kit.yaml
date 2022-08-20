@@ -21,7 +21,6 @@ export_paths:
   - package.json
   - README.md
   - tailwind.config.js
-  - upgrade-cli-notice.php
   - webpack.mix.js
 dependencies:
   doublethreedigital/simple-commerce: "3.2.*"
