@@ -8,7 +8,7 @@
 
 This starter kit is the **recommended starting point** for building new Simple Commerce sites. It's also useful to test out Simple Commerce before committing to it.
 
-It provides a minimal design which aims to demonstrate how features in Simple Commerce should be implemented & how they work. You're free to change as much or as little as you want or even just take snippets of code and pop them in your own project. The source code is available on [GitHub](https://github.com/doublethreedigital/sc-starter-kit).
+It provides a minimal design which aims to demonstrate how features in Simple Commerce should be implemented & how they work. You're free to change as much or as little as you want or even just take snippets of code and pop them in your own project. The source code is available on [GitHub](https://github.com/duncanmcclean/sc-starter-kit).
 
 **Note:** Remember to purchase a license from the [Statamic Marketplace](https://statamic.com/simple-commerce) before using Simple Commerce in production.
 
