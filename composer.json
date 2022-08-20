@@ -6,10 +6,5 @@
             "name": "Simple Commerce Starter Kit",
             "description": "Simple Commerce starter kit for Statamic"
         }
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "@php upgrade-cli-notice.php"
-        ]
     }
 }
