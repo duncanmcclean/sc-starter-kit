@@ -26,7 +26,7 @@ It provides a minimal design which aims to demonstrate how features in Simple Co
 You can quickly create a new site using the [Statamic CLI](https://github.com/statamic/cli). 
 
 ```
-statamic new artisan-bakery doublethreedigital/sc-starter-kit
+statamic new artisan-bakery duncanmcclean/sc-starter-kit
 ```
 
 **And that should be you setup! 🎉** 
