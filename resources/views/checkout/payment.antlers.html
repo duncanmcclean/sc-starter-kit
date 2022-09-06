@@ -17,7 +17,7 @@
 
                     {{ if {sc:coupon:has} === true }}
                         <div class="mb-6 flex items-center justify-between">
-                            <p><strong>Coupon:</strong> {{ sc:coupon }}{{ slug | upper }}{{ /sc:coupon }}</p>
+                            <p><strong>Coupon:</strong> {{ sc:coupon }}{{ code | upper }}{{ /sc:coupon }}</p>
 
                             {{ sc:coupon:remove }}
                                 <button 
