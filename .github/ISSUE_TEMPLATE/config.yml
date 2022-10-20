@@ -1,1 +1,6 @@
 blank_issues_enabled: false
+
+contact_links:
+  - name: '➡️ Everything else...'
+    url: https://github.com/duncanmcclean/simple-commerce/issues/new/choose
+    about: "For anything that's related to Simple Commerce itself."
