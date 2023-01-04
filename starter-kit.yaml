@@ -23,4 +23,4 @@ export_paths:
   - tailwind.config.js
   - webpack.mix.js
 dependencies:
-  doublethreedigital/simple-commerce: "4.2.*"
+  doublethreedigital/simple-commerce: "^4.3"
