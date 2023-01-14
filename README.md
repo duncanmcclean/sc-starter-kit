@@ -1,6 +1,12 @@
 <!-- statamic:hide -->
 
-![Banner](banner.png)
+<p align="center">
+<picture>
+    <source srcset="./logo-dark.svg" media="(prefers-color-scheme: dark)">
+    <img align="center" width="250" height="70" src="./logo-default.svg">
+</picture>
+</p>
+<br>
 
 ## Simple Commerce Starter Kit
 
@@ -23,13 +29,13 @@ It provides a minimal design which aims to demonstrate how features in Simple Co
 
 ## Quick Start
 
-You can quickly create a new site using the [Statamic CLI](https://github.com/statamic/cli). 
+You can quickly create a new site using the [Statamic CLI](https://github.com/statamic/cli).
 
 ```
 statamic new artisan-bakery duncanmcclean/sc-starter-kit
 ```
 
-**And that should be you setup! 🎉** 
+**And that should be you setup! 🎉**
 
 ## Front-end stack
 
