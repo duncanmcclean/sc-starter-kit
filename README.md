@@ -1,6 +1,12 @@
 <!-- statamic:hide -->
 
-![Banner](banner.png)
+<p align="center">
+<picture>
+    <source srcset="./logo-dark.svg" media="(prefers-color-scheme: dark)">
+    <img align="center" width="250" height="70" src="./logo-default.svg">
+</picture>
+</p>
+<br>
 
 ## Simple Commerce Starter Kit
 
