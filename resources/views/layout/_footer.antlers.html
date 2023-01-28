@@ -1,0 +1,27 @@
+{{# @name Footer @desc The sites footer rendered on each page. #}}
+
+<!-- /layout/_footer.antlers.html -->
+<footer class="w-full py-4 mt-auto bg-white">
+    <div
+        class="fluid-container flex flex-col space-y-4 md:space-y-0 md:flex-row md:justify-between md:space-x-4 md:items-center"
+    >
+        <div
+            class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 text-xs font-bold"
+        >
+            <span>
+                &copy; 2020 - {{ now | format('Y') }} {{ config:app:name }}
+            </span>
+        </div>
+        <div class="flex space-x-2">
+            <span
+                class="p-1 -m-1 text-neutral focus:outline-none text-xs"
+                aria-label="Open order in Control Panel"
+                target="_blank"
+            >
+                Cart: {{ if {sc:cart:has} }} {{ sc:cart:id }} ({{ sc:cart:count
+                }} items) {{ else }} None {{ /if }}
+            </span>
+        </div>
+    </div>
+</footer>
+<!-- End: /layout/_footer.antlers.html -->

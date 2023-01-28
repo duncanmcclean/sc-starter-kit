@@ -1,0 +1,188 @@
+title: Button
+fields:
+  -
+    handle: label
+    field:
+      input_type: text
+      type: text
+      localizable: true
+      listable: false
+      display: Label
+      width: 66
+      replicator_preview: false
+      instructions_position: above
+      antlers: false
+  -
+    handle: show_controls
+    field:
+      mode: toggle
+      display: 'Show controls'
+      type: revealer
+      icon: revealer
+      width: 33
+      listable: hidden
+      instructions_position: above
+  -
+    handle: link_type
+    field:
+      options:
+        entry: Entry
+        url: URL
+        email: Email
+        tel: Tel
+        sms: SMS
+        asset: Asset
+      type: button_group
+      localizable: true
+      default: entry
+      listable: false
+      display: 'Link type'
+      replicator_preview: false
+      width: 66
+      if:
+        show_controls: 'equals true'
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: target_blank
+    field:
+      type: toggle
+      localizable: true
+      width: 33
+      listable: false
+      display: 'Open in new window'
+      replicator_preview: false
+      if:
+        show_controls: 'equals true'
+  -
+    handle: entry
+    field:
+      max_items: 1
+      mode: default
+      type: entries
+      localizable: true
+      width: 50
+      listable: false
+      display: Entry
+      replicator_preview: false
+      validate:
+        - 'required_if:{this}.link_type,entry'
+      if:
+        link_type: entry
+        show_controls: 'equals true'
+  -
+    handle: url
+    field:
+      placeholder: 'https://site.com'
+      input_type: url
+      type: text
+      localizable: true
+      listable: false
+      display: URL
+      width: 50
+      validate:
+        - 'required_if:{this}.link_type,url'
+      if:
+        link_type: url
+        show_controls: 'equals true'
+  -
+    handle: email
+    field:
+      placeholder: info@site.com
+      input_type: email
+      type: text
+      localizable: true
+      listable: false
+      display: E-mail
+      width: 50
+      replicator_preview: false
+      validate:
+        - 'required_if:{this}.link_type,email'
+      if:
+        link_type: email
+        show_controls: 'equals true'
+  -
+    handle: tel
+    field:
+      placeholder: '+0 (0)12 345678'
+      input_type: tel
+      type: text
+      localizable: true
+      listable: false
+      display: Telephone
+      width: 50
+      replicator_preview: false
+      validate:
+        - 'required_if:{this}.link_type,tel'
+      if:
+        link_type: tel
+        show_controls: 'equals true'
+  -
+    handle: sms
+    field:
+      placeholder: '+0 (0)12 345678'
+      input_type: tel
+      type: text
+      localizable: true
+      listable: false
+      display: Telephone
+      width: 50
+      replicator_preview: false
+      validate:
+        - 'required_if:{this}.link_type,sms'
+      if:
+        link_type: sms
+        show_controls: 'equals true'
+  -
+    handle: asset
+    field: common.image
+    config:
+      localizable: true
+      display: Asset
+      width: 50
+      validate:
+        - 'required_if:{this}.link_type,asset'
+      if:
+        link_type: asset
+        show_controls: 'equals true'
+  -
+    handle: button_type
+    field:
+      options:
+        button: Button
+        inline: Inline
+      type: button_group
+      localizable: true
+      default: button
+      listable: false
+      display: 'Button type'
+      replicator_preview: false
+      if:
+        show_controls: 'equals true'
+  -
+    handle: attr_title
+    field:
+      placeholder: 'Learn more'
+      input_type: text
+      type: text
+      localizable: true
+      listable: false
+      display: Title
+      width: 50
+      replicator_preview: false
+      if:
+        show_controls: 'equals true'
+  -
+    handle: attr_aria
+    field:
+      placeholder: 'Download the PDF'
+      input_type: text
+      type: text
+      localizable: true
+      listable: false
+      display: 'Aria label'
+      width: 50
+      replicator_preview: false
+      if:
+        show_controls: 'equals true'

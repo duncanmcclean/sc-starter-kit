@@ -1,61 +1,62 @@
 <article>
     <div class="max-w-5xl mx-auto my-12 px-4 md:px-0">
         <div class="flex flex-col md:flex-row md:items-stretch">
-            <div class="md:w-1/2 flex flex-wrap justify-center items-center">
-                {{ if gallery }}
-                    {{ gallery }}
-                        <img
-                            class="rounded my-2 md:h-32 {{ page:gallery }}{{ if last }}{{ if count === 1 }} md:h-82 {{ elseif count === 2 }} md:w-1/2 {{ elseif count === 3 }} md:w-1/3 {{ /if }}{{ /if }}{{ /page:gallery }}"
-                            src="{{ url }}"
-                            alt="{{ alt }}"
-                            data-zoomable="true"
-                        />
-                    {{ /gallery }}
+            <div class="md:w-1/3">
+                {{ if photos }}
+                    <div class="flex flex-col">
+                        {{ photos }}
+                            {{ partial:components/picture :image="url" }}
+                        {{ /photos }}
+                    </div>
                 {{ else }}
                     <div
-                        class="rounded md:h-82 bg-gray-100 w-full flex items-center justify-center"
+                        class="
+                            bg-white flex flex-col justify-between items-center p-6 border border-neutral/10 shadow-lg rounded no-underline focus:outline-none focus-visible:ring-2 ring-offset-2 ring-primary
+                        "
                     >
-                        <p class="text-gray-600 font-medium text-center">
-                            If this product had an image, it would go here.
+                        <p class="text-gray-600 font-medium py-16">
+                            No image available
                         </p>
                     </div>
                 {{ /if }}
             </div>
 
-            <div class="md:w-1/2 md:px-6">
-                <h1 class="text-3xl font-semibold mb-1">{{ title }}</h1>
+            <div class="md:w-2/3 md:px-6">
+                {{ partial:typography/prose as="article" class="contents" }}
+                    <h1 class="mb-2">{{ title }}</h1>
 
-                <h3 class="text-lg font-semibold">
-                    {{ if product_variants }}
-                        From
-                        {{ product_variants:options }}
-                            {{ if first }}
-                                {{ price }}
-                            {{ /if }}
-                        {{ /product_variants:options }}
-                    {{ else }}
-                        {{ price }}
-                    {{ /if }}
-                </h3>
+                    <h3 class="mt-0">
+                        {{ if product_variants }}
+                            From
+                            {{ product_variants:options }}
+                                {{ if first }}
+                                    {{ price }}
+                                {{ /if }}
+                            {{ /product_variants:options }}
+                        {{ else }}
+                            {{ price }}
+                        {{ /if }}
+                    </h3>
 
-                <div class="py-4 text-sm prose">{{ description }}</div>
+                    <div>{{ description }}</div>
+                {{ /partial:typography/prose }}
 
                 {{ if {sc:cart:alreadyExists :product="id"} == true }}
                     <div
-                        class="border-t border-gray-200 py-4 flex justify-between items-center"
+                        class="border-t border-gray-200 py-4 mt-4 flex justify-between items-center"
                     >
                         <span class="font-medium"
                             >This product is already in your cart. <a class="text-green-500 hover:opacity-75" href="/cart">View Cart</a></span
                         >
 
                         {{ sc:cart:updateItem :product="id" }}
-                            <select 
-                                class="bg-white p-1 rounded w-16" 
+                            <select
+                                class="bg-white p-1 rounded w-16"
                                 name="quantity"
                                 onchange="this.parentElement.submit()"
                             >
                                 {{ loop from="1" to="5" }}
-                                    <option 
+                                    <option
                                         value="{{ value }}"
                                         {{ if quantity == value }} selected {{ /if }}
                                     >
@@ -66,59 +67,28 @@
                         {{ /sc:cart:updateItem }}
                     </div>
                 {{ else }}
-                    {{ sc:cart:addItem id="add-to-cart-form" class="border-t border-gray-200 py-4 flex justify-between items-center" redirect="/cart" }}
+                    {{ sc:cart:addItem x-data="addToCartForm" class="border-t border-gray-200 py-4 mt-4 flex justify-between items-center" redirect="/cart" @submit.prevent="submit" }}
                         <input type="hidden" name="product" value="{{ id }}" />
 
-                        <div class="flex flex-col">
+                        <div class="flex flex-row items-center space-x-3">
                             {{ if product_variants }}
-                                <div class="flex flex-row items-center mb-2">
-                                    <label
-                                        class="text-gray-700 mr-3 font-semibold w-1/2"
-                                        for="variant"
-                                    >
-                                        Variant
-                                    </label>
-
-                                    <select
-                                        id="variant"
-                                        class="bg-gray-100 p-1 rounded w-16"
-                                        name="variant"
-                                    >
-                                        {{ product_variants:options }}
-                                            <option value="{{ key }}">
-                                                {{ variant }} ({{ price }})
-                                            </option>
-                                        {{ /product_variants:options }}
-                                    </select>
-                                </div>
+                                {{ partial:components/forms/select_field width="50" handle="variant" display="Variant" }}
+                                    {{ product_variants:options }}
+                                        <option value="{{ key }}">
+                                            {{ variant }} ({{ price }})
+                                        </option>
+                                    {{ /product_variants:options }}
+                                {{ /partial:components/forms/select_field }}
                             {{ /if }}
 
-                            <div class="flex flex-row items-center mb-2">
-                                <label
-                                    class="text-gray-700 mr-3 font-semibold w-1/2"
-                                    for="quantity"
-                                >
-                                    Quantity
-                                </label>
-
-                                <select
-                                    id="quantity"
-                                    class="bg-gray-100 p-1 rounded w-16"
-                                    name="quantity"
-                                >
-                                    {{ loop from="1" to="5" }}
-                                        <option value="{{ value }}">{{ value }}</option>
-                                    {{ /loop }}
-                                </select>
-                            </div>
+                            {{ partial:components/forms/select_field width="50" handle="quantity" display="Quantity" }}
+                                {{ loop from="1" to="5" }}
+                                    <option value="{{ value }}" {{ if value == 1 }} selected {{ /if }}>{{ value }}</option>
+                                {{ /loop }}
+                            {{ /partial:components/forms/select_field }}
                         </div>
 
-                        <button
-                            type="submit"
-                            class="bg-green-100 hover:opacity-75 disabled:cursor-not-allowed text-gray-700 font-semibold rounded-lg px-4 py-2"
-                        >
-                            Add to Cart
-                        </button>
+                        {{ partial:components/button label="Add to cart" type="submit" as="button" }}
                     {{ /sc:cart:addItem }}
                 {{ /if }}
             </div>
@@ -126,20 +96,19 @@
     </div>
 </article>
 
-{{ section:header_scripts }}
-    <script>
-        document.addEventListener('load', () => {
-            let addToCartForm = document.getElementById('add-to-cart-form')
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('addToCartForm', () => ({
+            isSubmitting: false,
 
-            if (addToCartForm) {
-                addToCartForm.addEventListener('submit', (e) => {
-                    e.preventDefault()
+            submit() {
+                this.isSubmitting = true
 
-                    addToCartForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled')
+                this.$el.querySelector('button').disabled = true
+                this.$el.querySelector('button').classList.add('opacity-50')
 
-                    addToCartForm.submit()
-                })
-            }
-        })
-    </script>
-{{ /section:header_scripts }}
+                this.$el.submit()
+            },
+        }))
+    })
+</script>

@@ -2,9 +2,15 @@ title: Products
 template: products/show
 layout: layout
 mount: 75c0feb7-405d-4d99-8cb4-9932e755f34d
+taxonomies:
+  - product_categories
 revisions: false
 route: '/products/{slug}'
 sort_dir: asc
 date_behavior:
   past: public
   future: private
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'

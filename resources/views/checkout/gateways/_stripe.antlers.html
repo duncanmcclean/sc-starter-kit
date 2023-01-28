@@ -1,4 +1,13 @@
-<div class="border rounded p-2 mb-2 text-gray-600 focus:text-gray-800 outline-none" id="card-element"></div>
+<div class="flex flex-col space-y-3 md:col-span-12">
+    <label class="font-bold" for="card-details">Card Details</label>
+
+    <div class="flex flex-col space-y-2">
+        <div class="bg-white p-4 w-full rounded border-neutral focus-visible:border-primary focus-visible:ring focus-visible:ring-primary motion-safe:transition caret-primary">
+            <div id="card-element"></div>
+        </div>
+    </div>
+</div>
+
 <input id="stripePaymentMethod" type="hidden" name="payment_method">
 
 <script src="https://js.stripe.com/v3/"></script>

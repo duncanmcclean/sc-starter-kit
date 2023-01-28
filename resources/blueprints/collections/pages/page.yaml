@@ -1,4 +1,4 @@
-title: Pages
+title: Page
 sections:
   main:
     display: Main
@@ -8,25 +8,35 @@ sections:
         field:
           type: text
           required: true
+          input_type: text
+          localizable: true
+          listable: true
+          display: Title
           validate:
             - required
       -
-        handle: content
-        field:
-          type: markdown
-          display: Content
-          localizable: true
+        import: page_builder
   sidebar:
     display: Sidebar
     fields:
+      -
+        handle: meta
+        field:
+          type: section
+          instructions: 'This entry''s meta data.'
+          display: Meta
       -
         handle: slug
         field:
           type: slug
           required: true
           localizable: true
+          generate: true
+          listable: hidden
+          display: Slug
           validate:
             - required
+            - 'unique_entry_value:{collection},{id},{site}'
       -
         handle: parent
         field:
@@ -35,10 +45,4 @@ sections:
             - pages
           max_items: 1
           listable: false
-          localizable: true
-      -
-        handle: template
-        field:
-          type: template
-          display: Template
           localizable: true

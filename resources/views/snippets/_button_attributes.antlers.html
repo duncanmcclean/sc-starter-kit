@@ -1,0 +1,17 @@
+{{#
+    @name Button attributes
+    @desc Button attributes snippet used in `resources/views/components/_button.antlers.html` and `resources/views/page_builder/_link_blocks.antlers.html`.
+#}}
+
+{{ switch(
+    (link_type == 'entry') => 'href="{{ entry:url }}"',
+    (link_type == 'url') => 'href="{{ url }}"',
+    (link_type == 'email') => 'href="mailto:{{ email | obfuscate_email }}"',
+    (link_type == 'tel') => 'href="tel:{{ tel }}"',
+    (link_type == 'sms') => 'href="sms:{{ sms }}"',
+    (link_type == 'asset') => 'href="{{ asset }}" download',
+    () => 'href="{{ url }}"'
+)}}
+{{ target_blank ?= 'rel="noopener" target="_blank"' }}
+{{ attr_title ?= 'title="{{ attr_title }}"' }}
+{{ attr_aria ?= 'aria-label="{{ attr_aria }}"' }}

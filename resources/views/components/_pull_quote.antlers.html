@@ -1,0 +1,28 @@
+{{#
+    @name Pull quote
+    @desc The pull quote component. A pull quote with an optional author.
+    @set page.article.pull_quote
+#}}
+
+<!-- /components/_pull_quote.antlers.html -->
+<figure
+    class="
+        not-prose
+        {{ switch(
+            (size == 'md') => 'size-md',
+            (size == 'lg') => 'size-lg',
+            (size == 'xl') => 'size-xl',
+            () => 'size-md'
+        )}}
+    "
+>
+    <blockquote class="p-0 m-0 text-3xl font-bold leading-snug text-neutral">
+        <span class="text-primary">&OpenCurlyDoubleQuote;</span>{{ quote | nl2br | widont}}<span class="text-primary">&CloseCurlyDoubleQuote;</span>
+    </blockquote>
+    {{ if author }}
+        <figcaption class="block mt-4 font-bold text-neutral">
+            <span class="text-primary">- </span>{{ author }}
+        </figcaption>
+    {{ /if }}
+</figure>
+<!-- End: /components/_pull_quote.antlers.html -->

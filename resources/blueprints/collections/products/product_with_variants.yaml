@@ -11,17 +11,6 @@ sections:
           validate:
             - required
       -
-        handle: description
-        field:
-          restrict: false
-          automatic_line_breaks: true
-          automatic_links: false
-          escape_markup: false
-          smartypants: false
-          type: markdown
-          listable: hidden
-          display: Description
-      -
         handle: product_variants
         field:
           display: 'Product Variants'
@@ -29,17 +18,56 @@ sections:
           icon: product_variants
           listable: hidden
       -
-        handle: gallery
+        handle: photos
         field:
           mode: grid
           container: assets
           restrict: false
           allow_uploads: true
           max_files: 3
-          display: 'Gallery Images'
+          display: Photos
           type: assets
           icon: assets
           listable: hidden
+      -
+        handle: description
+        field:
+          collapse: false
+          always_show_set_button: false
+          previews: true
+          smart_typography: false
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+          save_html: false
+          inline: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          remove_empty_nodes: false
+          display: Description
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
   sidebar:
     display: Sidebar
     fields:
@@ -47,7 +75,6 @@ sections:
         handle: slug
         field:
           type: slug
-          required: true
           localizable: true
           validate:
             - required
