@@ -1,1 +1,0 @@
-/*! medium-zoom 1.0.6 | MIT License | https://github.com/francoischalifour/medium-zoom */

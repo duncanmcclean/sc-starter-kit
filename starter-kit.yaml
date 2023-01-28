@@ -8,19 +8,23 @@ export_paths:
   - content/navigation
   - content/trees
   - public/assets
-  - public/css
-  - public/js
-  - public/mix-manifest.json
+  - public/build
+  - public/visuals
   - resources/blueprints
   - resources/css
+  - resources/fieldsets
   - resources/js
   - resources/views
   - routes/web.php
-  - .styleci.yml
-  - banner.png
+  - logo-dark.svg
+  - logo-default.svg
   - package.json
+  - postcss.config.js
   - README.md
   - tailwind.config.js
-  - webpack.mix.js
+  - tailwind.config.peak.js
+  - tailwind.config.site.js
+  - tailwind.config.typography.js
+  - vite.config.js
 dependencies:
   doublethreedigital/simple-commerce: "^4.5"
