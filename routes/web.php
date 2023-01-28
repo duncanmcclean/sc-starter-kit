@@ -14,7 +14,6 @@ use Statamic\Facades\Site;
 |
 */
 
-
 Site::all()->each(function (\Statamic\Sites\Site $site) {
     Route::prefix($site->url())->group(function () {
         Route::statamic('/cart', 'cart', ['title' => 'Your Cart']);
