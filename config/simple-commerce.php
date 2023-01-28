@@ -129,16 +129,16 @@ return [
 
         'behaviour' => [
             'no_address_provided' => 'default_address',
-            'no_rate_available' => 'prevent_checkout',
+            'no_rate_available'   => 'prevent_checkout',
         ],
 
         'default_address' => [
             'address_line_1' => '',
             'address_line_2' => '',
-            'city' => '',
-            'region' => '',
-            'country' => '',
-            'zip_code' => '',
+            'city'           => '',
+            'region'         => '',
+            'country'        => '',
+            'zip_code'       => '',
         ],
     ],
 
