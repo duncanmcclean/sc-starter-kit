@@ -1,0 +1,49 @@
+title: Article
+fields:
+  - handle: article
+    field:
+      buttons:
+        - h1
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - removeformat
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: true
+      fullscreen: true
+      allow_source: true
+      type: bard
+      localizable: true
+      listable: hidden
+      display: Article
+      replicator_preview: false
+      always_show_set_button: true
+      validate:
+        - required
+      sets:
+        buttons:
+          display: Buttons
+          fields:
+            - import: buttons
+        image:
+          display: Image
+          fields:
+            - import: image
+      enable_input_rules: true
+      enable_paste_rules: true
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      previews: true
+      antlers: false
+      remove_empty_nodes: trim
+      collapse: false

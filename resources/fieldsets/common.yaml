@@ -1,0 +1,113 @@
+title: 'Common reusable fields'
+fields:
+  -
+    handle: image
+    field:
+      mode: list
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      type: assets
+      localizable: true
+      listable: hidden
+      display: Image
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      show_filename: true
+  -
+    handle: entry
+    field:
+      max_items: 1
+      mode: default
+      type: entries
+      localizable: true
+      listable: false
+      display: Entry
+  -
+    handle: text_rich
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: true
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      type: bard
+      replicator_preview: false
+      localizable: true
+      listable: hidden
+      display: Text
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      always_show_set_button: false
+      previews: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: trim
+      collapse: false
+  -
+    handle: text_basic
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: true
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      type: bard
+      replicator_preview: false
+      localizable: true
+      listable: hidden
+      display: Text
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      always_show_set_button: false
+      previews: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: trim
+      collapse: false
+  -
+    handle: text_plain
+    field:
+      type: textarea
+      localizable: true
+      listable: hidden
+      display: Text
+  -
+    handle: size
+    field:
+      options:
+        md: Normal
+        lg: LG
+        xl: XL
+      type: button_group
+      localizable: true
+      default: md
+      listable: hidden
+      display: Size

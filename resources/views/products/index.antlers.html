@@ -1,7 +1,7 @@
-<section class="py-8 border-b border-gray-200">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="text-center text-4xl font-semibold mb-2">Catalog</h2>
-    </div>
+<section class="fluid-container pt-12 text-center">
+    {{ partial:typography/prose as="article" class="contents" }}
+        <h1>{{ title }}</h1>
+    {{ /partial:typography/prose }}
 </section>
 
 {{ collection:products sort="{get:sort | urldecode}" as="products" paginate="true" limit="12" }}
@@ -11,35 +11,35 @@
                 <form id="sort-form" class="flex items-center" action="{{ current_url }}" method="get">
                     <label class="text-gray-700 mr-3 font-semibold" for="sort">Sort by</label>
 
-                    <select 
-                        id="sort" 
-                        name="sort" 
-                        class="bg-gray-100 w-48 py-1 px-2 rounded"
+                    <select
+                        id="sort"
+                        name="sort"
+                        class="rounded border-neutral focus-visible:border-primary focus-visible:ring focus-visible:ring-primary motion-safe:transition caret-primary"
                         onchange="document.getElementById('sort-form').submit()"
                     >
-                        <option 
-                            value="title:asc" 
+                        <option
+                            value="title:asc"
                             {{ if get:sort == 'title:asc' }} selected {{ /if }}
                         >
                             Alphabetically, A-Z
                         </option>
 
-                        <option 
-                            value="title:desc" 
+                        <option
+                            value="title:desc"
                             {{ if get:sort == 'title:desc' }} selected {{ /if }}
                         >
                             Alphabetically, Z-A
                         </option>
 
-                        <option 
-                            value="price:asc" 
+                        <option
+                            value="price:asc"
                             {{ if get:sort == 'price:asc' }} selected {{ /if }}
                         >
                             Price, Low-High
                         </option>
 
-                        <option 
-                            value="price:desc" 
+                        <option
+                            value="price:desc"
                             {{ if get:sort == 'price:desc' }} selected {{ /if }}
                         >
                             Price, High-Low
@@ -66,19 +66,22 @@
                 {{ products }}
                     <a class="block transition hover:opacity-90" href="{{ url }}">
                         <div class="w-full mb-2 flex items-center justify-center">
-                            {{ if gallery }}
-                                {{ gallery }}
+                            {{ if photos }}
+                                {{ photos }}
                                     {{ if first }}
-                                        <img class="rounded-sm" src="{{ glide:url square="500" }}"
-                                            alt="{{ alt }}" height="500" width="500">
+                                        {{ partial:components/picture :image="url" }}
                                     {{ /if }}
-                                {{ /gallery }}
+                                {{ /photos }}
                             {{ else }}
-                                <div class="h-[325px] w-full bg-gray-100 rounded-sm flex items-center justify-center">
-                                    <p class="text-gray-600 font-medium text-center">
-                                        If this product had an image, it would go here.
-                                    </p>
-                                </div>
+                            <div
+                                class="
+                                    w-full bg-white flex flex-col justify-between items-center p-6 border border-neutral/10 shadow-lg rounded no-underline focus:outline-none focus-visible:ring-2 ring-offset-2 ring-primary
+                                "
+                            >
+                                <p class="text-gray-600 font-medium py-16">
+                                    No image available
+                                </p>
+                            </div>
                             {{ /if }}
                         </div>
                         <h2 class="text-xl text-gray-900 text-center font-semibold flex items-center justify-center">

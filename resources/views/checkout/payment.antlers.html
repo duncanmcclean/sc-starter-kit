@@ -1,11 +1,12 @@
+{{# If there's nothing in the cart, redirect the user to the Cart page. #}}
 {{ if {sc:cart:count} === 0 }}
     {{ redirect to="/cart" }}
 {{ /if }}
 
-<section class="py-8 border-b border-gray-200">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-center text-4xl font-semibold mb-2">Checkout</h2>
-    </div>
+<section class="fluid-container pt-12 text-center">
+    {{ partial:typography/prose as="article" class="contents" }}
+        <h1>Checkout</h1>
+    {{ /partial:typography/prose }}
 </section>
 
 <main>
@@ -13,86 +14,67 @@
         <div class="flex flex-col md:flex-row w-full">
             <div class="w-full">
                 <div class="max-w-lg">
-                    <h2 class="text-gray-900 font-semibold text-2xl mb-2">Coupon</h2>
-
-                    {{ if {sc:coupon:has} === true }}
-                        <div class="mb-6 flex items-center justify-between">
-                            <p><strong>Coupon:</strong> {{ sc:coupon }}{{ code | upper }}{{ /sc:coupon }}</p>
-
-                            {{ sc:coupon:remove }}
-                                <button 
-                                    type="submit"
-                                    class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
-                                >
-                                    Remove
-                                </button>
-                            {{ /sc:coupon:remove }}
-                        </div>
-                    {{ else }}
-                        {{ sc:coupon:redeem class="border-b border-gray-100 mt-4 mb-6" }}
-                            <div class="flex flex-col mb-2">
-                                <label for="code" class="mb-1 text-xs text-gray-700">Coupon Code</label>
-
-                                <input 
-                                    type="text" 
-                                    id="code" 
-                                    name="code"
-                                    class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                    value="{{ old:code }}"
-                                >
-                            </div>
-
-                            <div class="w-full md:w-1/3 mb-4 md:mb-6">
-                                <button 
-                                    type="submit"
-                                    class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
-                                >
-                                    Redeem
-                                </button>
-                            </div>
-                        {{ /sc:coupon:redeem }}
-                    {{ /if }}
-
-                    <h2 class="text-gray-900 font-semibold text-2xl mb-6">Payment</h2>
+                    <h2 class="text-gray-900 font-bold text-2xl mb-4">
+                        Payment
+                    </h2>
 
                     {{ partial:checkout/errors }}
 
-                    {{ sc:checkout id="checkout-form" redirect="/checkout/complete" }}
-                        <div x-data="{ 
-                            gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}'
-                        }">
-                            <div class="flex flex-col border-b border-gray-200 pb-4 mb-4 {{ if {sc:gateways:count} == 1 }} hidden {{ /if }}">
-                                <label for="payment_method" class="mb-1 text-xs text-gray-700">Payment Method</label>
-                                
-                                <select name="gateway" id="payment_method" class="bg-gray-100 rounded-md p-2 text-gray-800" value="{{ old:gateway }}" x-model="gateway">
-                                    {{ sc:gateways }}
-                                        <option value="{{ class }}" {{ if first }} selected {{ /if }}>{{ display }}</option>
-                                    {{ /sc:gateways }}
-                                </select>
-                            </div>
+                    {{ sc:checkout x-data="checkoutForm" id="checkout-form" redirect="/checkout/complete" @submit.prevent="submit" }}
+                        <div>
+                            {{ if {sc:gateways:count} > 1 }}
+                                <div class="grid md:grid-cols-12 gap-6 mb-6">
+                                    {{ partial:components/forms/select_field width="100" handle="gateway" display="Payment Method" x-model="gateway" required="true" }}
+                                        {{ sc:gateways }}
+                                            <option value="{{ class }}" {{ if first }} selected {{ /if }}>{{ display }}</option>
+                                        {{ /sc:gateways }}
+                                    {{ /partial:components/forms/select_field }}
+                                </div>
+                            {{ /if }}
 
                             {{ sc:gateways }}
-                                <div class="border-b border-gray-200 pb-4 mb-4" x-show="gateway === '{{ formatted_class }}'">
+                                <div class="pb-4 mb-4" x-show="gateway === '{{ formatted_class }}'">
                                     {{ partial src="checkout/gateways/{ handle }" }}
                                 </div>
                             {{ /sc:gateways }}
                         </div>
 
-                        <div class="w-full md:w-1/3 mb-4 md:mb-0">
-                            <button 
-                                type="submit"
-                                class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
-                            >
-                                Finish and Pay
-                            </button>
-                        </div>
+                        <template x-if="isOnSiteGateway">
+                            <div class="my-6 flex justify-center">
+                                {{ partial:components/button label="Finish & Pay" type="submit" as="button" }}
+                            </div>
+                        </template>
                     {{ /sc:checkout }}
                 </div>
             </div>
 
-            <div class="w-full md:w-1/3 mb-4 md:mb-0">
+            <div class="w-full md:w-2/5 mb-4 md:mb-0">
                 {{ partial:checkout/cart }}
             </div>
         </div>
     </div>
 </main>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('checkoutForm', () => ({
+            isSubmitting: false,
+            gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}',
+
+            // There's currently no way to detect if a gateway is on-site or off-site.
+            // For now, we've just hard coded Stripe & the Dummy Gateway as on-site.
+            get isOnSiteGateway() {
+                return this.gateway.includes('Stripe') || this.gateway.includes('Dummy')
+            },
+
+            submit() {
+                this.isSubmitting = true
+
+                this.$el.querySelector('button').disabled = true
+                this.$el.querySelector('button').classList.add('opacity-50')
+
+                this.$el.submit()
+            },
+        }))
+    })
+</script>

@@ -1,11 +1,12 @@
+{{# If there's nothing in the cart, redirect the user to the Cart page. #}}
 {{ if {sc:cart:count} === 0 }}
     {{ redirect to="/cart" }}
 {{ /if }}
 
-<section class="py-8 border-b border-gray-200">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-center text-4xl font-semibold mb-2">Checkout</h2>
-    </div>
+<section class="fluid-container pt-12 text-center">
+    {{ partial:typography/prose as="article" class="contents" }}
+        <h1>Checkout</h1>
+    {{ /partial:typography/prose }}
 </section>
 
 <main>
@@ -13,337 +14,134 @@
         <div class="flex flex-col md:flex-row w-full">
             <div class="w-full">
                 <div class="max-w-lg">
-                    <h2 class="text-gray-900 font-semibold text-2xl mb-6">Your information</h2>
-
                     {{ partial:checkout/errors }}
 
-                    {{ sc:cart:update id="checkout-information-form" redirect="/checkout/shipping" }}
-                        <div class="flex flex-row space-x-4 border-b border-gray-200 pb-4 mb-4">
-                            <div class="flex-1 flex flex-col mb-2">
-                                <label for="name" class="mb-1 text-xs text-gray-700">Name</label>
+                    {{ sc:cart:update x-data="checkoutInformationForm" redirect="/checkout/shipping" @submit.prevent="submit" }}
+                        <h2 class="text-gray-900 font-bold text-2xl mb-4">
+                            Your information
+                        </h2>
 
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    placeholder="John Doe"
-                                    class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                    value="{{ old:name }}"
-                                >
-                            </div>
-
-                            <div class="flex-1 flex flex-col mb-2">
-                                <label for="email" class="mb-1 text-xs text-gray-700">Email</label>
-
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    placeholder="john.doe@example.com"
-                                    class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                    value="{{ old:email }}"
-                                >
-                            </div>
+                        <div class="grid md:grid-cols-12 gap-6 mb-12">
+                            {{ partial:components/forms/input_field width="50" handle="name" display="Name" required="true" }}
+                            {{ partial:components/forms/input_field width="50" handle="email" display="Email" input_type="email" required="true" }}
                         </div>
 
-                        <div 
-                            x-data="{
-                                useShippingAddressForBilling: true,
-                                shippingCountry: 'GB',
-                                billingCountry: 'GB',
+                        <h2 class="text-gray-900 font-bold text-2xl mb-4">
+                            Shipping Address
+                        </h2>
 
-                                get shippingRegionOptions() {
-                                    return window.regions.filter(region => region.country_iso === this.shippingCountry)
-                                },
+                        <div class="grid md:grid-cols-12 gap-6 mb-12">
+                            {{ partial:components/forms/input_field width="50" handle="shipping_name" display="Shipping Name" required="true" }}
+                            {{ partial:components/forms/input_field width="50" handle="shipping_address_line1" display="Address Line 1" required="true" }}
+                            {{ partial:components/forms/input_field width="50" handle="shipping_address_line2" display="Address Line 2" required="true" }}
+                            {{ partial:components/forms/input_field width="50" handle="shipping_city" display="Town/City" required="true" }}
+                            {{ partial:components/forms/input_field width="50" handle="shipping_zip_code" display="Postal/Zip Code" required="true" }}
 
-                                get billingRegionOptions() {
-                                    return window.regions.filter(region => region.country_iso === this.regionCountry)
-                                },
-                            }"
-                        >
-                            <h3 class="text-gray-900 font-semibold mb-4">Shipping Address</h3>
+                            {{ partial:components/forms/select_field width="50" handle="shipping_country" display="Country" x-model="shippingCountry" required="true" }}
+                                {{ sc:countries common="GB|US|CA|DE" }}
+                                    <option value="{{ iso }}">{{ name }}</option>
+                                {{ /sc:countries }}
+                            {{ /partial:components/forms/select_field }}
 
-                            <div class="w-full flex flex-col mb-6">
-                                <label for="shipping_country" class="mb-1 text-xs text-gray-700">Country</label>
-
-                                <select 
-                                    name="shipping_country" 
-                                    id="shipping_country" 
-                                    x-model="shippingCountry"
-                                    class="bg-gray-100 rounded-md p-2 text-gray-800" 
-                                    value="{{ old:shipping_country }}"
-                                    required
+                            {{ partial:components/forms/select_field width="50" handle="shipping_region" display="Region" }}
+                                <template
+                                    x-for="region in shippingRegionOptions"
                                 >
+                                    <option
+                                        :value="region.id"
+                                        x-text="region.name"
+                                    ></option>
+                                </template>
+                            {{ /partial:components/forms/select_field }}
+                        </div>
+
+                        <h2 class="text-gray-900 font-bold text-2xl mb-4">
+                            Billing Address
+                        </h2>
+
+                        <label for="use_shipping_address_for_billing" class="text-sm text-gray-700 flex flex-row items-center select-none mb-6">
+                            <input
+                                type="checkbox"
+                                id="use_shipping_address_for_billing"
+                                name="use_shipping_address_for_billing"
+                                x-model="useShippingAddressForBilling"
+                                class="mr-2"
+                                value="{{ old:use_shipping_address_for_billing }}"
+                            />
+
+                            Same as shipping address
+                        </label>
+
+                        <template x-if="!useShippingAddressForBilling">
+                            <div class="grid md:grid-cols-12 gap-6 mb-12">
+                                {{ partial:components/forms/input_field width="50" handle="billing_name" display="Billing Name" required="true" }}
+                                {{ partial:components/forms/input_field width="50" handle="billing_address_line1" display="Address Line 1" required="true" }}
+                                {{ partial:components/forms/input_field width="50" handle="billing_address_line2" display="Address Line 2" required="true" }}
+                                {{ partial:components/forms/input_field width="50" handle="billing_city" display="Town/City" required="true" }}
+                                {{ partial:components/forms/input_field width="50" handle="billing_zip_code" display="Postal/Zip Code" required="true" }}
+
+                                {{ partial:components/forms/select_field width="50" handle="billing_country" display="Country" x-model="billingCountry" required="true" }}
                                     {{ sc:countries common="GB|US|CA|DE" }}
                                         <option value="{{ iso }}">{{ name }}</option>
                                     {{ /sc:countries }}
-                                </select>
-                            </div>
+                                {{ /partial:components/forms/select_field }}
 
-                            <template x-if="shippingCountry !== null">
-                                <div class="flex flex-row space-x-4 mb-2">
-                                    <div class="flex-1 flex flex-col mb-2">
-                                        <label for="shipping_name" class="mb-1 text-xs text-gray-700">Name</label>
-
-                                        <input 
-                                            type="text" 
-                                            id="shipping_name" 
-                                            name="shipping_name"
-                                            placeholder="William Wallace"
-                                            class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                            value="{{ old:shipping_name }}" 
-                                            required
-                                        >
-                                    </div>
-
-                                    <div class="flex-1 flex flex-col mb-2">
-                                        <label for="shipping_address_line1" class="mb-1 text-xs text-gray-700">
-                                            Address Line 1
-                                        </label>
-
-                                        <input 
-                                            type="text" 
-                                            id="shipping_address_line1" 
-                                            name="shipping_address_line1"
-                                            placeholder="300 Cornwall Street"
-                                            class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                            value="{{ old:shipping_address_line1 }}"
-                                            required
-                                        >
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-row space-x-4 mb-2">
-                                    <div class="flex-1 flex flex-col mb-2">
-                                        <label for="shipping_address_line2" class="mb-1 text-xs text-gray-700">
-                                            Address Line 2
-                                        </label>
-
-                                        <input 
-                                            type="text" 
-                                            id="shipping_address_line2" 
-                                            name="shipping_address_line2"
-                                            placeholder=""
-                                            class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                            value="{{ old:shipping_address_line2 }}"
-                                        >
-                                    </div>
-
-                                    <div class="flex-1 flex flex-col mb-2">
-                                        <label for="shipping_city" class="mb-1 text-xs text-gray-700">Town/City</label>
-
-                                        <input 
-                                            type="text" 
-                                            id="shipping_city" 
-                                            name="shipping_city"
-                                            placeholder="East Kilbride"
-                                            class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                            value="{{ old:shipping_city }}"
-                                            required
-                                        >
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-row space-x-4 mb-2">
-                                    <div class="flex-1 flex flex-col mb-2">
-                                        <label for="shipping_region" class="mb-1 text-xs text-gray-700">Region</label>
-
-                                        <select 
-                                            name="shipping_region" 
-                                            id="shipping_region"
-                                            class="bg-gray-100 rounded-md p-2 text-gray-800"
-                                            value="{{ old:shipping_region }}"
-                                            required
-                                        >
-                                            <option value="" selected disabled>Please select</option>
-                                            <template x-for="region in shippingRegionOptions">
-                                                <option :value="region.id" x-text="region.name"></option>
-                                            </template>
-                                        </select>
-                                    </div>
-
-                                    <div class="flex-1 flex flex-col mb-2">
-                                        <label for="shipping_zip_code" class="mb-1 text-xs text-gray-700">Postal code</label>
-
-                                        <input 
-                                            type="text" 
-                                            id="shipping_zip_code" 
-                                            name="shipping_zip_code"
-                                            placeholder="G74 1LL"
-                                            class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                            value="{{ old:shipping_zip_code }}"
-                                            required
-                                        >
-                                    </div>
-                                </div>
-
-                                <h3 class="text-gray-900 font-semibold mb-4">Billing Address</h3>
-
-                                <label 
-                                    for="use_shipping_address_for_billing"
-                                    class="mb-1 text-sm text-gray-700 flex flex-row items-center"
-                                >
-                                    <input 
-                                        type="checkbox" 
-                                        id="use_shipping_address_for_billing"
-                                        name="use_shipping_address_for_billing" 
-                                        x-model="useShippingAddressForBilling"
-                                        class="mr-2" 
-                                        value="{{ old:use_shipping_address_for_billing }}"
+                                {{ partial:components/forms/select_field width="50" handle="billing_region" display="Region" }}
+                                    <template
+                                        x-for="region in billingRegionOptions"
                                     >
+                                        <option
+                                            :value="region.id"
+                                            x-text="region.name"
+                                        ></option>
+                                    </template>
+                                {{ /partial:components/forms/select_field }}
+                            </div>
+                        </template>
 
-                                    Do you want to use your shipping address as your billing address?
-                                </label>
-
-                                <div x-show="!useShippingAddressForBilling" class="mt-6">
-                                    <div class="w-full flex flex-col mb-6">
-                                        <label for="billing_country" class="mb-1 text-xs text-gray-700">Country</label>
-
-                                        <select 
-                                            name="billing_country" 
-                                            id="billing_country" 
-                                            x-model="billingCountry"
-                                            class="bg-gray-100 rounded-md p-2 text-gray-800" 
-                                            value="{{ old:billing_country }}"
-                                            required
-                                        >
-                                            {{ sc:countries common="GB|US|CA|DE" }}
-                                                <option value="{{ iso }}">{{ name }}</option>
-                                            {{ /sc:countries }}
-                                        </select>
-                                    </div>
-
-                                    <div class="flex flex-row space-x-4 mb-2">
-                                        <div class="flex-1 flex flex-col mb-2">
-                                            <label for="billing_name" class="mb-1 text-xs text-gray-700">Name</label>
-
-                                            <input 
-                                                type="text" 
-                                                id="billing_name" 
-                                                name="billing_name"
-                                                placeholder="William Wallace"
-                                                class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                                value="{{ old:billing_name }}"
-                                            >
-                                        </div>
-
-                                        <div class="flex-1 flex flex-col mb-2">
-                                            <label for="billing_address_line1" class="mb-1 text-xs text-gray-700">
-                                                Address Line 1
-                                            </label>
-
-                                            <input 
-                                                type="text" 
-                                                id="billing_address_line1" 
-                                                name="billing_address_line1"
-                                                placeholder="300 Cornwall Street"
-                                                class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                                value="{{ old:billing_address_line1 }}"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="flex flex-row space-x-4 mb-2">
-                                        <div class="flex-1 flex flex-col mb-2">
-                                            <label for="billing_address_line2" class="mb-1 text-xs text-gray-700">
-                                                Address Line 2
-                                            </label>
-
-                                            <input 
-                                                type="text" 
-                                                id="billing_address_line2" 
-                                                name="billing_address_line2"
-                                                placeholder=""
-                                                class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                                value="{{ old:billing_address_line2 }}"
-                                            >
-                                        </div>
-
-                                        <div class="flex-1 flex flex-col mb-2">
-                                            <label for="billing_city" class="mb-1 text-xs text-gray-700">Town/City</label>
-
-                                            <input 
-                                                type="text" 
-                                                id="billing_city" 
-                                                name="billing_city"
-                                                placeholder="East Kilbride"
-                                                class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                                value="{{ old:billing_city }}"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="flex flex-row space-x-4 mb-2">
-                                        <div class="flex-1 flex flex-col mb-2">
-                                            <label for="billing_region" class="mb-1 text-xs text-gray-700">Region</label>
-
-                                            <select 
-                                                name="billing_region" 
-                                                id="billing_region"
-                                                class="bg-gray-100 rounded-md p-2 text-gray-800"
-                                                value="{{ old:billing_region }}"
-                                            >
-                                                <option value="" selected disabled>Please select</option>
-                                                <template x-for="region in billingRegionOptions">
-                                                    <option :value="region.id" x-text="region.name"></option>
-                                                </template>
-                                            </select>
-                                        </div>
-
-                                        <div class="flex-1 flex flex-col mb-2">
-                                            <label for="billing_zip_code" class="mb-1 text-xs text-gray-700">Postal code</label>
-
-                                            <input 
-                                                type="text" 
-                                                id="billing_zip_code" 
-                                                name="billing_zip_code"
-                                                placeholder="G74 1LL"
-                                                class="bg-white rounded-md border border-gray-200 p-2 text-gray-800"
-                                                value="{{ old:billing_zip_code }}"
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                            </template>
-                        </div>
-
-                        <div class="my-6 flex justify-end">
-                            <button 
-                                type="submit"
-                                class="bg-green-100 hover:opacity-75 text-gray-700 font-semibold rounded-lg px-4 py-2"
-                            >
-                                Continue to Shipping
-                            </button>
+                        <div class="my-6 flex justify-center">
+                            {{ partial:components/button label="Continue to Shipping" type="submit" as="button" }}
                         </div>
                     {{ /sc:cart:update }}
                 </div>
             </div>
 
-            <div class="w-full md:w-1/3 mb-4 md:mb-0">
+            <div class="w-full md:w-2/5 mb-4 md:mb-0">
                 {{ partial:checkout/cart }}
             </div>
         </div>
     </div>
 </main>
 
-{{ section:header_scripts }}
+<script>
     {{ cache for="24 hours" }}
-        <script>
-            window.regions = {{ json_regions }};
-
-            document.addEventListener('load', () => {
-                let checkoutInformationForm = document.getElementById('checkout-information-form')
-    
-                if (checkoutInformationForm) {
-                    checkoutInformationForm.addEventListener('submit', (e) => {
-                        e.preventDefault()
-    
-                        checkoutInformationForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled')
-    
-                        checkoutInformationForm.submit()
-                    })
-                }
-            })
-        </script>
+        window.regions = {{ json_regions }};
     {{ /cache }}
-{{ /section:header_scripts }}
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('checkoutInformationForm', () => ({
+            isSubmitting: false,
+
+            useShippingAddressForBilling: true,
+            shippingCountry: 'GB',
+            billingCountry: 'GB',
+
+            get shippingRegionOptions() {
+                return window.regions.filter(region => region.country_iso === this.shippingCountry)
+            },
+
+            get billingRegionOptions() {
+                return window.regions.filter(region => region.country_iso === this.regionCountry)
+            },
+
+            submit() {
+                this.isSubmitting = true
+
+                this.$el.querySelector('button').disabled = true
+                this.$el.querySelector('button').classList.add('opacity-50')
+
+                this.$el.submit()
+            },
+        }))
+    })
+</script>

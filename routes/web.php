@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Statamic\Facades\Site;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::statamic('/cart', 'cart', ['title' => 'Your Cart']);
 
-Route::redirect('/checkout', '/checkout/information');
-Route::statamic('/checkout/information', 'checkout.information', ['title' => 'Checkout - Information']);
-Route::statamic('/checkout/shipping', 'checkout.shipping', ['title' => 'Checkout - Shipping']);
-Route::statamic('/checkout/payment', 'checkout.payment', ['title' => 'Checkout - Payment']);
-Route::statamic('/checkout/complete', 'checkout.complete', ['title' => 'Checkout - Complete']);
+Site::all()->each(function (\Statamic\Sites\Site $site) {
+    Route::prefix($site->url())->group(function () {
+        Route::statamic('/cart', 'cart', ['title' => 'Your Cart']);
 
-Route::statamic('/checkout/offsite/mollie', 'checkout.offsite.mollie');
-Route::statamic('/checkout/offsite/paypal', 'checkout.offsite.paypal');
+        Route::redirect('/checkout', '/checkout/information');
+        Route::statamic('/checkout/information', 'checkout.information', ['title' => 'Checkout']);
+        Route::statamic('/checkout/shipping', 'checkout.shipping', ['title' => 'Checkout']);
+        Route::statamic('/checkout/payment', 'checkout.payment', ['title' => 'Checkout']);
+        Route::statamic('/checkout/complete', 'checkout.complete', ['title' => 'Checkout']);
+
+        Route::statamic('/checkout/offsite/mollie', 'checkout.offsite.mollie');
+        Route::statamic('/checkout/offsite/paypal', 'checkout.offsite.paypal');
+    });
+});

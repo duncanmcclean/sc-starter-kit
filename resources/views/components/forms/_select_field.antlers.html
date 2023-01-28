@@ -1,0 +1,34 @@
+<div class="{{ input_type == 'hidden' ?= 'hidden' }} flex flex-col space-y-3
+    {{ width == '25' ?= 'md:col-span-3' }}
+    {{ width == '33' ?= 'md:col-span-4' }}
+    {{ width == '50' ?= 'md:col-span-6' }}
+    {{ width == '66' ?= 'md:col-span-8' }}
+    {{ width == '75' ?= 'md:col-span-9' }}
+    {{ width == '100' ?= 'md:col-span-12' }}"
+>
+    <label class="font-bold" for="{{ handle }}">
+        {{ trans :key="display" }}
+        {{ if validate | contains('required') }}
+            <sup class="text-yellow-400">*</sup>
+        {{ /if }}
+        {{ if instructions }}
+            <p class="font-normal text-sm my-1">{{ trans :key="instructions" }}</p>
+        {{ /if }}
+    </label>
+
+    <div class="flex flex-col space-y-2">
+        <select
+            name="{{ handle }}"
+            id="{{ handle }}"
+            class="w-full rounded border-neutral focus-visible:border-primary focus-visible:ring focus-visible:ring-primary motion-safe:transition caret-primary"
+            {{ old ?= 'value="{old}"' }}
+            {{ if required }}required{{ /if }}
+            {{ if x-model }} x-model="{{ x-model }}" {{ /if }}
+        >
+            <option value="" selected disabled>
+                Please select
+            </option>
+            {{ slot }}
+        </select>
+    </div>
+</div>

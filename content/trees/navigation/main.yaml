@@ -5,3 +5,7 @@ tree:
   -
     id: adfd35f7-eae9-4fbc-a1a4-18bbfc3a438c
     entry: 75c0feb7-405d-4d99-8cb4-9932e755f34d
+  -
+    id: 1cef3f35-0b85-4758-ab31-e20e97cd63d3
+    title: Cart
+    url: /cart

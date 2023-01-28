@@ -1,55 +1,29 @@
 <p class="mb-6 text-sm text-gray-600">The <strong>Dummy Gateway</strong> is intented for use in testing/development. You can enter any card details and you'll get a successful payment.</p>
 
-<div class="flex flex-row space-x-4 mb-4">
-    <div class="flex-1 flex flex-col mb-2">
-        <label for="cardholder" class="mb-1 text-xs text-gray-700">Cardholder</label>
-        <input type="text" id="cardholder" name="cardholder" placeholder="Mr Alistair Murray" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:cardholder }}">
-    </div>
+<div class="grid md:grid-cols-12 gap-6 mb-6">
+    {{ partial:components/forms/input_field width="50" handle="cardholder" display="Name on Card" }}
+    {{ partial:components/forms/input_field width="50" handle="card_number" display="Card Number" }}
 
-    <div class="flex-1 flex flex-col mb-2">
-        <label for="card_number" class="mb-1 text-xs text-gray-700">Card Number</label>
-        <input type="number" id="card_number" name="card_number" placeholder="4242 4242 4242 4242" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:card_number }}">
-    </div>
-</div>
+    {{ partial:components/forms/select_field width="50" handle="expiry_month" display="Expiry Month" }}
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    {{ /partial:components/forms/select_field }}
 
-<div class="flex flex-row space-x-4 mb-4">
-    <div class="flex-1 flex flex-col mb-2">
-        <label for="expiry_month" class="mb-1 text-xs text-gray-700">Expiry Month</label>
-        
-        <select name="expiry_month" id="expiry_month" class="bg-gray-100 rounded-md p-2 text-gray-800" value="{{ old:expiry_month }}">
-            <option value="01">January</option>
-            <option value="02">February</option>
-            <option value="03">March</option>
-            <option value="04">April</option>
-            <option value="05">May</option>
-            <option value="06">June</option>
-            <option value="07">July</option>
-            <option value="08">August</option>
-            <option value="09">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-        </select>
-    </div>
+    {{ partial:components/forms/select_field width="50" handle="expiry_year" display="Expiry Year" }}
+        {{ range from="{now|format('Y')}" to="{{now|format('Y')} + 5}" }}
+            <option value="{{ value | substr(-2) }}">{{ value }}</option>
+        {{ /range }}
+    {{ /partial:components/forms/select_field }}
 
-    <div class="flex-1 flex flex-col mb-2">
-        <label for="expiry_year" class="mb-1 text-xs text-gray-700">Expiry Year</label>
-        
-        <select name="expiry_year" id="expiry_year" class="bg-gray-100 rounded-md p-2 text-gray-800" value="{{ old:expiry_year }}">
-            <option value="23">2023</option>
-            <option value="24">2024</option>
-            <option value="25">2025</option>
-            <option value="26">2026</option>
-        </select>
-    </div>
-</div>
-
-
-<div class="flex flex-row space-x-4 mb-4">
-    <div class="flex-1 flex flex-col mb-2">
-        <label for="cvc" class="mb-1 text-xs text-gray-700">CVC (Security Code)</label>
-        <input type="number" id="cvc" name="cvc" placeholder="123" class="bg-white rounded-md border border-gray-200 p-2 text-gray-800" value="{{ old:cvc }}">
-    </div>
-
-    <div></div>
+    {{ partial:components/forms/input_field width="50" handle="cvc" display="CVC (Security Code)" }}
 </div>

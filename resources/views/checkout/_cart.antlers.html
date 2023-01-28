@@ -1,36 +1,92 @@
-<div class="bg-gray-100 p-4 rounded-lg">
-    <h2 class="text-gray-600 text-sm mb-4">Your cart</h2>
+<div class="bg-white flex flex-col justify-between items-start p-6 border border-neutral/10 shadow-lg rounded no-underline focus:outline-none focus-visible:ring-2 ring-offset-2 ring-primary mb-4">
+    <h2 class="text-gray-900 font-bold text-xl mb-4">
+        Order Summary
+    </h2>
 
     {{ sc:cart:items }}
-        <a class="flex items-center justify-between mb-2 text-sm" href="{{ product:url }}">
+        <a class="flex items-center justify-between mb-3 text-sm w-full" href="{{ product:url }}">
             <span>{{ quantity }}x {{ product:title }} {{ if variant }}({{ variant:variant }}){{ /if }}</span>
             <span>{{ total }}</span>
         </a>
     {{ /sc:cart:items }}
 
+    {{ if {sc:cart:itemsTotal} !== null }}
+        <div class="flex items-center justify-between mb-3 text-sm w-full">
+            <span>Subtotal</span>
+            <span>{{ sc:cart:itemsTotal }}</span>
+        </div>
+    {{ /if }}
+
     {{ if {sc:cart:shippingTotal} !== null }}
-        <div class="flex items-center justify-between mb-2 text-sm">
+        <div class="flex items-center justify-between mb-3 text-sm w-full">
             <span>Shipping</span>
             <span>{{ sc:cart:shippingTotal }}</span>
         </div>
     {{ /if }}
 
     {{ if {sc:cart:taxTotal} !== null }}
-        <div class="flex items-center justify-between mb-2 text-sm">
+        <div class="flex items-center justify-between mb-3 text-sm w-full">
             <span>Tax</span>
             <span>{{ sc:cart:taxTotal }}</span>
         </div>
     {{ /if }}
 
     {{ if {sc:coupon:has} === true }}
-        <div class="flex items-center justify-between mb-2 text-sm">
+        <div class="flex items-center justify-between mb-3 text-sm w-full">
             <span>Coupon Discount</span>
             <span>{{ sc:cart:couponTotal }}</span>
         </div>
     {{ /if }}
 
-    <div class="flex items-center justify-between mb-2 text-sm">
-        <span class="font-semibold">Grand Total</span>
-        <span class="font-semibold">{{ sc:cart:grandTotal }}</span>
+    <div class="flex items-center justify-between mb-3 text-sm w-full">
+        <span class="font-bold">Grand Total</span>
+        <span class="font-bold">{{ sc:cart:grandTotal }}</span>
     </div>
 </div>
+
+{{ if current_uri === '/checkout/payment' }}
+    {{ if {sc:coupon:has} === true }}
+        {{ sc:coupon:remove }}
+            <p class="text-sm text-center w-full">You're using the <strong>{{ sc:coupon:code }}</strong> coupon.</p>
+
+            <button class="text-xs text-center w-full" type="submit">Remove</button>
+        {{ /sc:coupon:remove }}
+    {{ else }}
+        <div x-data="{ showCouponCode: false }">
+            <button x-show="!showCouponCode" class="text-sm text-center w-full" @click="showCouponCode = !showCouponCode">Have a coupon code?</button>
+
+            {{ sc:coupon:redeem x-data="redeemCouponForm" x-show="showCouponCode" class="flex flex-col space-y-3" @submit.prevent="submit" }}
+                <label class="text-sm" for="coupon_code">Coupon Code</label>
+
+                <input
+                    class="w-full rounded border-neutral focus-visible:border-primary focus-visible:ring focus-visible:ring-primary motion-safe:transition caret-primary text-sm"
+                    id="code"
+                    name="code"
+                    type="text"
+                    aria-describedBy="code"
+                    value="{{ old:code }}"
+                    required
+                />
+
+                {{ partial:components/button label="Redeem" type="submit" as="button" class="text-center !block" }}
+            {{ /sc:coupon:redeem }}
+        </div>
+
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('redeemCouponForm', () => ({
+                    isSubmitting: false,
+
+                    submit() {
+                        this.isSubmitting = true
+
+                        this.$el.querySelector('button').disabled = true
+                        this.$el.querySelector('button').classList.add('opacity-50')
+
+                        this.$el.submit()
+                    },
+                }))
+            })
+        </script>
+    {{ /if }}
+{{ /if }}

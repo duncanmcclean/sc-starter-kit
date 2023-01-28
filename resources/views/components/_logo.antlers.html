@@ -1,0 +1,12 @@
+{{#
+    @name Logo
+    @desc The logo component with a `width` attribute.
+#}}
+
+<a
+    class="p-2 -m-2 hover:scale-125 hover:rotate-2 motion-safe:transition-transform focus:outline-none focus-visible:ring-2 ring-primary"
+    aria-label="Logo {{ config:app:name }}"
+    href="{{ site:url }}"
+>
+    <img src="/visuals/simple-commerce-logo.svg" class="select-none {{ class }}" width="{{ width }}" alt="{{ config:app:name }}"/>
+</a>

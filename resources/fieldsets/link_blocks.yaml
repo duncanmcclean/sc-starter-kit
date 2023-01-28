@@ -1,0 +1,42 @@
+title: 'Link blocks'
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      type: text
+      localizable: true
+      listable: hidden
+      display: Title
+  -
+    handle: link_blocks
+    field:
+      fields:
+        -
+          handle: title
+          field:
+            input_type: text
+            type: text
+            localizable: true
+            listable: hidden
+            validate: required
+            display: Title
+        -
+          handle: text
+          field: common.text_plain
+        -
+          handle: section_button
+          field:
+            type: section
+            display: Button
+        -
+          import: button
+      mode: stacked
+      min_rows: 1
+      add_row: 'Add link block'
+      reorderable: true
+      type: grid
+      localizable: true
+      listable: hidden
+      display: 'Link blocks'
+      replicator_preview: false
