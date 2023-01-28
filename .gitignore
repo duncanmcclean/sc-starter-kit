@@ -3,3 +3,4 @@ node_modules
 vendor
 .antlers.json
 package-lock.json
+composer.lock
