@@ -46,18 +46,4 @@
             }
         });
     }
-
-    checkoutForm.addEventListener('submit', (e) => {
-        e.preventDefault()
-
-        checkoutForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled')
-
-        const gateway = document.getElementsByName('gateway')[0].value;
-
-        if (gateway == '{{ formatted_class }}') {
-            confirmPayment();
-        } else {
-            document.getElementById('checkout-form').submit();
-        }
-    })
 </script>
