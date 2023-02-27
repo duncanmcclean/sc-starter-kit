@@ -28,4 +28,4 @@ export_paths:
   - tailwind.config.typography.js
   - vite.config.js
 dependencies:
-  doublethreedigital/simple-commerce: "^4.5"
+  doublethreedigital/simple-commerce: "^5.0"
