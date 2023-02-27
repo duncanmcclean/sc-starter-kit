@@ -1,0 +1,14 @@
+nav:
+  reorder: true
+  sections:
+    top_level: "@inherit"
+    content:
+      "content::collections":
+        action: "@modify"
+        children:
+          "content::collections::customers": "@hide"
+          "content::collections::orders": "@hide"
+    simple_commerce: "@inherit"
+    fields: "@inherit"
+    tools: "@inherit"
+    users: "@inherit"

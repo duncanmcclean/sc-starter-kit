@@ -15,6 +15,7 @@ export_paths:
   - resources/fieldsets
   - resources/js
   - resources/views
+  - resources/preferences.yaml
   - routes/web.php
   - logo-dark.svg
   - logo-default.svg
