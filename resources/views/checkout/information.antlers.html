@@ -131,7 +131,7 @@
             },
 
             get billingRegionOptions() {
-                return window.regions.filter(region => region.country_iso === this.regionCountry)
+                return window.regions.filter(region => region.country_iso === this.billingCountry)
             },
 
             submit() {
