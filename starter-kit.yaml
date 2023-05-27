@@ -1,5 +1,4 @@
 export_paths:
-  - app/Http/Middleware/VerifyCsrfToken.php
   - app/Tags/JsonRegions.php
   - config/statamic/editions.php
   - config/simple-commerce.php
