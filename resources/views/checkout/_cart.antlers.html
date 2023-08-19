@@ -44,7 +44,7 @@
     </div>
 </div>
 
-{{ if current_uri === '/checkout/payment' }}
+{{ if current_uri === '{site:url}/checkout/payment' }}
     {{ if {sc:coupon:has} === true }}
         {{ sc:coupon:remove }}
             <p class="text-sm text-center w-full">You're using the <strong>{{ sc:coupon:code }}</strong> coupon.</p>

@@ -5,7 +5,7 @@
 
 {{# If there's no shipping methods available, redirect the user straight to shipping. #}}
 {{ if {sc:shipping:methods} | length === 0 }}
-    {{ redirect to="/checkout/payment" }}
+    {{ redirect to="{site:url}/checkout/payment" }}
 {{ /if }}
 
 <section class="fluid-container pt-12 text-center">
