@@ -67,7 +67,7 @@
                         {{ /sc:cart:updateItem }}
                     </div>
                 {{ else }}
-                    {{ sc:cart:addItem x-data="addToCartForm" class="border-t border-gray-200 py-4 mt-4 flex justify-between items-center" redirect="/cart" @submit.prevent="submit" }}
+                    {{ sc:cart:addItem x-data="addToCartForm" class="border-t border-gray-200 py-4 mt-4 flex justify-between items-center" redirect="{site:url}/cart" @submit.prevent="submit" }}
                         <input type="hidden" name="product" value="{{ id }}" />
 
                         <div class="flex flex-row items-center space-x-3">

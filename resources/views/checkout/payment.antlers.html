@@ -18,7 +18,7 @@
                     </h2>
 
                     {{ partial:checkout/errors }}
-                    {{ sc:checkout x-data="checkoutForm" id="checkout-form" redirect="/checkout/complete" @submit.prevent="submit" }}
+                    {{ sc:checkout x-data="checkoutForm" id="checkout-form" redirect="{site:url}/checkout/complete" @submit.prevent="submit" }}
                         <div>
                             {{ if {sc:gateways:count} > 1 }}
                                 <div class="grid md:grid-cols-12 gap-6 mb-6">
