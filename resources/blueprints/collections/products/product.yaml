@@ -21,6 +21,7 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
+          save_zero_value: true
           validate:
             - required
       -
