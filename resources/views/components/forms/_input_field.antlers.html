@@ -24,7 +24,7 @@
             type="{{ input_type ?? 'text' }}"
             aria-describedBy="{{ handle }}"
             {{ if character_limit }}maxlength="{{ character_limit }}"{{ /if }}
-            {{ old ?= 'value="{old}"' }}
+            {{ {old | type_of} === 'string' && old ?= 'value="{old}"' }}
             {{ js_attributes }}
             {{ if required }}required{{ /if }}
         />

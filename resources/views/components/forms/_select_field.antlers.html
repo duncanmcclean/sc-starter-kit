@@ -21,7 +21,7 @@
             name="{{ handle }}"
             id="{{ handle }}"
             class="w-full rounded border-neutral focus-visible:border-primary focus-visible:ring focus-visible:ring-primary motion-safe:transition caret-primary"
-            {{ old ?= 'value="{old}"' }}
+            {{ {old | type_of} === 'string' && old ?= 'value="{old}"' }}
             {{ if required }}required{{ /if }}
             {{ if x-model }} x-model="{{ x-model }}" {{ /if }}
         >

@@ -23,11 +23,10 @@
             name="{{ handle }}"
             aria-describedBy="{{ handle }}"
             {{ if character_limit }}maxlength="{{ character_limit }}"{{ /if }}
-            {{ old ?= 'value="{old}"' }}
             {{ js_attributes }}
             {{ if required }}required{{ /if }}
             cols="30"
             rows="10"
-        ></textarea>
+        >{{ {old | type_of} === 'string' && old ?= '{old}' }}</textarea>
     </div>
 </div>
