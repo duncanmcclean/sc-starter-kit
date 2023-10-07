@@ -64,19 +64,19 @@ return [
 
     'notifications' => [
         'order_paid' => [
-            \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderPaid::class => [
-                'to' => 'customer',
-            ],
+            // \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderPaid::class => [
+            //     'to' => 'customer',
+            // ],
 
-            \DoubleThreeDigital\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => [
-                'to' => 'duncan@example.com',
-            ],
+            // \DoubleThreeDigital\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => [
+            //     'to' => 'duncan@example.com',
+            // ],
         ],
 
         'order_shipped' => [
-            \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderShipped::class => [
-                'to' => 'customer',
-            ],
+            // \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderShipped::class => [
+            //     'to' => 'customer',
+            // ],
         ],
     ],
 
@@ -121,7 +121,7 @@ return [
 
     'tax_engine_config' => [
         // Basic Engine
-        'rate'               => 20,
+        'rate' => 20,
         'included_in_prices' => false,
 
         // Standard Tax Engine
@@ -129,16 +129,16 @@ return [
 
         'behaviour' => [
             'no_address_provided' => 'default_address',
-            'no_rate_available'   => 'prevent_checkout',
+            'no_rate_available' => 'prevent_checkout',
         ],
 
         'default_address' => [
             'address_line_1' => '',
             'address_line_2' => '',
-            'city'           => '',
-            'region'         => '',
-            'country'        => '',
-            'zip_code'       => '',
+            'city' => '',
+            'region' => '',
+            'country' => '',
+            'zip_code' => '',
         ],
     ],
 
