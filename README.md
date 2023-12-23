@@ -12,20 +12,9 @@
 
 <!-- /statamic:hide -->
 
-Inspired by [Peak](https://github.com/studio1902/statamic-peak), the Simple Commerce Starter Kit is a great starting point to build bespoke e-commerce sites.
+The Simple Commerce Starter Kit is a great starting point to build bespoke e-commerce sites. You can either build on top of this Starter Kit or simply use it as a reference point for working with Simple Commerce's [Antlers Tags](https://simple-commerce.duncanmcclean.com/tags) (**recommended**).
 
-You can either build on top of the Starter Kit or use it as reference for your project. It includes a full checkout flow, including shipping selection, payment via on-site & off-site gateways.
-
-Please remember to purchase a license from the [Statamic Marketplace](https://statamic.com/simple-commerce) before using Simple Commerce in production.
-
-## Features
-
--   Minimal design
--   Step by step checkout process
--   Built with TailwindCSS and Alpine.js
--   Demonstrates Simple Commerce functionality
--   Supports both standalone and variant products
--   Includes basic product filtering
+Before deploying to production, please remember to purchase a license from the [Statamic Marketplace](https://statamic.com/simple-commerce).
 
 ## Quick Start
 
