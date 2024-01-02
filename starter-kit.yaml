@@ -1,5 +1,6 @@
 export_paths:
   - app/Tags/JsonRegions.php
+  - config/statamic/cp.php
   - config/statamic/editions.php
   - config/statamic/sites.php
   - config/simple-commerce.php
