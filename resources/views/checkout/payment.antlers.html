@@ -2,6 +2,7 @@
 {{ if {sc:cart:count} === 0 }}
     {{ redirect to="/cart" }}
 {{ /if }}
+
 <section class="fluid-container pt-12 text-center">
     {{ partial:typography/prose as="article" class="contents" }}
         <h1>Checkout</h1>
@@ -18,24 +19,22 @@
                     </h2>
 
                     {{ partial:checkout/errors }}
+
                     {{ sc:checkout x-data="checkoutForm" id="checkout-form" redirect="/checkout/complete" @submit.prevent="submit" }}
                         <div>
                             {{ if {sc:gateways:count} > 1 }}
                                 <div class="grid md:grid-cols-12 gap-6 mb-6">
                                     {{ partial:components/forms/select_field width="100" handle="gateway" display="Payment Method" x-model="gateway" required="true" }}
                                         {{ sc:gateways }}
-                                            <option value="{{ class }}" {{ if first }} selected {{ /if }}>
-                                                {{ display }}
-                                            </option>
+                                            <option value="{{ class }}" {{ if first }} selected {{ /if }}>{{ display }}</option>
                                         {{ /sc:gateways }}
                                     {{ /partial:components/forms/select_field }}
                                 </div>
-                            {{ else }}
-                                <input type="hidden" name="gateway" x-model="gateway">
                             {{ /if }}
+
                             {{ sc:gateways }}
                                 <div class="pb-4 mb-4" x-show="gateway === '{{ formatted_class }}'">
-                                    {{ partial src="checkout/gateways/{handle}" }}
+                                    {{ partial src="checkout/gateways/{ handle }" }}
                                 </div>
                             {{ /sc:gateways }}
                         </div>
@@ -65,21 +64,21 @@
             // There's currently no way to detect if a gateway is on-site or off-site.
             // For now, we've just hard coded Stripe & the Dummy Gateway as on-site.
             get isOnSiteGateway() {
-                return this.gateway.includes('Stripe') || this.gateway.includes('Dummy')
+                return this.gateway.includes('Stripe') || this.gateway.includes('Dummy');
+            },
+
+            get isStripe() {
+                return this.gateway.includes('Stripe');
             },
 
             submit() {
-                this.isSubmitting = true
+                this.isSubmitting = true;
 
-                this.$el.querySelector('button').disabled = true
-                this.$el.querySelector('button').classList.add('opacity-50')
+                this.$el.querySelector('button').disabled = true;
+                this.$el.querySelector('button').classList.add('opacity-50');
 
-                if (this.gateway.includes('Stripe')) {
-                    confirmPayment();
-                } else {
-                    this.$el.submit()
-                }
+                this.isStripe ? this.$dispatch('StripeConfirmPayment') : this.$el.submit();
             },
-        }))
-    })
+        }));
+    });
 </script>

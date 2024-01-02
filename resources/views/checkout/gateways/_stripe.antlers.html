@@ -91,4 +91,8 @@
             messageText.textContent = "";
         }, 4000);
     }
+
+    document.addEventListener('StripeConfirmPayment', function() {
+        confirmPayment();
+    });
 </script>
