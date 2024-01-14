@@ -5,8 +5,8 @@
 </section>
 
 {{ collection:products sort="{get:sort | urldecode}" as="products" paginate="true" limit="12" }}
-    <div class="py-4 border-b border-gray-200">
-        <div class="max-w-5xl mx-auto">
+    <div class="border-b border-gray-200">
+        <div class="max-w-4xl mx-auto my-12 px-6">
             <div class="flex items-center justify-between">
                 <form id="sort-form" class="flex items-center" action="{{ current_url }}" method="get">
                     <label class="text-gray-700 mr-3 font-semibold" for="sort">Sort by</label>
@@ -57,7 +57,7 @@
     </div>
 
     <main>
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-4xl mx-auto my-12 px-6">
             {{ if no_results }}
                 <p>Aw snap! There's no products that match your filters.</p>
             {{ /if }}
