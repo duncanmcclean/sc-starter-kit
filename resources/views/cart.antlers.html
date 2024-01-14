@@ -1,13 +1,15 @@
 <section class="fluid-container pt-12 text-center">
     {{ partial:typography/prose as="article" class="contents" }}
-        <h1>Your cart</h1>
+        <h1>Your Cart</h1>
     {{ /partial:typography/prose }}
 </section>
 
 <main>
     <div class="max-w-4xl mx-auto my-12 px-6">
+        {{ partial:components/forms/errors_panel }}
+
         {{ if {sc:cart:has} === false || {sc:cart:count} === 0 }}
-            <p class="text-center">Your cart is empty! <a href="{{ site:url }}/catalog">Start shopping</a>.</p>
+            <p class="text-center">Your cart is empty! <a href="/catalog">Start shopping</a>.</p>
         {{ else }}
             {{ sc:cart }}
                 <table class="bg-white table-auto w-full rounded-lg p-4 mb-4">
@@ -87,7 +89,7 @@
                 </div>
 
                 <div class="flex items-center justify-end my-12">
-                    {{ partial:components/button label="Continue to Checkout" url="{site:url}/checkout" }}
+                    {{ partial:components/button label="Continue to Checkout" url="/checkout" }}
                 </div>
             {{ /sc:cart }}
         {{ /if }}

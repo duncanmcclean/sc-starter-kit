@@ -41,56 +41,56 @@
                     <div>{{ description }}</div>
                 {{ /partial:typography/prose }}
 
-                {{ if {sc:cart:alreadyExists :product="id"} == true }}
-                    <div
-                        class="border-t border-gray-200 py-4 mt-4 flex justify-between items-center"
-                    >
-                        <span class="font-medium"
-                            >This product is already in your cart. <a class="text-green-500 hover:opacity-75" href="/cart">View Cart</a></span
-                        >
+                <div class="border-t border-gray-200 py-4 mt-4">
+                    {{ partial:components/forms/errors_panel }}
 
-                        {{ sc:cart:updateItem :product="id" }}
-                            <select
-                                class="bg-white p-1 rounded w-16"
-                                name="quantity"
-                                onchange="this.parentElement.submit()"
-                            >
-                                {{ loop from="1" to="5" }}
-                                    <option
-                                        value="{{ value }}"
-                                        {{ if quantity == value }} selected {{ /if }}
-                                    >
-                                        {{ value }}
-                                    </option>
-                                {{ /loop }}
-                            </select>
-                        {{ /sc:cart:updateItem }}
-                    </div>
-                {{ else }}
-                    {{ sc:cart:addItem x-data="addToCartForm" class="border-t border-gray-200 py-4 mt-4 flex justify-between items-center" redirect="{site:url}/cart" @submit.prevent="submit" }}
-                        <input type="hidden" name="product" value="{{ id }}" />
+                    {{ if {sc:cart:alreadyExists :product="id"} == true }}
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">This product is already in your cart. <a class="text-green-500 hover:opacity-75" href="/cart">View Cart</a></span>
 
-                        <div class="flex flex-row items-center space-x-3">
-                            {{ if product_variants }}
-                                {{ partial:components/forms/select_field width="50" handle="variant" display="Variant" }}
-                                    {{ product_variants:options }}
-                                        <option value="{{ key }}">
-                                            {{ variant }} ({{ price }})
+                            {{ sc:cart:updateItem :product="id" }}
+                                <select
+                                    class="bg-white p-1 rounded w-16"
+                                    name="quantity"
+                                    onchange="this.parentElement.submit()"
+                                >
+                                    {{ loop from="1" to="5" }}
+                                        <option
+                                            value="{{ value }}"
+                                            {{ if quantity == value }} selected {{ /if }}
+                                        >
+                                            {{ value }}
                                         </option>
-                                    {{ /product_variants:options }}
-                                {{ /partial:components/forms/select_field }}
-                            {{ /if }}
-
-                            {{ partial:components/forms/select_field width="50" handle="quantity" display="Quantity" }}
-                                {{ loop from="1" to="5" }}
-                                    <option value="{{ value }}" {{ if value == 1 }} selected {{ /if }}>{{ value }}</option>
-                                {{ /loop }}
-                            {{ /partial:components/forms/select_field }}
+                                    {{ /loop }}
+                                </select>
+                            {{ /sc:cart:updateItem }}
                         </div>
+                    {{ else }}
+                        {{ sc:cart:addItem x-data="addToCartForm" class="flex justify-between items-center" redirect="/cart" @submit.prevent="submit" }}
+                            <input type="hidden" name="product" value="{{ id }}" />
 
-                        {{ partial:components/button label="Add to cart" type="submit" as="button" }}
-                    {{ /sc:cart:addItem }}
-                {{ /if }}
+                            <div class="flex flex-row items-center space-x-3">
+                                {{ if product_variants }}
+                                    {{ partial:components/forms/select_field width="50" handle="variant" display="Variant" }}
+                                        {{ product_variants:options }}
+                                            <option value="{{ key }}">
+                                                {{ variant }} ({{ price }})
+                                            </option>
+                                        {{ /product_variants:options }}
+                                    {{ /partial:components/forms/select_field }}
+                                {{ /if }}
+
+                                {{ partial:components/forms/select_field width="50" handle="quantity" display="Quantity" }}
+                                    {{ loop from="1" to="5" }}
+                                        <option value="{{ value }}" {{ if value == 1 }} selected {{ /if }}>{{ value }}</option>
+                                    {{ /loop }}
+                                {{ /partial:components/forms/select_field }}
+                            </div>
+
+                            {{ partial:components/button label="Add to cart" type="submit" as="button" }}
+                        {{ /sc:cart:addItem }}
+                    {{ /if }}
+                </div>
             </div>
         </div>
     </div>
