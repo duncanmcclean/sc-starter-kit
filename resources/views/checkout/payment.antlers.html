@@ -26,7 +26,7 @@
                                 <div class="grid md:grid-cols-12 gap-6 mb-6">
                                     {{ partial:components/forms/select_field width="100" handle="gateway" display="Payment Method" x-model="gateway" required="true" }}
                                         {{ sc:gateways }}
-                                            <option value="{{ class }}" {{ if first }} selected {{ /if }}>{{ display }}</option>
+                                            <option value="{{ handle }}" {{ if first }} selected {{ /if }}>{{ display }}</option>
                                         {{ /sc:gateways }}
                                     {{ /partial:components/forms/select_field }}
                                 </div>
