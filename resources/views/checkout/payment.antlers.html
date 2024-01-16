@@ -30,6 +30,8 @@
                                         {{ /sc:gateways }}
                                     {{ /partial:components/forms/select_field }}
                                 </div>
+                            {{ else }}
+                                <input type="hidden" name="gateway" x-model="gateway">
                             {{ /if }}
 
                             {{ sc:gateways }}
