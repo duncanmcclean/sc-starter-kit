@@ -35,7 +35,7 @@
                             {{ /if }}
 
                             {{ sc:gateways }}
-                                <div class="pb-4 mb-4" x-show="gateway === '{{ formatted_class }}'">
+                                <div class="pb-4 mb-4" x-show="gateway === '{{ handle }}'">
                                     {{ partial src="checkout/gateways/{ handle }" }}
                                 </div>
                             {{ /sc:gateways }}
@@ -61,16 +61,16 @@
     document.addEventListener('alpine:init', () => {
         Alpine.data('checkoutForm', () => ({
             isSubmitting: false,
-            gateway: '{{ sc:gateways }}{{ if first }}{{ formatted_class }}{{ /if }}{{ /sc:gateways }}',
+            gateway: '{{ sc:gateways }}{{ if first }}{{ handle }}{{ /if }}{{ /sc:gateways }}',
 
             // There's currently no way to detect if a gateway is on-site or off-site.
             // For now, we've just hard coded Stripe & the Dummy Gateway as on-site.
             get isOnSiteGateway() {
-                return this.gateway.includes('Stripe') || this.gateway.includes('Dummy');
+                return this.gateway.includes('stripe') || this.gateway.includes('dummy');
             },
 
             get isStripe() {
-                return this.gateway.includes('Stripe');
+                return this.gateway.includes('stripe');
             },
 
             submit() {
