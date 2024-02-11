@@ -20,7 +20,7 @@ return [
 
             'shipping' => [
                 'methods' => [
-                    \DoubleThreeDigital\SimpleCommerce\Shipping\FreeShipping::class => [],
+                    \DuncanMcClean\SimpleCommerce\Shipping\FreeShipping::class => [],
                 ],
             ],
         ],
@@ -39,11 +39,11 @@ return [
     */
 
     'gateways' => [
-        \DoubleThreeDigital\SimpleCommerce\Gateways\Builtin\DummyGateway::class => [
+        \DuncanMcClean\SimpleCommerce\Gateways\Builtin\DummyGateway::class => [
             'display' => 'Card',
         ],
 
-        // \DoubleThreeDigital\SimpleCommerce\Gateways\Builtin\StripeGateway::class => [
+        // \DuncanMcClean\SimpleCommerce\Gateways\Builtin\StripeGateway::class => [
         //     'key' => env('STRIPE_KEY'),
         //     'secret' => env('STRIPE_SECRET'),
         // ],
@@ -64,17 +64,17 @@ return [
 
     'notifications' => [
         'order_paid' => [
-            // \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderPaid::class => [
+            // \DuncanMcClean\SimpleCommerce\Notifications\CustomerOrderPaid::class => [
             //     'to' => 'customer',
             // ],
 
-            // \DoubleThreeDigital\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => [
+            // \DuncanMcClean\SimpleCommerce\Notifications\BackOfficeOrderPaid::class => [
             //     'to' => 'duncan@example.com',
             // ],
         ],
 
         'order_shipped' => [
-            // \DoubleThreeDigital\SimpleCommerce\Notifications\CustomerOrderShipped::class => [
+            // \DuncanMcClean\SimpleCommerce\Notifications\CustomerOrderShipped::class => [
             //     'to' => 'customer',
             // ],
         ],
@@ -117,7 +117,7 @@ return [
     |
     */
 
-    'tax_engine' => \DoubleThreeDigital\SimpleCommerce\Tax\BasicTaxEngine::class,
+    'tax_engine' => \DuncanMcClean\SimpleCommerce\Tax\BasicTaxEngine::class,
 
     'tax_engine_config' => [
         // Basic Engine
@@ -156,17 +156,17 @@ return [
 
     'content' => [
         'customers' => [
-            'repository' => \DoubleThreeDigital\SimpleCommerce\Customers\EntryCustomerRepository::class,
+            'repository' => \DuncanMcClean\SimpleCommerce\Customers\EntryCustomerRepository::class,
             'collection' => 'customers',
         ],
 
         'orders' => [
-            'repository' => \DoubleThreeDigital\SimpleCommerce\Orders\EntryOrderRepository::class,
+            'repository' => \DuncanMcClean\SimpleCommerce\Orders\EntryOrderRepository::class,
             'collection' => 'orders',
         ],
 
         'products' => [
-            'repository' => \DoubleThreeDigital\SimpleCommerce\Products\EntryProductRepository::class,
+            'repository' => \DuncanMcClean\SimpleCommerce\Products\EntryProductRepository::class,
             'collection' => 'products',
         ],
     ],
