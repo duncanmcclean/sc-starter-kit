@@ -2,7 +2,7 @@
 
 namespace App\Tags;
 
-use DoubleThreeDigital\SimpleCommerce\Regions;
+use DuncanMcClean\SimpleCommerce\Regions;
 use Statamic\Tags\Tags;
 
 class JsonRegions extends Tags

@@ -1,5 +1,6 @@
 export_paths:
   - app/Tags/JsonRegions.php
+  - config/statamic/cp.php
   - config/statamic/editions.php
   - config/statamic/sites.php
   - config/simple-commerce.php
@@ -28,4 +29,4 @@ export_paths:
   - tailwind.config.typography.js
   - vite.config.js
 dependencies:
-  doublethreedigital/simple-commerce: "^5.0"
+  duncanmcclean/simple-commerce: "^6.0"
