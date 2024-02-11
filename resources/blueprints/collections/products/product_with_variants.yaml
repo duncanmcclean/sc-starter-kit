@@ -1,91 +1,90 @@
 title: 'Product with Variants'
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: true
-          validate:
-            - required
-      -
-        handle: product_variants
-        field:
-          display: 'Product Variants'
-          type: product_variants
-          icon: product_variants
-          listable: hidden
-          option_fields:
-            -
-              handle: downloadable_asset
-              field:
-                type: assets
-                mode: grid
-                display: 'Downloadable Asset'
-                container: assets
-                if:
-                  root.product_type: 'equals digital'
-            -
-              handle: download_limit
-              field:
-                type: integer
-                display: 'Download Limit'
-                instructions: "If you'd like to limit the amount if times this product can be downloaded, set it here. Keep it blank if you'd like it to be unlimited."
-                if:
-                  root.product_type: 'equals digital'
-      -
-        handle: photos
-        field:
-          mode: grid
-          container: assets
-          restrict: false
-          allow_uploads: true
-          max_files: 3
-          display: Photos
-          type: assets
-          icon: assets
-          listable: hidden
-      -
-        handle: description
-        field:
-          collapse: false
-          always_show_set_button: false
-          previews: true
-          smart_typography: false
-          buttons:
-            - h2
-            - h3
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - image
-            - table
-          save_html: false
-          inline: false
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
-          enable_input_rules: true
-          enable_paste_rules: true
-          antlers: false
-          remove_empty_nodes: false
-          display: Description
-          type: bard
-          icon: bard
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: product_variants
+            field:
+              display: 'Product Variants'
+              type: product_variants
+              listable: hidden
+              option_fields:
+                -
+                  handle: downloadable_asset
+                  field:
+                    type: assets
+                    mode: grid
+                    display: 'Downloadable Asset'
+                    container: assets
+                    if:
+                      root.product_type: 'equals digital'
+                -
+                  handle: download_limit
+                  field:
+                    type: integer
+                    display: 'Download Limit'
+                    instructions: "If you'd like to limit the amount if times this product can be downloaded, set it here. Keep it blank if you'd like it to be unlimited."
+                    if:
+                      root.product_type: 'equals digital'
+          -
+            handle: photos
+            field:
+              mode: grid
+              container: assets
+              restrict: false
+              allow_uploads: true
+              max_files: 3
+              display: Photos
+              type: assets
+              listable: hidden
+          -
+            handle: description
+            field:
+              collapse: false
+              always_show_set_button: false
+              previews: true
+              smart_typography: false
+              buttons:
+                - h2
+                - h3
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - quote
+                - anchor
+                - image
+                - table
+              save_html: false
+              inline: false
+              toolbar_mode: fixed
+              link_noopener: false
+              link_noreferrer: false
+              target_blank: false
+              reading_time: false
+              fullscreen: true
+              allow_source: true
+              enable_input_rules: true
+              enable_paste_rules: true
+              antlers: false
+              remove_empty_nodes: false
+              display: Description
+              type: bard
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
   sidebar:
     display: Sidebar
     sections:
@@ -105,5 +104,4 @@ sections:
             field:
               type: slug
               localizable: true
-              validate:
-                - required
+              validate: 'max:200'
