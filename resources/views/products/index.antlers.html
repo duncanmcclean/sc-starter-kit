@@ -105,8 +105,8 @@
                 {{ /products }}
             </div>
 
-            {{ if prev_page || next_page }}
-                {{ paginate }}
+            {{ paginate }}
+                {{ if prev_page || next_page }}
                     <div class="mt-16 mb-6 border-t mx-auto py-8">
                         <div class="flex items-center justify-between">
                             <div>
@@ -134,8 +134,8 @@
                             </div>
                         </div>
                     </div>
-                {{ /paginate }}
-            {{ /if }}
+                {{ /if }}
+            {{ /paginate }}
         </div>
     </main>
 {{ /collection:products }}
