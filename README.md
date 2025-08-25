@@ -16,6 +16,12 @@ The Simple Commerce Starter Kit is a great starting point to build bespoke e-com
 
 Before deploying to production, please remember to purchase a license from the [Statamic Marketplace](https://statamic.com/simple-commerce).
 
+## Cargo
+
+**Simple Commerce will soon be replaced with [Cargo](https://builtwithcargo.dev)**, the natural evolution of Simple Commerce. It takes everything you love about Simple Commerce and makes it better in every possible way.
+
+Cargo is currently in alpha and will be released shortly after Statamic 6. If you're starting a new project, you should probably [use Cargo instead](https://builtwithcargo.dev/docs/installation). Existing projects can continue to use Simple Commerce, which has been updated to work with Statamic 6. However, you should plan to [migrate to Cargo](https://builtwithcargo.dev/docs/migrating-from-simple-commerce) when possible.
+
 ## Quick Start
 
 You can quickly create a new site using the [Statamic CLI](https://github.com/statamic/cli).
